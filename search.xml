@@ -6,8 +6,9 @@
     <entry>
       <title><![CDATA[《Git教程-廖雪峰》]]></title>
       <url>http://haitaochen.github.io/2016/10/02/%E3%80%8AGit%E6%95%99%E7%A8%8B-%E5%BB%96%E9%9B%AA%E5%B3%B0%E3%80%8B/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
-<p>消灭git 拦路虎，好教程！</p>
+      <content type="html"><![CDATA[<p>消灭git 拦路虎，好教程！</p>
+<a id="more"></a>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
 <h1 id="一-创建版本库"><a href="#一-创建版本库" class="headerlink" title="一.创建版本库"></a>一.创建版本库</h1><ul>
 <li><p>①初始化一个Git仓库：git init</p>
 </li>
@@ -85,7 +86,9 @@
     <entry>
       <title><![CDATA[migration]]></title>
       <url>http://haitaochen.github.io/2016/10/01/migration/</url>
-      <content type="html"><![CDATA[<p>老windows下面的blog文件夹md文件都找不到了还好以前写的不多</p>
+      <content type="html"><![CDATA[<blockquote>
+<p>老windows下面的blog文件夹md文件都找不到了还好以前写的不多</p>
+</blockquote>
 <h3 id="拷贝需要文件"><a href="#拷贝需要文件" class="headerlink" title="拷贝需要文件"></a>拷贝需要文件</h3><blockquote>
 <p>hexo/source<br>hexo/themes/next<br>_config.yml<br>package.json</p>
 </blockquote>
@@ -102,7 +105,7 @@
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>http://haitaochen.github.io/2016/09/29/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
