@@ -301,6 +301,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/pdfkit/" itemprop="url">
+                  pdfkit
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T21:31:31+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/pdfkit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/pdfkit/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="rails-html-convert-to-pdf"><a href="#rails-html-convert-to-pdf" class="headerlink" title="rails html convert to pdf"></a>rails html convert to pdf</h4><blockquote>
+<p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
+</blockquote>
+<h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://github.com/pdfkit/pdfkit" target="_blank" rel="external">Github</a></h4><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h6 id="gemfile"><a href="#gemfile" class="headerlink" title="gemfile"></a>gemfile</h6><p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h6 id="config-initializers-pdfkit-rb"><a href="#config-initializers-pdfkit-rb" class="headerlink" title="config/initializers/pdfkit.rb"></a>config/initializers/pdfkit.rb</h6><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PDFKit.configure <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line"></div><div class="line">config.wkhtmltopdf = <span class="string">'/path/to/wkhtmltopdf'</span> </div><div class="line"></div><div class="line">config.default_options = &#123;</div><div class="line"></div><div class="line">  <span class="symbol">:page_size</span> =&gt; <span class="string">'Legal'</span>,</div><div class="line"></div><div class="line">  <span class="symbol">:print_media_type</span> =&gt; <span class="literal">true</span></div><div class="line"></div><div class="line">&#125;</div><div class="line">config.root_url = <span class="string">"http://localhost"</span></div><div class="line"></div><div class="line">config.protocol = <span class="string">'http'</span></div><div class="line"></div><div class="line">config.verbose = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p> config.wkhtmltopdf = ‘/path/to/wkhtmltopdf’<br> (路径为wkhtmltopdf的安装目录，linux 下用which wkhtmltopdf命令获取)<br> 该文件自己手动创建，目录为： config/initializers/pdfkit.rb</p>
+</blockquote>
+<h6 id="application-rb-Rails3-or-environment-rb-Rails2"><a href="#application-rb-Rails3-or-environment-rb-Rails2" class="headerlink" title="application.rb(Rails3) or environment.rb(Rails2)"></a>application.rb(Rails3) or environment.rb(Rails2)</h6><blockquote>
+<p>require ‘pdfkit’<br>config.middleware.use PDFKit::Middleware</p>
+<p>该文件目录为：application.rb(Rails3) or environment.rb(Rails2)。修改如上即可</p>
+</blockquote>
+<h6 id="注"><a href="#注" class="headerlink" title="注"></a>注</h6><p>转出pdf 乱码问题</p>
+<ul>
+<li><ol>
+<li>字符集编码问题  例如： 4/watch_onevideo_notes/724</li>
+</ol>
+</li>
+<li><ol>
+<li>系统未安装中文字体（因为pdfkit生成pdf功能其实调用的是webkit的子模块wkhtmltopdf(通过命令行方式)，所以pdfkit生成中文乱码其实是wkhtmltopdf中文乱码导致的；而wkhtmltopdf中文乱码是因为系统中不存在中文字体导致的 ）</li>
+</ol>
+<ul>
+<li><h6 id="查看系统类型"><a href="#查看系统类型" class="headerlink" title="查看系统类型"></a>查看系统类型</h6><blockquote>
+<p>​    cat /proc/version</p>
+</blockquote>
+</li>
+<li><h6 id="查看中文字体"><a href="#查看中文字体" class="headerlink" title="查看中文字体"></a>查看中文字体</h6><blockquote>
+<p>​    fc-list :lang=zh-cn</p>
+</blockquote>
+</li>
+<li><h6 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h6><blockquote>
+<p>​    sudo apt-get install -y –force-yes –no-install-recommends fonts-wqy-microhei</p>
+<p>​    sudo apt-get install -y –force-yes –no-install-recommends ttf-wqy-zenhei</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/09/installrails/" itemprop="url">
                   搭建 Ruby on rails 环境
                 </a>
@@ -732,109 +870,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/29/python/" itemprop="url">
-                  我开始学python
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-29T13:29:53+08:00" content="2016-09-29">
-              2016-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/29/python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/python/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="写爬虫"><a href="#写爬虫" class="headerlink" title="写爬虫"></a>写爬虫</h1>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -873,7 +915,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -890,7 +932,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
