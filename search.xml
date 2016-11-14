@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[pdfkit]]></title>
+      <title><![CDATA[rails用pdfkit将html转化为pdf]]></title>
       <url>http://haitaochen.github.io/2016/11/14/pdfkit/</url>
       <content type="html"><![CDATA[<h4 id="rails-html-convert-to-pdf"><a href="#rails-html-convert-to-pdf" class="headerlink" title="rails html convert to pdf"></a>rails html convert to pdf</h4><blockquote>
 <p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
