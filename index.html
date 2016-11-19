@@ -301,6 +301,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/19/two-notes/" itemprop="url">
+                  2条笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T12:10:32+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/two-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/two-notes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="两条笔记"><a href="#两条笔记" class="headerlink" title="两条笔记"></a>两条笔记</h4><h5 id="ajax-返回并且不继承layout"><a href="#ajax-返回并且不继承layout" class="headerlink" title="ajax 返回并且不继承layout"></a>ajax 返回并且不继承layout</h5><pre><code>def edit
+               @user = current_user
+               @e =Publisher.new
+               @video = Video.find(params[:id])
+                @list = @video.video_files.order(&apos;created_at DESC&apos;)
+               gon.test = @video.video_files.order(&apos;show_time ASC&apos;)
+               gon.video = @video.mpd_path.to_s
+               @videoFile = VideoFile.new
+               @videoFile.video_id = @video.id
+
+               @vtt = WebVTT.read(@@vtt_path.to_s + @video.vtt_path.to_s)
+               gon.vtt = @vtt
+
+               respond_to do |format|
+                  format.html {render &apos;edit&apos;,layout:false}
+               end
+  end
+</code></pre><h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+<p>   return true;<br>  }else{<br>    return false;<br>  }<br>} </p>
+<p>然后不管点确认和取消都点击了a的链接</p>
+<p>问题在于用onclick 并不能控制a 的执行顺序，需要用on()绑定点击事件</p>
+<p>&lt;%= link_to ‘delete’,user_video_com_path(@user.id,c.video_id,c.id),method: :delete,:class=&gt;”dddd” %&gt;</p>
+<p>$(“.dddd”).on(‘click’,function(){<br>       var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+<p>   return true;<br>  }else{<br>    return false;<br>  }<br>})</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/pdfkit/" itemprop="url">
                   rails用pdfkit将html转化为pdf
                 </a>
@@ -767,109 +891,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/29/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-29T14:58:30+08:00" content="2016-09-29">
-              2016-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/29/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/29/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -915,7 +936,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

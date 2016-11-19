@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="Object not found">
-<meta property="og:type" content="website">
-<meta property="og:title" content="嗨嗨陶晨">
-<meta property="og:url" content="http://haitaochen.github.io/page/2/index.html">
+<meta name="description" content="两条笔记ajax 返回并且不继承layoutdef edit
+               @user = current_user
+               @e =Publisher.new
+               @video = Video.find(params[:id])
+                @list = @video.video_files.order(&amp;ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2条笔记">
+<meta property="og:url" content="http://haitaochen.github.io/2016/11/19/two-notes/index.html">
 <meta property="og:site_name" content="嗨嗨陶晨">
-<meta property="og:description" content="Object not found">
+<meta property="og:description" content="两条笔记ajax 返回并且不继承layoutdef edit
+               @user = current_user
+               @e =Publisher.new
+               @video = Video.find(params[:id])
+                @list = @video.video_files.order(&amp;ap">
+<meta property="og:updated_time" content="2016-11-19T04:12:08.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嗨嗨陶晨">
-<meta name="twitter:description" content="Object not found">
+<meta name="twitter:title" content="2条笔记">
+<meta name="twitter:description" content="两条笔记ajax 返回并且不继承layoutdef edit
+               @user = current_user
+               @e =Publisher.new
+               @video = Video.find(params[:id])
+                @list = @video.video_files.order(&amp;ap">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://haitaochen.github.io/page/2/"/>
+  <link rel="canonical" href="http://haitaochen.github.io/2016/11/19/two-notes/"/>
 
-  <title> 嗨嗨陶晨 </title>
+  <title> 2条笔记 | 嗨嗨陶晨 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,9 +289,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -300,10 +311,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/29/hello-world/" itemprop="url">
-                  Hello World
-                </a>
+                2条笔记
               
             
           </h1>
@@ -315,8 +323,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-29T14:58:30+08:00" content="2016-09-29">
-              2016-09-29
+            <time itemprop="dateCreated" datetime="2016-11-19T12:10:32+08:00" content="2016-11-19">
+              2016-11-19
             </time>
           </span>
 
@@ -326,8 +334,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/29/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/11/19/two-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/two-notes/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,22 +358,45 @@
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/29/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <h4 id="两条笔记"><a href="#两条笔记" class="headerlink" title="两条笔记"></a>两条笔记</h4><h5 id="ajax-返回并且不继承layout"><a href="#ajax-返回并且不继承layout" class="headerlink" title="ajax 返回并且不继承layout"></a>ajax 返回并且不继承layout</h5><pre><code>def edit
+               @user = current_user
+               @e =Publisher.new
+               @video = Video.find(params[:id])
+                @list = @video.video_files.order(&apos;created_at DESC&apos;)
+               gon.test = @video.video_files.order(&apos;show_time ASC&apos;)
+               gon.video = @video.mpd_path.to_s
+               @videoFile = VideoFile.new
+               @videoFile.video_id = @video.id
+
+               @vtt = WebVTT.read(@@vtt_path.to_s + @video.vtt_path.to_s)
+               gon.vtt = @vtt
+
+               respond_to do |format|
+                  format.html {render &apos;edit&apos;,layout:false}
+               end
+  end
+</code></pre><h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+<p>   return true;<br>  }else{<br>    return false;<br>  }<br>} </p>
+<p>然后不管点确认和取消都点击了a的链接</p>
+<p>问题在于用onclick 并不能控制a 的执行顺序，需要用on()绑定点击事件</p>
+<p>&lt;%= link_to ‘delete’,user_video_com_path(@user.id,c.video_id,c.id),method: :delete,:class=&gt;”dddd” %&gt;</p>
+<p>$(“.dddd”).on(‘click’,function(){<br>       var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+<p>   return true;<br>  }else{<br>    return false;<br>  }<br>})</p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -373,123 +404,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/14/pdfkit/" rel="next" title="rails用pdfkit将html转化为pdf">
+                <i class="fa fa-chevron-left"></i> rails用pdfkit将html转化为pdf
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/09/29/python/" itemprop="url">
-                  我开始学python
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-29T13:29:53+08:00" content="2016-09-29">
-              2016-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/29/python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/python/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="写爬虫"><a href="#写爬虫" class="headerlink" title="写爬虫"></a>写爬虫</h1>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -497,6 +437,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/19/two-notes/"
+           data-title="2条笔记" data-url="http://haitaochen.github.io/2016/11/19/two-notes/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -516,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ww1.sinaimg.cn/mw690/c8543fbcjw1f4yosfojemj20qo0zk45p.jpg"
@@ -587,6 +544,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#两条笔记"><span class="nav-number">1.</span> <span class="nav-text">两条笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-返回并且不继承layout"><span class="nav-number">1.1.</span> <span class="nav-text">ajax 返回并且不继承layout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#a标签删除后弹出确认框"><span class="nav-number">1.2.</span> <span class="nav-text">a标签删除后弹出确认框</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -690,6 +658,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
