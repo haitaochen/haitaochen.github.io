@@ -301,6 +301,174 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/30/activeadmin/" itemprop="url">
+                  activeadmin
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-30T23:54:59+08:00" content="2016-11-30">
+              2016-11-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/30/activeadmin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/activeadmin/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="ActiveAdmin"><a href="#ActiveAdmin" class="headerlink" title="ActiveAdmin"></a>ActiveAdmin</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>1.修改gemfile</p>
+<p>因为rails 版本4以上</p>
+<p>一种方式安装，亲测有效，安装快</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;activeadmin&apos;, &apos;~&gt; 1.0.0.pre4&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>另一种方式安装，亲测，一直卡在那儿，就没试</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;activeadmin&apos;, github: &apos;activeadmin&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>2.命令行安装</p>
+<blockquote>
+<p>rails g active_admin:install</p>
+</blockquote>
+<p>安装可能遇到问题:</p>
+<ul>
+<li>1.Please remove gem ‘meta_search’ and try again</li>
+</ul>
+<p>解决：如以上方式安装（版本问题）</p>
+<ul>
+<li>2.Sprockets::FileNotFound: couldn’t find file ‘jquery-ui/datepicker’ after upgrade to jquery-ui-rails 6.0</li>
+</ul>
+<p>解决：按提示来，然后在application.js添加</p>
+<blockquote>
+<p>//= require jquery-ui</p>
+</blockquote>
+<ul>
+<li>3.数据库迁移</li>
+</ul>
+<blockquote>
+<p>rake db:migrate</p>
+</blockquote>
+<ul>
+<li>4.默认账号登不上去，提示重定向</li>
+</ul>
+<p>解决： 清除缓存cookie，关闭浏览器重新登录</p>
+<p>3.管理已有model，做curd操作</p>
+<blockquote>
+<p>rails generate active_admin:resource MyModel</p>
+</blockquote>
+<h5 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h5><p>1.局部汉化</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">ActiveAdmin.register AdminUser <span class="keyword">do</span></div><div class="line">  menu <span class="symbol">:label</span> =&gt; <span class="string">"用户管理"</span></div><div class="line"></div><div class="line">  index <span class="keyword">do</span></div><div class="line">    column <span class="string">"邮箱"</span>,<span class="symbol">:email</span></div><div class="line">    column <span class="string">"最近登录"</span>,<span class="symbol">:current_sign_in_at</span></div><div class="line">    column <span class="string">"上次登录"</span>,<span class="symbol">:last_sign_in_at</span></div><div class="line">    column <span class="string">"登录次数"</span>,<span class="symbol">:sign_in_count</span></div><div class="line">    default_actions</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  filter <span class="symbol">:email</span>, <span class="symbol">:label=&gt;<span class="string">"邮箱"</span></span></div><div class="line"></div><div class="line">  form <span class="keyword">do</span> <span class="params">|f|</span></div><div class="line">    f.inputs <span class="string">"用户资料"</span> <span class="keyword">do</span></div><div class="line">      f.input <span class="symbol">:email</span> ,<span class="symbol">:label=&gt;<span class="string">"邮箱"</span></span></div><div class="line">      f.input <span class="symbol">:password</span> ,<span class="symbol">:label=&gt;<span class="string">"密码"</span></span></div><div class="line">      f.input <span class="symbol">:password_confirmation</span> ,<span class="symbol">:label=&gt;<span class="string">"重复密码"</span></span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    f.actions</div><div class="line">  <span class="keyword">end</span></div><div class="line">  sidebar <span class="symbol">:help</span>,<span class="symbol">:only</span> =&gt; <span class="symbol">:index</span> <span class="keyword">do</span></div><div class="line">    <span class="string">"如果您在使用后台管理时遇到问题，请联系robot.zhu@icitymobile.com"</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>2.框架汉化</p>
+<ul>
+<li><p>1.修改config/application.rb文件，添加下面两行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">config.i18n.available_locales = [:&quot;zh-CN&quot;, :en]</div><div class="line">config.i18n.default_locale = :&quot;zh-CN&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2.将zh-CN.yml复制到自己的 config/locales/目录下。</p>
+<p>：<a href="https://github.com/activeadmin/activeadmin/blob/master/config/locales/zh-CN.yml" target="_blank" rel="external">https://github.com/activeadmin/activeadmin/blob/master/config/locales/zh-CN.yml</a></p>
+<p>3.继续添加在zh-CN</p>
+<p><a href="https://github.com/plataformatec/devise/wiki/I18n" target="_blank" rel="external">https://github.com/plataformatec/devise/wiki/I18n</a></p>
+<p>4 可能报错</p>
+<blockquote>
+<p>ActionView::Template::Error (translation missing: zh-CN.time.formats.long):<br>​    1: insert_tag renderer_for(:index)<br>  app/admin/admin_user.rb:6:in `block (2 levels) in <top (required)="">‘</top></p>
+</blockquote>
+<p>解决：zh.yml 修改如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div></pre></td><td class="code"><pre><div class="line">&quot;zh-CN&quot;:</div><div class="line">  active_admin:</div><div class="line">    dashboard: &quot;控制面板&quot;</div><div class="line">    dashboard_welcome:</div><div class="line">      welcome: &quot;欢迎使用Active Admin. 这是默认的控制面板页.&quot;</div><div class="line">      call_to_action: &quot;若要添加新的面板内容, 请修改 &apos;app/admin/dashboard.rb&apos;&quot;</div><div class="line">    view: &quot;查看&quot;</div><div class="line">    edit: &quot;编辑&quot;</div><div class="line">    delete: &quot;删除&quot;</div><div class="line">    delete_confirmation: &quot;确定删除?&quot;</div><div class="line">    new_model: &quot;新建%&#123;model&#125;&quot;</div><div class="line">    edit_model: &quot;编辑%&#123;model&#125;&quot;</div><div class="line">    delete_model: &quot;删除%&#123;model&#125;&quot;</div><div class="line">    details: &quot;%&#123;model&#125;详情&quot;</div><div class="line">    cancel: &quot;取消&quot;</div><div class="line">    empty: &quot;清空&quot;</div><div class="line">    previous: &quot;上一个&quot;</div><div class="line">    next: &quot;下一个&quot;</div><div class="line">    download: &quot;下载:&quot;</div><div class="line">    has_many_new: &quot;新建一个%&#123;model&#125;&quot;</div><div class="line">    has_many_delete: &quot;删除&quot;</div><div class="line">    has_many_remove: &quot;清除&quot;</div><div class="line">    filters:</div><div class="line">      buttons:</div><div class="line">        filter: &quot;过滤&quot;</div><div class="line">        clear: &quot;清除条件&quot;</div><div class="line">      predicates:</div><div class="line">        contains: &quot;包含&quot;</div><div class="line">        equals: &quot;等于&quot;</div><div class="line">        starts_with: &quot;开头&quot;</div><div class="line">        ends_with: &quot;完与&quot;</div><div class="line">        greater_than: &quot;大于&quot;</div><div class="line">        less_than: &quot;小于&quot;</div><div class="line">    search_status:</div><div class="line">      headline: &quot;搜索条件：&quot;</div><div class="line">      current_scope: &quot;搜索范围：&quot;</div><div class="line">      current_filters: &quot;过滤条件：&quot;</div><div class="line">      no_current_filters: &quot;无&quot;</div><div class="line">    status_tag:</div><div class="line">      &quot;yes&quot;: &quot;是的&quot;</div><div class="line">      &quot;no&quot;: &quot;无&quot;</div><div class="line">    main_content: &quot;请执行 %&#123;model&#125;#main_content 来显示内容.&quot;</div><div class="line">    logout: &quot;退出&quot;</div><div class="line">    powered_by: &quot;Powered by %&#123;active_admin&#125; %&#123;version&#125;&quot;</div><div class="line">    sidebars:</div><div class="line">      filters: &quot;所有条件&quot;</div><div class="line">      search_status: &quot;搜索条件&quot;</div><div class="line">    pagination:</div><div class="line">      empty: &quot;暂时没有%&#123;model&#125;&quot;</div><div class="line">      one: &quot;显示 &lt;b&gt;1&lt;/b&gt; %&#123;model&#125;&quot;</div><div class="line">      one_page: &quot;显示 &lt;b&gt;所有 %&#123;n&#125;&lt;/b&gt; %&#123;model&#125;&quot;</div><div class="line">      multiple: &quot;显示所有 &lt;b&gt;%&#123;total&#125;&lt;/b&gt; %&#123;model&#125;中的&lt;b&gt;%&#123;from&#125;&amp;nbsp;-&amp;nbsp;%&#123;to&#125;&lt;/b&gt; 条&quot;</div><div class="line">      multiple_without_total: &quot;%&#123;model&#125;中的&lt;b&gt;%&#123;from&#125;&amp;nbsp;-&amp;nbsp;%&#123;to&#125;&lt;/b&gt; 条&quot;</div><div class="line">      entry:</div><div class="line">        one: &quot;条目&quot;</div><div class="line">        other: &quot;条目&quot;</div><div class="line">    any: &quot;任何&quot;</div><div class="line">    blank_slate:</div><div class="line">      content: &quot;暂时还没有%&#123;resource_name&#125;.&quot;</div><div class="line">      link: &quot;新建一个&quot;</div><div class="line">    dropdown_actions:</div><div class="line">      button_label: &quot;行动&quot;</div><div class="line">    batch_actions:</div><div class="line">      button_label: &quot;批处理&quot;</div><div class="line">      default_confirmation: &quot;你确定你要这样做？&quot;</div><div class="line">      delete_confirmation: &quot;你确定要删除所有%&#123;plural_model&#125;?&quot;</div><div class="line">      succesfully_destroyed:</div><div class="line">        one: &quot;成功删除 1 %&#123;model&#125;&quot;</div><div class="line">        other: &quot;成功删除 %&#123;count&#125; %&#123;plural_model&#125;&quot;</div><div class="line">      selection_toggle_explanation: &quot;(切换选择)&quot;</div><div class="line">      link: &quot;新建一个&quot;</div><div class="line">      action_label: &quot;%&#123;title&#125; 被选中&quot;</div><div class="line">      labels:</div><div class="line">        destroy: &quot;删除&quot;</div><div class="line">    comments:</div><div class="line">      body: &quot;内容&quot;</div><div class="line">      author: &quot;作者&quot;</div><div class="line">      title: &quot;评论&quot;</div><div class="line">      add: &quot;添加评论&quot;</div><div class="line">      resource: &quot;资源&quot;</div><div class="line">      no_comments_yet: &quot;暂时没有评论&quot;</div><div class="line">      title_content: &quot;(%&#123;count&#125;)条评论&quot;</div><div class="line">      errors:</div><div class="line">        empty_text: &quot;评论保存失败，内空不能为空.&quot;</div><div class="line">    devise:</div><div class="line">      username:</div><div class="line">        title: &quot;用户名&quot;</div><div class="line">      email:</div><div class="line">        title: &quot;邮箱&quot;</div><div class="line">      subdomain:</div><div class="line">        title: &quot;子域&quot;</div><div class="line">      password:</div><div class="line">        title: &quot;密码&quot;</div><div class="line">      login:</div><div class="line">        title: &quot;登录&quot;</div><div class="line">        remember_me: &quot;记住我&quot;</div><div class="line">        submit: &quot;登录&quot;</div><div class="line">      reset_password:</div><div class="line">        title: &quot;忘记了密码？&quot;</div><div class="line">        submit: &quot;重置我的密码&quot;</div><div class="line">      unlock:</div><div class="line">        title: &quot;重新发送送解锁命令&quot;</div><div class="line">        submit: &quot;重新发送送解锁命令&quot;</div><div class="line">      resend_confirmation_instructions:</div><div class="line">        title: &quot; 重新发送确认指示&quot;</div><div class="line">        submit: &quot; 重新发送确认指示&quot;</div><div class="line">      links:</div><div class="line">        sign_in: &quot;登录&quot;</div><div class="line">        forgot_your_password: &quot;忘记了密码？&quot;</div><div class="line">        sign_in_with_omniauth_provider: &quot;登入%&#123;provider&#125;&quot;</div><div class="line">    access_denied:</div><div class="line">      message: &quot;您无权处理此操作&quot;</div><div class="line">  date:</div><div class="line">    abbr_day_names:</div><div class="line">    - 日</div><div class="line">    - 一</div><div class="line">    - 二</div><div class="line">    - 三</div><div class="line">    - 四</div><div class="line">    - 五</div><div class="line">    - 六</div><div class="line">    abbr_month_names:</div><div class="line">    -</div><div class="line">    - 1月</div><div class="line">    - 2月</div><div class="line">    - 3月</div><div class="line">    - 4月</div><div class="line">    - 5月</div><div class="line">    - 6月</div><div class="line">    - 7月</div><div class="line">    - 8月</div><div class="line">    - 9月</div><div class="line">    - 10月</div><div class="line">    - 11月</div><div class="line">    - 12月</div><div class="line">    day_names:</div><div class="line">    - 星期日</div><div class="line">    - 星期一</div><div class="line">    - 星期二</div><div class="line">    - 星期三</div><div class="line">    - 星期四</div><div class="line">    - 星期五</div><div class="line">    - 星期六</div><div class="line">    formats:</div><div class="line">      default: ! &apos;%Y-%m-%d&apos;</div><div class="line">      long: ! &apos;%Y年%b%d日&apos;</div><div class="line">      short: ! &apos;%b%d日&apos;</div><div class="line">    month_names:</div><div class="line">    -</div><div class="line">    - 一月</div><div class="line">    - 二月</div><div class="line">    - 三月</div><div class="line">    - 四月</div><div class="line">    - 五月</div><div class="line">    - 六月</div><div class="line">    - 七月</div><div class="line">    - 八月</div><div class="line">    - 九月</div><div class="line">    - 十月</div><div class="line">    - 十一月</div><div class="line">    - 十二月</div><div class="line">    order:</div><div class="line">    - :year</div><div class="line">    - :month</div><div class="line">    - :day</div><div class="line">  datetime:</div><div class="line">    distance_in_words:</div><div class="line">      about_x_hours:</div><div class="line">        one: 大约一小时</div><div class="line">        other: 大约 %&#123;count&#125; 小时</div><div class="line">      about_x_months:</div><div class="line">        one: 大约一个月</div><div class="line">        other: 大约 %&#123;count&#125; 个月</div><div class="line">      about_x_years:</div><div class="line">        one: 大约一年</div><div class="line">        other: 大约 %&#123;count&#125; 年</div><div class="line">      almost_x_years:</div><div class="line">        one: 接近一年</div><div class="line">        other: 接近 %&#123;count&#125; 年</div><div class="line">      half_a_minute: 半分钟</div><div class="line">      less_than_x_minutes:</div><div class="line">        one: 不到一分钟</div><div class="line">        other: 不到 %&#123;count&#125; 分钟</div><div class="line">      less_than_x_seconds:</div><div class="line">        one: 不到一秒</div><div class="line">        other: 不到 %&#123;count&#125; 秒</div><div class="line">      over_x_years:</div><div class="line">        one: 一年多</div><div class="line">        other: ! &apos;%&#123;count&#125; 年多&apos;</div><div class="line">      x_days:</div><div class="line">        one: 一天</div><div class="line">        other: ! &apos;%&#123;count&#125; 天&apos;</div><div class="line">      x_minutes:</div><div class="line">        one: 一分钟</div><div class="line">        other: ! &apos;%&#123;count&#125; 分钟&apos;</div><div class="line">      x_months:</div><div class="line">        one: 一个月</div><div class="line">        other: ! &apos;%&#123;count&#125; 个月&apos;</div><div class="line">      x_seconds:</div><div class="line">        one: 一秒</div><div class="line">        other: ! &apos;%&#123;count&#125; 秒&apos;</div><div class="line">    prompts:</div><div class="line">      day: 日</div><div class="line">      hour: 时</div><div class="line">      minute: 分</div><div class="line">      month: 月</div><div class="line">      second: 秒</div><div class="line">      year: 年</div><div class="line">  errors: &amp;errors</div><div class="line">    format: ! &apos;%&#123;attribute&#125; %&#123;message&#125;&apos;</div><div class="line">    messages:</div><div class="line">      accepted: 必须是可被接受的</div><div class="line">      blank: 不能为空字符</div><div class="line">      confirmation: 与确认值不匹配</div><div class="line">      empty: 不能留空</div><div class="line">      equal_to: 必须等于 %&#123;count&#125;</div><div class="line">      even: 必须为双数</div><div class="line">      exclusion: 是保留关键字</div><div class="line">      greater_than: 必须大于 %&#123;count&#125;</div><div class="line">      greater_than_or_equal_to: 必须大于或等于 %&#123;count&#125;</div><div class="line">      inclusion: 不包含于列表中</div><div class="line">      invalid: 是无效的</div><div class="line">      less_than: 必须小于 %&#123;count&#125;</div><div class="line">      less_than_or_equal_to: 必须小于或等于 %&#123;count&#125;</div><div class="line">      not_a_number: 不是数字</div><div class="line">      not_an_integer: 必须是整数</div><div class="line">      odd: 必须为单数</div><div class="line">      record_invalid: ! &apos;验证失败: %&#123;errors&#125;&apos;</div><div class="line">      taken: 已经被使用</div><div class="line">      too_long: 过长（最长为 %&#123;count&#125; 个字符）</div><div class="line">      too_short: 过短（最短为 %&#123;count&#125; 个字符）</div><div class="line">      wrong_length: 长度非法（必须为 %&#123;count&#125; 个字符）</div><div class="line">    template:</div><div class="line">      body: 如下字段出现错误：</div><div class="line">      header:</div><div class="line">        one: 有 1 个错误发生导致「%&#123;model&#125;」无法被保存。</div><div class="line">        other: 有 %&#123;count&#125; 个错误发生导致「%&#123;model&#125;」无法被保存。</div><div class="line">  helpers:</div><div class="line">    select:</div><div class="line">      prompt: 请选择</div><div class="line">    submit:</div><div class="line">      create: 新增%&#123;model&#125;</div><div class="line">      submit: 储存%&#123;model&#125;</div><div class="line">      update: 更新%&#123;model&#125;</div><div class="line">  number:</div><div class="line">    currency:</div><div class="line">      format:</div><div class="line">        delimiter: ! &apos;,&apos;</div><div class="line">        format: ! &apos;%u %n&apos;</div><div class="line">        precision: 2</div><div class="line">        separator: .</div><div class="line">        significant: false</div><div class="line">        strip_insignificant_zeros: false</div><div class="line">        unit: CN¥</div><div class="line">    format:</div><div class="line">      delimiter: ! &apos;,&apos;</div><div class="line">      precision: 3</div><div class="line">      separator: .</div><div class="line">      significant: false</div><div class="line">      strip_insignificant_zeros: false</div><div class="line">    human:</div><div class="line">      decimal_units:</div><div class="line">        format: ! &apos;%n %u&apos;</div><div class="line">        units:</div><div class="line">          billion: 十亿</div><div class="line">          million: 百万</div><div class="line">          quadrillion: 千兆</div><div class="line">          thousand: 千</div><div class="line">          trillion: 兆</div><div class="line">          unit: &apos;&apos;</div><div class="line">      format:</div><div class="line">        delimiter: &apos;&apos;</div><div class="line">        precision: 1</div><div class="line">        significant: false</div><div class="line">        strip_insignificant_zeros: false</div><div class="line">      storage_units:</div><div class="line">        format: ! &apos;%n %u&apos;</div><div class="line">        units:</div><div class="line">          byte:</div><div class="line">            one: Byte</div><div class="line">            other: Bytes</div><div class="line">          gb: GB</div><div class="line">          kb: KB</div><div class="line">          mb: MB</div><div class="line">          tb: TB</div><div class="line">    percentage:</div><div class="line">      format:</div><div class="line">        delimiter: &apos;&apos;</div><div class="line">    precision:</div><div class="line">      format:</div><div class="line">        delimiter: &apos;&apos;</div><div class="line">  support:</div><div class="line">    array:</div><div class="line">      last_word_connector: ! &apos;, 和 &apos;</div><div class="line">      two_words_connector: ! &apos; 和 &apos;</div><div class="line">      words_connector: ! &apos;, &apos;</div><div class="line">  time:</div><div class="line">    am: 上午</div><div class="line">    formats:</div><div class="line">      default: ! &apos;%Y年%b%d日 %A %H:%M:%S %Z&apos;</div><div class="line">      long: ! &apos;%Y年%b%d日 %H:%M&apos;</div><div class="line">      short: ! &apos;%b%d日 %H:%M&apos;</div><div class="line">    pm: 下午</div><div class="line">  # remove these aliases after &apos;activemodel&apos; and &apos;activerecord&apos; namespaces are removed from Rails repository</div><div class="line">  activemodel:</div><div class="line">    errors:</div><div class="line">      &lt;&lt;: *errors</div><div class="line">  activerecord:</div><div class="line">    errors:</div><div class="line">      &lt;&lt;: *errors</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h5 id="富文本编辑器（http-blog-csdn-net-feng88724-article-details-49181143）"><a href="#富文本编辑器（http-blog-csdn-net-feng88724-article-details-49181143）" class="headerlink" title="富文本编辑器（http://blog.csdn.net/feng88724/article/details/49181143）"></a>富文本编辑器（<a href="http://blog.csdn.net/feng88724/article/details/49181143）" target="_blank" rel="external">http://blog.csdn.net/feng88724/article/details/49181143）</a></h5><h6 id="1-ckeditor-亲测有效"><a href="#1-ckeditor-亲测有效" class="headerlink" title="1.ckeditor(亲测有效)"></a>1.ckeditor(亲测有效)</h6><pre><code>1、gem &apos;ckeditor&apos;
+2、rails g ckeditor:install
+3、rake db:migrate
+4、active_admin.js里加上  //= require ckeditor/init
+5、f.input [字段名], :as =&gt; :ckeditor
+6、样式表中加上
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cke_article_content &#123;       //此处的id是ckeditor为字段生成的,格式是cke_[模型]_[字段]</div><div class="line">        width: 77.5%;   //宽度根据实际情况作调整</div><div class="line">        overflow: hidden;</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
+<h6 id="2-kindeditor（failed）"><a href="#2-kindeditor（failed）" class="headerlink" title="2.kindeditor（failed）"></a>2.kindeditor（failed）</h6><p>​    s1、gem ‘rails_kindeditor’<br>    2、rails generate rails_kindeditor:install<br>    3、f.input [字段名], :as =&gt; :kindeditor<br>    4、ke-<a href="http://lib.csdn.net/base/docker" target="_blank" rel="external">Container</a> ke-container-default<br>       这是kindeditor自动生成的div默认类，可另加一个类，在样式表加上：<br>       .[新加的类] {<br>        width: 79%;   //宽度根据实际情况作调整<br>       }</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/30/onenote/" itemprop="url">
                   onenote
                 </a>
@@ -758,128 +926,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/02/《Git教程-廖雪峰》/" itemprop="url">
-                  《Git教程-廖雪峰》
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-02T21:03:23+08:00" content="2016-10-02">
-              2016-10-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/02/《Git教程-廖雪峰》/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/02/《Git教程-廖雪峰》/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>消灭git 拦路虎，好教程！</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/02/《Git教程-廖雪峰》/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -925,7 +971,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -942,7 +988,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
