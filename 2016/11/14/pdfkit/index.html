@@ -88,7 +88,7 @@
 gem ‘pdfkit’gem ‘wkhtmltopdf-binary’
 
 Github安装gemfilegem ‘pdfkit’gem ‘wkhtmltopdf-binary’
-Configurationconfig/initializers/pdfkit.rb123456789101112131415161718PDFKit.configur">
+Configurationconfig/initializers/pdfkit.rb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rails用pdfkit将html转化为pdf">
 <meta property="og:url" content="http://haitaochen.github.io/2016/11/14/pdfkit/index.html">
@@ -97,15 +97,15 @@ Configurationconfig/initializers/pdfkit.rb123456789101112131415161718PDFKit.conf
 gem ‘pdfkit’gem ‘wkhtmltopdf-binary’
 
 Github安装gemfilegem ‘pdfkit’gem ‘wkhtmltopdf-binary’
-Configurationconfig/initializers/pdfkit.rb123456789101112131415161718PDFKit.configur">
-<meta property="og:updated_time" content="2016-11-14T13:37:11.955Z">
+Configurationconfig/initializers/pdfkit.rb">
+<meta property="og:updated_time" content="2016-12-05T04:50:57.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rails用pdfkit将html转化为pdf">
 <meta name="twitter:description" content="rails html convert to pdf
 gem ‘pdfkit’gem ‘wkhtmltopdf-binary’
 
 Github安装gemfilegem ‘pdfkit’gem ‘wkhtmltopdf-binary’
-Configurationconfig/initializers/pdfkit.rb123456789101112131415161718PDFKit.configur">
+Configurationconfig/initializers/pdfkit.rb">
 
 
 
@@ -362,7 +362,8 @@ Configurationconfig/initializers/pdfkit.rb123456789101112131415161718PDFKit.conf
 <p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
 </blockquote>
 <h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://github.com/pdfkit/pdfkit" target="_blank" rel="external">Github</a></h4><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h6 id="gemfile"><a href="#gemfile" class="headerlink" title="gemfile"></a>gemfile</h6><p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
-<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h6 id="config-initializers-pdfkit-rb"><a href="#config-initializers-pdfkit-rb" class="headerlink" title="config/initializers/pdfkit.rb"></a>config/initializers/pdfkit.rb</h6><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PDFKit.configure <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line"></div><div class="line">config.wkhtmltopdf = <span class="string">'/path/to/wkhtmltopdf'</span> </div><div class="line"></div><div class="line">config.default_options = &#123;</div><div class="line"></div><div class="line">  <span class="symbol">:page_size</span> =&gt; <span class="string">'Legal'</span>,</div><div class="line"></div><div class="line">  <span class="symbol">:print_media_type</span> =&gt; <span class="literal">true</span></div><div class="line"></div><div class="line">&#125;</div><div class="line">config.root_url = <span class="string">"http://localhost"</span></div><div class="line"></div><div class="line">config.protocol = <span class="string">'http'</span></div><div class="line"></div><div class="line">config.verbose = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h6 id="config-initializers-pdfkit-rb"><a href="#config-initializers-pdfkit-rb" class="headerlink" title="config/initializers/pdfkit.rb"></a>config/initializers/pdfkit.rb</h6><a id="more"></a>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PDFKit.configure <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line"></div><div class="line">config.wkhtmltopdf = <span class="string">'/path/to/wkhtmltopdf'</span> </div><div class="line"></div><div class="line">config.default_options = &#123;</div><div class="line"></div><div class="line">  <span class="symbol">:page_size</span> =&gt; <span class="string">'Legal'</span>,</div><div class="line"></div><div class="line">  <span class="symbol">:print_media_type</span> =&gt; <span class="literal">true</span></div><div class="line"></div><div class="line">&#125;</div><div class="line">config.root_url = <span class="string">"http://localhost"</span></div><div class="line"></div><div class="line">config.protocol = <span class="string">'http'</span></div><div class="line"></div><div class="line">config.verbose = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p> config.wkhtmltopdf = ‘/path/to/wkhtmltopdf’<br> (路径为wkhtmltopdf的安装目录，linux 下用which wkhtmltopdf命令获取)<br> 该文件自己手动创建，目录为： config/initializers/pdfkit.rb</p>
 </blockquote>

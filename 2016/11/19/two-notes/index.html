@@ -98,7 +98,7 @@
                @e =Publisher.new
                @video = Video.find(params[:id])
                 @list = @video.video_files.order(&amp;ap">
-<meta property="og:updated_time" content="2016-11-19T04:12:08.794Z">
+<meta property="og:updated_time" content="2016-12-05T04:51:41.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2条笔记">
 <meta name="twitter:description" content="两条笔记ajax 返回并且不继承layoutdef edit
@@ -375,7 +375,8 @@
                   format.html {render &apos;edit&apos;,layout:false}
                end
   end
-</code></pre><h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+</code></pre><a id="more"></a>
+<h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
 <p>   return true;<br>  }else{<br>    return false;<br>  }<br>} </p>
 <p>然后不管点确认和取消都点击了a的链接</p>
 <p>问题在于用onclick 并不能控制a 的执行顺序，需要用on()绑定点击事件</p>

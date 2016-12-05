@@ -10,12 +10,12 @@
 <p>因为rails 版本4以上</p>
 <p>一种方式安装，亲测有效，安装快</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;activeadmin&apos;, &apos;~&gt; 1.0.0.pre4&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>gem ‘activeadmin’, ‘~&gt; 1.0.0.pre4’</p>
 </blockquote>
 <a id="more"></a>
 <p>另一种方式安装，亲测，一直卡在那儿，就没试</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;activeadmin&apos;, github: &apos;activeadmin&apos;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>gem ‘activeadmin’, github: ‘activeadmin’</p>
 </blockquote>
 <p>2.命令行安装</p>
 <blockquote>
@@ -106,7 +106,8 @@
                   format.html {render &apos;edit&apos;,layout:false}
                end
   end
-</code></pre><h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
+</code></pre><a id="more"></a>
+<h5 id="a标签删除后弹出确认框"><a href="#a标签删除后弹出确认框" class="headerlink" title="a标签删除后弹出确认框"></a>a标签删除后弹出确认框</h5><p>一开始以为<br> <a class="delete" onclick="javascript:return del(&lt;%= c.id %>)">删除</a><br>  function del() {<br>  var msg = “您真的确定要删除吗？请确认！”;<br>  if (confirm(msg)==true){ </p>
 <p>   return true;<br>  }else{<br>    return false;<br>  }<br>} </p>
 <p>然后不管点确认和取消都点击了a的链接</p>
 <p>问题在于用onclick 并不能控制a 的执行顺序，需要用on()绑定点击事件</p>
@@ -123,7 +124,8 @@
 <p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
 </blockquote>
 <h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a><a href="https://github.com/pdfkit/pdfkit" target="_blank" rel="external">Github</a></h4><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h6 id="gemfile"><a href="#gemfile" class="headerlink" title="gemfile"></a>gemfile</h6><p>gem ‘pdfkit’<br>gem ‘wkhtmltopdf-binary’</p>
-<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h6 id="config-initializers-pdfkit-rb"><a href="#config-initializers-pdfkit-rb" class="headerlink" title="config/initializers/pdfkit.rb"></a>config/initializers/pdfkit.rb</h6><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PDFKit.configure <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line"></div><div class="line">config.wkhtmltopdf = <span class="string">'/path/to/wkhtmltopdf'</span> </div><div class="line"></div><div class="line">config.default_options = &#123;</div><div class="line"></div><div class="line">  <span class="symbol">:page_size</span> =&gt; <span class="string">'Legal'</span>,</div><div class="line"></div><div class="line">  <span class="symbol">:print_media_type</span> =&gt; <span class="literal">true</span></div><div class="line"></div><div class="line">&#125;</div><div class="line">config.root_url = <span class="string">"http://localhost"</span></div><div class="line"></div><div class="line">config.protocol = <span class="string">'http'</span></div><div class="line"></div><div class="line">config.verbose = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><h6 id="config-initializers-pdfkit-rb"><a href="#config-initializers-pdfkit-rb" class="headerlink" title="config/initializers/pdfkit.rb"></a>config/initializers/pdfkit.rb</h6><a id="more"></a>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PDFKit.configure <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line"></div><div class="line">config.wkhtmltopdf = <span class="string">'/path/to/wkhtmltopdf'</span> </div><div class="line"></div><div class="line">config.default_options = &#123;</div><div class="line"></div><div class="line">  <span class="symbol">:page_size</span> =&gt; <span class="string">'Legal'</span>,</div><div class="line"></div><div class="line">  <span class="symbol">:print_media_type</span> =&gt; <span class="literal">true</span></div><div class="line"></div><div class="line">&#125;</div><div class="line">config.root_url = <span class="string">"http://localhost"</span></div><div class="line"></div><div class="line">config.protocol = <span class="string">'http'</span></div><div class="line"></div><div class="line">config.verbose = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p> config.wkhtmltopdf = ‘/path/to/wkhtmltopdf’<br> (路径为wkhtmltopdf的安装目录，linux 下用which wkhtmltopdf命令获取)<br> 该文件自己手动创建，目录为： config/initializers/pdfkit.rb</p>
 </blockquote>
@@ -164,7 +166,8 @@
       <title><![CDATA[搭建 Ruby on rails 环境]]></title>
       <url>http://haitaochen.github.io/2016/11/09/installrails/</url>
       <content type="html"><![CDATA[<h3 id="搭建-Ruby-on-Rails-环境"><a href="#搭建-Ruby-on-Rails-环境" class="headerlink" title="搭建 Ruby on Rails 环境"></a>搭建 Ruby on Rails 环境</h3><h4 id="以下安装过程在-Ubuntu-14-04-LTS"><a href="#以下安装过程在-Ubuntu-14-04-LTS" class="headerlink" title="以下安装过程在 Ubuntu 14.04 LTS"></a>以下安装过程在 Ubuntu 14.04 LTS</h4><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><h5 id="更新系统软件"><a href="#更新系统软件" class="headerlink" title="更新系统软件"></a>更新系统软件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</div></pre></td></tr></table></figure>
-<h5 id="安装必要的软件包"><a href="#安装必要的软件包" class="headerlink" title="安装必要的软件包"></a>安装必要的软件包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential curl git</div></pre></td></tr></table></figure>
+<h5 id="安装必要的软件包"><a href="#安装必要的软件包" class="headerlink" title="安装必要的软件包"></a>安装必要的软件包</h5><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential curl git</div></pre></td></tr></table></figure>
 <h4 id="安装-RVM"><a href="#安装-RVM" class="headerlink" title="安装 RVM"></a>安装 RVM</h4><h5 id="导入公钥"><a href="#导入公钥" class="headerlink" title="导入公钥"></a>导入公钥</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</div></pre></td></tr></table></figure>
 <h5 id="安装-RVM-1"><a href="#安装-RVM-1" class="headerlink" title="安装 RVM"></a>安装 RVM</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sSL https://get.rvm.io | bash -s stable</div></pre></td></tr></table></figure>
 <p>安装完成之后执行 <code>source $HOME/.rvm/scripts/rvm</code> 或重启终端。</p>
