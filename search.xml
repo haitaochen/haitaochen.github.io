@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[为什么]]></title>
+      <url>http://haitaochen.github.io/2016/12/06/%C2%96%E4%B8%BA%E4%BB%80%E4%B9%88/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[activeadmin]]></title>
       <url>http://haitaochen.github.io/2016/11/30/%C2%96activeadmin/</url>
       <content type="html"><![CDATA[<h4 id="ActiveAdmin"><a href="#ActiveAdmin" class="headerlink" title="ActiveAdmin"></a>ActiveAdmin</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>1.修改gemfile</p>
