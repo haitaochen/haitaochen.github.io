@@ -6,7 +6,13 @@
     <entry>
       <title><![CDATA[为什么]]></title>
       <url>http://haitaochen.github.io/2016/12/06/%C2%96%E4%B8%BA%E4%BB%80%E4%B9%88/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>为什么</p>
+<p>两台学妹的电脑去装Typora</p>
+<p>1台只能这样装<a href="http://www.linuxdiyf.com/linux/25196.html" target="_blank" rel="external">http://www.linuxdiyf.com/linux/25196.html</a></p>
+<p>还有一台只能按官网装<a href="http://www.typora.io/#linux" target="_blank" rel="external">http://www.typora.io/#linux</a></p>
+<h5 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h5><p>pg_dump -h localhost -U postgres [databasename] &gt; [filename].bak</p>
+<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><p>psql -h localhost -U postgres -d [databasename] &lt; [filename].bak</p>
+]]></content>
     </entry>
     
     <entry>
