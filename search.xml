@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title><![CDATA[rails whenever cron]]></title>
+      <url>http://haitaochen.github.io/2016/12/16/rails-whenever-cron/</url>
+      <content type="html"><![CDATA[<h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;whenever&apos;, :require =&gt; false</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ cd /apps/my-great-project</div><div class="line">&gt; $ wheneverize .</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>执行后生成：</p>
+<blockquote>
+<p>config/schedule.rb</p>
+</blockquote>
+<h5 id="更新cron-很关键，当初我就忘了"><a href="#更新cron-很关键，当初我就忘了" class="headerlink" title="更新cron(很关键，当初我就忘了)"></a>更新cron(很关键，当初我就忘了)</h5><a id="more"></a>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ whenever --update-crontab</div></pre></td></tr></table></figure>
+<h5 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ whenever</div></pre></td></tr></table></figure>
+<p>cron用法：</p>
+<ul>
+<li>如上的更新</li>
+<li>查看cron 的任务列表</li>
+</ul>
+<blockquote>
+<p>crontab -l</p>
+</blockquote>
+<ul>
+<li>终止任务</li>
+</ul>
+<blockquote>
+<p>crontab -e</p>
+</blockquote>
+<h5 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h5><p>1：schedule.rb:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">every <span class="number">1</span>.minute <span class="keyword">do</span> <span class="comment"># 1.minute 1.day 1.week 1.month 1.year is also supported</span></div><div class="line">  command <span class="string">"rm '/Users/cht/Desktop/cron/tmp/relation.png'"</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="comment">#举例1：每间隔一秒删除tmp文件夹下的图片文件</span></div></pre></td></tr></table></figure>
+<p>2: schedule.rb:(执行模型操作，对数据库做周期性操作)</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">every <span class="number">1</span>.minute <span class="keyword">do</span> <span class="comment"># 1.minute 1.day 1.week 1.month 1.year is also supported</span></div><div class="line">  runner <span class="string">"Post.shanchu"</span>, <span class="symbol">:environment</span> =&gt; <span class="symbol">:development</span></div><div class="line">  <span class="comment">#指定开发环境</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="comment">#举例2：没间隔一分钟删除Post表的第一条数据</span></div></pre></td></tr></table></figure>
+<p>post.rb:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span> &lt; ActiveRecord::Base</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">self</span>.<span class="title">shanchu</span></span></div><div class="line">		id = Post.first.id</div><div class="line">		Post.delete(id)</div><div class="line">	<span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>上述操作可以用以下命令直接在命令行里测试：</p>
+<blockquote>
+<p> bundle exec bin/rails runner -e development “Post.shanchu”</p>
+</blockquote>
+<p>nice</p>
+<p>等一分钟，或许下一分钟</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[nginx笔记]]></title>
       <url>http://haitaochen.github.io/2016/12/09/%C2%96nginx%E7%AC%94%E8%AE%B0/</url>
       <content type="html"><![CDATA[<h5 id="nginx笔记"><a href="#nginx笔记" class="headerlink" title="nginx笔记"></a>nginx笔记</h5><blockquote>

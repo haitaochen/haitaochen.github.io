@@ -301,6 +301,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/16/rails-whenever-cron/" itemprop="url">
+                  rails whenever cron
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-16T08:25:04+08:00" content="2016-12-16">
+              2016-12-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/16/rails-whenever-cron/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/rails-whenever-cron/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;whenever&apos;, :require =&gt; false</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ cd /apps/my-great-project</div><div class="line">&gt; $ wheneverize .</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>执行后生成：</p>
+<blockquote>
+<p>config/schedule.rb</p>
+</blockquote>
+<h5 id="更新cron-很关键，当初我就忘了"><a href="#更新cron-很关键，当初我就忘了" class="headerlink" title="更新cron(很关键，当初我就忘了)"></a>更新cron(很关键，当初我就忘了)</h5>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/16/rails-whenever-cron/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/09/nginx笔记/" itemprop="url">
                   nginx笔记
                 </a>
@@ -706,126 +819,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/19/two-notes/" itemprop="url">
-                  2条笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-19T12:10:32+08:00" content="2016-11-19">
-              2016-11-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/19/two-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/two-notes/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="两条笔记"><a href="#两条笔记" class="headerlink" title="两条笔记"></a>两条笔记</h4><h5 id="ajax-返回并且不继承layout"><a href="#ajax-返回并且不继承layout" class="headerlink" title="ajax 返回并且不继承layout"></a>ajax 返回并且不继承layout</h5><pre><code>def edit
-               @user = current_user
-               @e =Publisher.new
-               @video = Video.find(params[:id])
-                @list = @video.video_files.order(&apos;created_at DESC&apos;)
-               gon.test = @video.video_files.order(&apos;show_time ASC&apos;)
-               gon.video = @video.mpd_path.to_s
-               @videoFile = VideoFile.new
-               @videoFile.video_id = @video.id
-
-               @vtt = WebVTT.read(@@vtt_path.to_s + @video.vtt_path.to_s)
-               gon.vtt = @vtt
-
-               respond_to do |format|
-                  format.html {render &apos;edit&apos;,layout:false}
-               end
-  end
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/19/two-notes/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -871,7 +864,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
