@@ -351,12 +351,8 @@
 
       
         
-          <h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; gem &apos;whenever&apos;, :require =&gt; false</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ cd /apps/my-great-project</div><div class="line">&gt; $ wheneverize .</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
+          <h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem &apos;whenever&apos;, :require =&gt; false</div></pre></td></tr></table></figure>
+<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5> <figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /apps/my-great-project</div><div class="line">$ wheneverize .</div></pre></td></tr></table></figure>
 <p>执行后生成：</p>
 <blockquote>
 <p>config/schedule.rb</p>
