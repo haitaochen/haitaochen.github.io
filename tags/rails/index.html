@@ -87,7 +87,7 @@
 <meta name="description" content="Object not found">
 <meta property="og:type" content="website">
 <meta property="og:title" content="嗨嗨陶晨">
-<meta property="og:url" content="http://haitaochen.github.io/tags/rails/index.html">
+<meta property="og:url" content="http://haitaochen.github.io/tags/Rails/index.html">
 <meta property="og:site_name" content="嗨嗨陶晨">
 <meta property="og:description" content="Object not found">
 <meta name="twitter:card" content="summary">
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://haitaochen.github.io/tags/rails/"/>
+  <link rel="canonical" href="http://haitaochen.github.io/tags/Rails/"/>
 
-  <title> 标签: rails | 嗨嗨陶晨 </title>
+  <title> 标签: Rails | 嗨嗨陶晨 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +280,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        rails
+        Rails
         <small>标签</small>
       </h2>
     </div>
@@ -293,37 +293,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/12/16/rails-whenever-cron/" itemprop="url">
+            <a class="post-title-link" href="/2016/11/09/installrails/" itemprop="url">
               
-                <span itemprop="name">rails whenever cron</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-16T08:25:04+08:00"
-              content="2016-12-16" >
-          12-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/14/pdfkit/" itemprop="url">
-              
-                <span itemprop="name">rails用pdfkit将html转化为pdf</span>
+                <span itemprop="name">搭建 Ruby on rails 环境</span>
               
             </a>
         
@@ -331,9 +303,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-14T21:31:31+08:00"
-              content="2016-11-14" >
-          11-14
+              datetime="2016-11-09T23:47:31+08:00"
+              content="2016-11-09" >
+          11-09
         </time>
       </div>
 
@@ -400,7 +372,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -687,6 +659,43 @@
                 str += "</ul>";
                 if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
                 if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+>' }
                 $resultContent.innerHTML = str;
             });
             proceedsearch();
