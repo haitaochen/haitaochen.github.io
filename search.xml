@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[laravel见习]]></title>
+      <url>http://haitaochen.github.io/2017/02/12/laravel/</url>
+      <content type="html"><![CDATA[<h4 id="Laravel-见习"><a href="#Laravel-见习" class="headerlink" title="Laravel 见习"></a>Laravel 见习</h4><h5 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h5><ul>
+<li><p>windows</p>
+<p>1集成环境</p>
+<p>这里我们使用的是XAMPP，最新版下载地址：PHP 5.5.27 版（32位） | PHP 5.6.11 版（32位）。这两个版本的XAMPP都不再支持Windows XP操作系统，这意味着你需要更高版本的Windows操作系统。</p>
+<p>注意：由于Laravel 5.1要求PHP 5.5.9+（含）版本，所以要针对该PHP版本要求选择合适的XAMPP。</p>
+<p>2 <a href="http://laravelacademy.org/tags/%e5%ae%89%e8%a3%85" target="_blank" rel="external">安装</a><a href="http://laravelacademy.org/tags/composer" target="_blank" rel="external">Composer</a></p>
+<p>Windows下最新版本Composer下载：<a href="https://getcomposer.org/Composer-Setup.exe" target="_blank" rel="external">Composer-Setup.exe</a>。</p>
+<p>安装完成后，如果Composer安装包安装/更新缓慢，可以配置使用国内镜像进行包依赖的安装和升级，具体可参考这篇文章《<a href="http://pkg.phpcomposer.com/" target="_blank" rel="external">Composer中国全量镜像</a>》。</p>
+<blockquote>
+<p>PS：想当年Composer安装慢如牛，一个更新需要几个小时，不过现在明显感觉速度快了好多，不需要设置国内镜像，也可以顺利进行操作。</p>
+</blockquote>
+<p>（安装完成后一路next，出现composer-choose-the-command-line-php-you-want-to-use提示，选择xampp下的php.exe）</p>
+<p>3下载laravel</p>
+<p>进入www文件夹目录下，运行composer create-project laravel/laravel learnlaravel</p>
+<p>4 测速</p>
+<p>访问<a href="http://localhost/learnlaravel/public/" target="_blank" rel="external">http://localhost/learnlaravel/public/</a></p>
+<p>5补充 </p>
+<p> <a href="http://blog.csdn.net/u014017121/article/details/53053302" target="_blank" rel="external">laravel 指定 版本安装</a></p>
+<p>composer create-project laravel/laravel=5.0.* –prefer-dist</p>
+<p>composer create-project laravel/laravel=5.0.* demo –prefer-dist</p>
+<p>查看laravel版本</p>
+<p>php artisan –version（在项目目录下运行命令）</p>
+<p>6参考链接</p>
+<p><a href="http://laravelacademy.org/post/306.html" target="_blank" rel="external">http://laravelacademy.org/post/306.html</a></p>
+<p><a href="http://blog.csdn.net/simplty/article/details/42584693" target="_blank" rel="external">http://blog.csdn.net/simplty/article/details/42584693</a></p>
+<p><a href="http://blog.csdn.net/zjiang1994/article/details/52600135（数据库配置）" target="_blank" rel="external">http://blog.csdn.net/zjiang1994/article/details/52600135（数据库配置）</a></p>
+<p><a href="http://www.jb51.net/article/39454.htm（MySQL——修改root密码的4种方法(以windows为例)）" target="_blank" rel="external">http://www.jb51.net/article/39454.htm（MySQL——修改root密码的4种方法(以windows为例)）</a></p>
+<p><a href="https://lvwenhan.com/laravel/432.html（教程）" target="_blank" rel="external">https://lvwenhan.com/laravel/432.html（教程）</a></p>
+<p><a href="http://stackoverflow.com/questions/37391068/composer-choose-the-command-line-php-you-want-to-use-there-is-nothing-there#" target="_blank" rel="external">http://stackoverflow.com/questions/37391068/composer-choose-the-command-line-php-you-want-to-use-there-is-nothing-there#</a></p>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[rails whenever cron]]></title>
       <url>http://haitaochen.github.io/2016/12/16/rails-whenever-cron/</url>
       <content type="html"><![CDATA[<h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem &apos;whenever&apos;, :require =&gt; false</div></pre></td></tr></table></figure>
