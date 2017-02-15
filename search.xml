@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title><![CDATA[Ubuntu 安装配置nginx记录]]></title>
+      <url>http://haitaochen.github.io/2017/02/15/nginx/</url>
+      <content type="html"><![CDATA[<h4 id="Ubuntu-安装配置nginx记录"><a href="#Ubuntu-安装配置nginx记录" class="headerlink" title="Ubuntu 安装配置nginx记录"></a>Ubuntu 安装配置nginx记录</h4><p>下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a></p>
+<ul>
+<li><p>下载后解压</p>
+</li>
+<li><p>安装相关依赖</p>
+<blockquote>
+<p>sudo apt-get install openssl libssl-dev </p>
+<p>sudo apt-get install libpcre3 libpcre3-dev  </p>
+<p>sudo apt-get install zlib1g-dev  </p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>进入解压后的目录，运行</p>
+<ul>
+<li>$./configure</li>
+<li>$ make &amp; make install</li>
+</ul>
+<p>这边报错：</p>
+<p>[alert]: could not open error log file: open() “/usr/local/nginx/logs/error.log” failed (13: Permission denied)<br>2011/03/21 06:09:33 [emerg] 24855#0: mkdir() “/usr/local/nginx/client_body_temp” failed (13: Permission denied) 　　</p>
+<p>解决：</p>
+<p>sudo chmod a+rwx -R logs<br>sudo chmod a+rwx -R /usr/local/nginx</p>
+</li>
+<li><p>运行:</p>
+<blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ sudo sbin/nginx</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>启动运行</p>
+<blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ sudo nginx -s reload</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>重新启动</p>
+<blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ sudo service nginx restart</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>停止运行</p>
+<blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ sudo nginx -s stop</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h4 id="nginx-部署静态页面"><a href="#nginx-部署静态页面" class="headerlink" title="nginx 部署静态页面"></a>nginx 部署静态页面</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen <span class="number">80</span>;               <span class="comment"># 监听本机所有 ip 上的 80 端口</span></div><div class="line">        server_name <span class="number">_</span>;           <span class="comment"># 域名：www.example.com 这里 "_" 代表获取匹配所有</span></div><div class="line">        root /home/filename/;    <span class="comment"># 站点根目录</span></div><div class="line">		 index  index.html index.htm;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我将我的blog文件夹作为根目录，pwd:/home/ubuntu/blog</p>
+<p>blog 目录 index.html      css(文件夹)      js(文件夹)</p>
+<p>root即为   /home/ubuntu/blog/</p>
+<h5 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h5><ul>
+<li><a href="http://blog.csdn.net/z920954494/article/details/52132125" target="_blank" rel="external">http://blog.csdn.net/z920954494/article/details/52132125</a></li>
+<li><a href="http://blog.csdn.net/shiyuezhong/article/details/39396487" target="_blank" rel="external">http://blog.csdn.net/shiyuezhong/article/details/39396487</a></li>
+<li><a href="http://blog.csdn.net/fuyuehua22/article/details/33765883" target="_blank" rel="external">http://blog.csdn.net/fuyuehua22/article/details/33765883</a></li>
+<li><a href="http://showzeng.itscoder.com/nginx/2016/10/03/use-nginx-to-deploy-static-pages-easily.html" target="_blank" rel="external">http://showzeng.itscoder.com/nginx/2016/10/03/use-nginx-to-deploy-static-pages-easily.html</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[laravel见习]]></title>
       <url>http://haitaochen.github.io/2017/02/12/laravel/</url>
       <content type="html"><![CDATA[<h4 id="Laravel-见习"><a href="#Laravel-见习" class="headerlink" title="Laravel 见习"></a>Laravel 见习</h4><h5 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h5><a id="more"></a>
