@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="rails," />
 
 
 
@@ -84,15 +84,37 @@
 
 
 
-<meta name="description" content="Object not found">
-<meta property="og:type" content="website">
-<meta property="og:title" content="嗨嗨陶晨">
-<meta property="og:url" content="http://haitaochen.github.io/archives/page/3/index.html">
+<meta name="description" content="笔记rails控制器处理完ajax请求后，两种返回方式时：
+
+render :text =&amp;gt; ‘aa’,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//此时打印:&apos;aa&apos;&amp;#125;
+​
+
+redirect_to :back,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//返回xml代码吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="note">
+<meta property="og:url" content="http://haitaochen.github.io/2017/02/21/note/index.html">
 <meta property="og:site_name" content="嗨嗨陶晨">
-<meta property="og:description" content="Object not found">
+<meta property="og:description" content="笔记rails控制器处理完ajax请求后，两种返回方式时：
+
+render :text =&amp;gt; ‘aa’,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//此时打印:&apos;aa&apos;&amp;#125;
+​
+
+redirect_to :back,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//返回xml代码吧">
+<meta property="og:updated_time" content="2017-02-21T04:36:19.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嗨嗨陶晨">
-<meta name="twitter:description" content="Object not found">
+<meta name="twitter:title" content="note">
+<meta name="twitter:description" content="笔记rails控制器处理完ajax请求后，两种返回方式时：
+
+render :text =&amp;gt; ‘aa’,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//此时打印:&apos;aa&apos;&amp;#125;
+​
+
+redirect_to :back,此时前端的回调函数的
+123function(data)&amp;#123;  alert(data);//返回xml代码吧">
 
 
 
@@ -113,9 +135,9 @@
 
 
 
-  <link rel="canonical" href="http://haitaochen.github.io/archives/page/3/"/>
+  <link rel="canonical" href="http://haitaochen.github.io/2017/02/21/note/"/>
 
-  <title> 归档 | 嗨嗨陶晨 </title>
+  <title> note | 嗨嗨陶晨 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -277,218 +299,152 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 15 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/09/installrails/" itemprop="url">
-              
-                <span itemprop="name">搭建 Ruby on rails 环境</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-09T23:47:31+08:00"
-              content="2016-11-09" >
-          11-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/02/《Git教程-廖雪峰》/" itemprop="url">
-              
-                <span itemprop="name">《Git教程-廖雪峰》</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-02T21:03:23+08:00"
-              content="2016-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/01/migration/" itemprop="url">
-              
-                <span itemprop="name">migration</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-01T17:40:39+08:00"
-              content="2016-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/29/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-29T14:58:30+08:00"
-              content="2016-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/29/python/" itemprop="url">
-              
-                <span itemprop="name">我开始学python</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-29T13:29:53+08:00"
-              content="2016-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-21T12:35:15+08:00" content="2017-02-21">
+              2017-02-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/21/note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/21/note/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h4><h4 id="rails"><a href="#rails" class="headerlink" title="rails"></a>rails</h4><p>控制器处理完ajax请求后，两种返回方式时：</p>
+<ul>
+<li><p>render :text =&gt; ‘aa’,此时前端的回调函数的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//此时打印:'aa'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>redirect_to :back,此时前端的回调函数的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//返回xml代码吧</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4><a id="more"></a>
+<p>作为文件下载器</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">            <span class="comment">#root html;</span></div><div class="line">            <span class="comment">#index index.html index.htm;</span></div><div class="line">            <span class="keyword">if</span> ($request_filename ~* ^.*?\.(txt<span class="params">|doc|</span>pdf<span class="params">|rar|</span>gz<span class="params">|zip|</span>docx<span class="params">|exe|</span>xlsx<span class="params">|ppt|</span>pptx)$)&#123;</div><div class="line">            add_header Content-<span class="symbol">Disposition:</span> <span class="string">'attachment;'</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在nginx 目录下放置待下载文件</li>
+<li>打开浏览器输localhost/panda.mp4</li>
+</ul>
+<p>参考链接</p>
+<p><a href="http://blog.chinaunix.net/uid-26000296-id-5757745.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26000296-id-5757745.html</a></p>
+<h4 id="Unicorn见习"><a href="#Unicorn见习" class="headerlink" title="Unicorn见习"></a>Unicorn见习</h4><h5 id="参考链接（http-blog-yoosan-me-2015-08-09-Linux-Ubuntu-E4-B8-8A-E9-83-A8-E7-BD-B2rails-E5-BA-94-E7-94-A8-E4-BD-BF-E7-94-A8unicorn-E5-92-8Cnginx-）"><a href="#参考链接（http-blog-yoosan-me-2015-08-09-Linux-Ubuntu-E4-B8-8A-E9-83-A8-E7-BD-B2rails-E5-BA-94-E7-94-A8-E4-BD-BF-E7-94-A8unicorn-E5-92-8Cnginx-）" class="headerlink" title="参考链接（http://blog.yoosan.me/2015/08/09/Linux(Ubuntu)%E4%B8%8A%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8,%E4%BD%BF%E7%94%A8unicorn%E5%92%8Cnginx/）"></a>参考链接（<a href="http://blog.yoosan.me/2015/08/09/Linux(Ubuntu)%E4%B8%8A%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8,%E4%BD%BF%E7%94%A8unicorn%E5%92%8Cnginx/）" target="_blank" rel="external">http://blog.yoosan.me/2015/08/09/Linux(Ubuntu)%E4%B8%8A%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8,%E4%BD%BF%E7%94%A8unicorn%E5%92%8Cnginx/）</a></h5><ul>
+<li>新建/appname/config/unicorn.rb，配置如下</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># set path to application</span></div><div class="line"><span class="comment"># app_dir is your rails app directory path</span></div><div class="line">app_dir = File.expand_path(<span class="string">"../.."</span>, __FILE_<span class="number">_</span>)</div><div class="line">shared_dir = <span class="string">"<span class="subst">#&#123;app_dir&#125;</span>/shared"</span></div><div class="line">working_directory app_dir</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Set unicorn options</span></div><div class="line">worker_processes <span class="number">2</span></div><div class="line">preload_app <span class="literal">true</span></div><div class="line">timeout <span class="number">30</span></div><div class="line"></div><div class="line"><span class="comment"># Set up socket location</span></div><div class="line">listen <span class="string">"<span class="subst">#&#123;shared_dir&#125;</span>/sockets/unicorn.sock"</span>, <span class="symbol">:backlog</span> =&gt; <span class="number">64</span></div><div class="line"></div><div class="line"><span class="comment"># Logging</span></div><div class="line">stderr_path <span class="string">"<span class="subst">#&#123;shared_dir&#125;</span>/log/unicorn.stderr.log"</span></div><div class="line">stdout_path <span class="string">"<span class="subst">#&#123;shared_dir&#125;</span>/log/unicorn.stdout.log"</span></div><div class="line"></div><div class="line"><span class="comment"># Set master PID location</span></div><div class="line">pid <span class="string">"<span class="subst">#&#123;shared_dir&#125;</span>/pids/unicorn.pid"</span></div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 创建目录mkdir -p shared/pids shared/sockets shared/log（在更目录中）</div><div class="line"></div><div class="line">* 运行命令bundle exec unicorn -c config/unicorn.rb -p 3000 -D</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rails/" rel="tag">#rails</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/15/nginx/" rel="next" title="Ubuntu 安装配置nginx记录">
+                <i class="fa fa-chevron-left"></i> Ubuntu 安装配置nginx记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -496,6 +452,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/21/note/"
+           data-title="note" data-url="http://haitaochen.github.io/2017/02/21/note/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -515,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ww1.sinaimg.cn/mw690/c8543fbcjw1f4yosfojemj20qo0zk45p.jpg"
@@ -586,6 +559,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rails"><span class="nav-number">2.</span> <span class="nav-text">rails</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx"><span class="nav-number">3.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unicorn见习"><span class="nav-number">4.</span> <span class="nav-text">Unicorn见习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考链接（http-blog-yoosan-me-2015-08-09-Linux-Ubuntu-E4-B8-8A-E9-83-A8-E7-BD-B2rails-E5-BA-94-E7-94-A8-E4-BD-BF-E7-94-A8unicorn-E5-92-8Cnginx-）"><span class="nav-number">4.1.</span> <span class="nav-text">参考链接（http://blog.yoosan.me/2015/08/09/Linux(Ubuntu)%E4%B8%8A%E9%83%A8%E7%BD%B2rails%E5%BA%94%E7%94%A8,%E4%BD%BF%E7%94%A8unicorn%E5%92%8Cnginx/）</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -689,11 +673,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
