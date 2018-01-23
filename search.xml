@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[docker]]></title>
+      <url>http://haitaochen.github.io/2018/01/21/docker/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[PHP 在 windows下配置redis扩展]]></title>
       <url>http://haitaochen.github.io/2017/03/11/PHP-%E5%9C%A8-windows%E4%B8%8B%E9%85%8D%E7%BD%AEredis%E6%89%A9%E5%B1%95/</url>
       <content type="html"><![CDATA[<h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download" target="_blank" rel="external">https://redis.io/download</a></p>
