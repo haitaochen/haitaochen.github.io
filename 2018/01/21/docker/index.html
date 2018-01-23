@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -81,16 +81,25 @@
 
 
 
-<meta name="description" content="Object not found">
+<meta name="description" content="前言
+docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。
+
+1234docker-machine ssh default sudo sed -i &amp;quot;s|EXTRA_ARGS=&amp;apos;|EXTRA_ARGS=&amp;apos;--registry-mirror=【此处为你的加速地址】 |g&amp;quot; /var/lib/boot2doc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker">
+<meta property="og:title" content="解决win10下docker访问慢">
 <meta property="og:url" content="http://haitaochen.github.io/2018/01/21/docker/index.html">
 <meta property="og:site_name" content="嗨嗨陶晨">
-<meta property="og:description" content="Object not found">
-<meta property="og:updated_time" content="2018-01-21T01:57:45.482Z">
+<meta property="og:description" content="前言
+docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。
+
+1234docker-machine ssh default sudo sed -i &amp;quot;s|EXTRA_ARGS=&amp;apos;|EXTRA_ARGS=&amp;apos;--registry-mirror=【此处为你的加速地址】 |g&amp;quot; /var/lib/boot2doc">
+<meta property="og:updated_time" content="2018-01-23T07:48:05.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker">
-<meta name="twitter:description" content="Object not found">
+<meta name="twitter:title" content="解决win10下docker访问慢">
+<meta name="twitter:description" content="前言
+docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。
+
+1234docker-machine ssh default sudo sed -i &amp;quot;s|EXTRA_ARGS=&amp;apos;|EXTRA_ARGS=&amp;apos;--registry-mirror=【此处为你的加速地址】 |g&amp;quot; /var/lib/boot2doc">
 
 
 
@@ -135,7 +144,7 @@
   </script>
 
 
-  <title>docker | 嗨嗨陶晨</title>
+  <title>解决win10下docker访问慢 | 嗨嗨陶晨</title>
   
 
 
@@ -241,16 +250,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">docker</h1>
+          <h1 class="post-title" itemprop="name headline">解决win10下docker访问慢</h1>
         
 
         <div class="post-meta">
@@ -379,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  61
                 </span>
               
 
@@ -416,7 +415,11 @@
       
 
       
-        
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker-machine ssh default </div><div class="line">sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profile</div><div class="line">exit</div><div class="line">docker-machine restart default</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -430,6 +433,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+        </div>
       
 
       
@@ -531,8 +540,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -541,7 +559,7 @@ var jiathis_config={
                 alt="陈海涛" />
             
               <p class="site-author-name" itemprop="name">陈海涛</p>
-              <p class="site-description motion-element" itemprop="description">Object not found</p>
+              <p class="site-description motion-element" itemprop="description">You can call me Susan if it makes you happy</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -573,7 +591,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -583,22 +601,6 @@ var jiathis_config={
 
           
 
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/haitaochen" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://weibo.com/u/3360964540/home" target="_blank" title="Weibo">
-                      
-                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
-                  </span>
-                
-            </div>
           
 
           
@@ -612,6 +614,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -657,7 +675,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.0k字</span>
+  <span class="post-count">博客全站共6.1k字</span>
 </div>
         
 
@@ -1162,6 +1180,11 @@ var jiathis_config={
   
 
   
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 </body>
 </html>

@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Object not found">
+<meta name="description" content="You can call me Susan if it makes you happy">
 <meta property="og:type" content="website">
 <meta property="og:title" content="嗨嗨陶晨">
 <meta property="og:url" content="http://haitaochen.github.io/index.html">
 <meta property="og:site_name" content="嗨嗨陶晨">
-<meta property="og:description" content="Object not found">
+<meta property="og:description" content="You can call me Susan if it makes you happy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嗨嗨陶晨">
-<meta name="twitter:description" content="Object not found">
+<meta name="twitter:description" content="You can call me Susan if it makes you happy">
 
 
 
@@ -241,16 +241,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -337,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/21/docker/" itemprop="url">docker</a></h1>
+                <a class="post-title-link" href="/2018/01/21/docker/" itemprop="url">解决win10下docker访问慢</a></h1>
         
 
         <div class="post-meta">
@@ -381,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  61
                 </span>
               
 
@@ -420,7 +410,11 @@
       
         
           
-            
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker-machine ssh default </div><div class="line">sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profile</div><div class="line">exit</div><div class="line">docker-machine restart default</div></pre></td></tr></table></figure>
+
           
         
       
@@ -569,22 +563,16 @@
 
       
         
-          
-            <h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download" target="_blank" rel="external">https://redis.io/download</a></p>
-<p>redis php 扩展：<a href="http://windows.php.net/downloads/pecl/releases/redis/" target="_blank" rel="external">http://windows.php.net/downloads/pecl/releases/redis/</a></p>
-<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/" target="_blank" rel="external">http://windows.php.net/downloads/pecl/releases/igbinary/</a></p>
-<p>将上述两个扩展文件放在php/ext/下，且在php.ini 添加代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">; php_redis</div><div class="line">extension=php_igbinary.dll</div><div class="line">extension=php_redis.dll</div></pre></td></tr></table></figure>
-<p>注意书写顺序。</p>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>1、要下载对应php版本的phpredis模块；</p>
-<p>2、注意是32位还是64位。这个要看phpinfo()输出的Architecture，而不是<a href="http://lib.csdn.net/base/operatingsystem" target="_blank" rel="external">操作系统</a>的位数。</p>
-<p>3、下载时候，带-ts-的是线程安全的，带-nts-是非线程安全的。</p>
-<p>重启apache服务器</p>
-<p>示例代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">	$redis = <span class="keyword">new</span> Redis();    </div><div class="line">	$redis-&gt;connect(<span class="string">"localhost"</span>,<span class="string">"6379"</span>);  </div><div class="line">	$redis-&gt;set(<span class="string">"say"</span>,<span class="string">"Hello World"</span>);    </div><div class="line">	<span class="keyword">echo</span> $redis-&gt;get(<span class="string">"say"</span>);	</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
-<p>redis 开启：双击两个exe 打开两个窗口redis-server.exe和redis-cli.exe</p>
-
-          
+          <h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download">https://redis.io/download</a></p>
+<p>redis php 扩展：<a href="http://windows.php.net/downloads/pecl/releases/redis/">http://windows.php.net/downloads/pecl/releases/redis/</a></p>
+<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/">http://windows.php.net/downloads/pecl/releases/igbinary/</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/11/PHP-在-windows下配置redis扩展/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1149,7 +1137,7 @@
                 alt="陈海涛" />
             
               <p class="site-author-name" itemprop="name">陈海涛</p>
-              <p class="site-description motion-element" itemprop="description">Object not found</p>
+              <p class="site-description motion-element" itemprop="description">You can call me Susan if it makes you happy</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1181,7 +1169,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1191,22 +1179,6 @@
 
           
 
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/haitaochen" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://weibo.com/u/3360964540/home" target="_blank" title="Weibo">
-                      
-                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
-                  </span>
-                
-            </div>
           
 
           
@@ -1265,7 +1237,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.0k字</span>
+  <span class="post-count">博客全站共6.1k字</span>
 </div>
         
 
@@ -1755,6 +1727,11 @@
   
 
   
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 </body>
 </html>

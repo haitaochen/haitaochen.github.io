@@ -4,9 +4,13 @@
   
     
     <entry>
-      <title><![CDATA[docker]]></title>
+      <title><![CDATA[解决win10下docker访问慢]]></title>
       <url>http://haitaochen.github.io/2018/01/21/docker/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker-machine ssh default </div><div class="line">sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profile</div><div class="line">exit</div><div class="line">docker-machine restart default</div></pre></td></tr></table></figure>
+]]></content>
     </entry>
     
     <entry>
@@ -14,7 +18,7 @@
       <url>http://haitaochen.github.io/2017/03/11/PHP-%E5%9C%A8-windows%E4%B8%8B%E9%85%8D%E7%BD%AEredis%E6%89%A9%E5%B1%95/</url>
       <content type="html"><![CDATA[<h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download" target="_blank" rel="external">https://redis.io/download</a></p>
 <p>redis php 扩展：<a href="http://windows.php.net/downloads/pecl/releases/redis/" target="_blank" rel="external">http://windows.php.net/downloads/pecl/releases/redis/</a></p>
-<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/" target="_blank" rel="external">http://windows.php.net/downloads/pecl/releases/igbinary/</a></p>
+<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/" target="_blank" rel="external">http://windows.php.net/downloads/pecl/releases/igbinary/</a><br><a id="more"></a></p>
 <p>将上述两个扩展文件放在php/ext/下，且在php.ini 添加代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">; php_redis</div><div class="line">extension=php_igbinary.dll</div><div class="line">extension=php_redis.dll</div></pre></td></tr></table></figure>
 <p>注意书写顺序。</p>
