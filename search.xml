@@ -4,6 +4,77 @@
   
     
     <entry>
+      <title><![CDATA[spark安装]]></title>
+      <url>http://haitaochen.github.io/2018/10/15/spark%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<h3 id="spark-2-1-0-源码安装"><a href="#spark-2-1-0-源码安装" class="headerlink" title="spark-2.1.0 源码安装"></a>spark-2.1.0 源码安装</h3><h4 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h4><p>jdk1.7.0_79</p>
+<p>scala-2.11.8</p>
+<p>apache-maven-3.3.9 </p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>./build/mvn -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2 -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-cdh5.7.0 -DskipTests clean package</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export MAVEN_OPTS=&quot;-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512M -XX：MaxPermSize = 512M&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>######指定scala版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./dev/change-scala-version.sh 2.11</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>./dev/make-distribution.sh –name 2.6.0-cdh5.7.0 –tgz  -Pyarn -Phadoop-2.6 -Phive -Phive-thriftserver -Dhadoop.version=2.6.0-cdh5.7.0</p>
+<ul>
+<li><p>修改/dev/make-distribution.sh里面的脚本</p>
+<p>1.将VERSION ，SCALA_VERSION ，SPARK_HADOOP_VERSION ，SPARK_HIVE注释掉，直接写上自己的版本</p>
+<p>#VERSION=$(“$MVN” help:evaluate -Dexpression=project.version $@ 2&gt;/dev/null | grep -v “INFO” | tail -n 1)        指的是spark2.1.0这个版本</p>
+<p>#SCALA_VERSION=$(“$MVN” help:evaluate -Dexpression=scala.binary.version $@ 2&gt;/dev/null\    指的是scala 2.11</p>
+<p>#    | grep -v “INFO”\</p>
+<p>#    | tail -n 1)</p>
+<p>#SPARK_HADOOP_VERSION=$(“$MVN” help:evaluate -Dexpression=hadoop.version $@ 2&gt;/dev/null\  指的是hadoop.version=2.6.0-cdh5.7.0</p>
+<p>#    | grep -v “INFO”\</p>
+<p>#    | tail -n 1)</p>
+<p>#SPARK_HIVE=$(“$MVN” help:evaluate -Dexpression=project.activeProfiles -pl sql/hive $@ 2&gt;/dev/null\    SPARK_HIVE为1表示支持</p>
+<p>#    | grep -v “INFO”\</p>
+<p>#    | fgrep –count “<id>hive</id>“;\</p>
+<p>#    # Reset exit status to 0, otherwise the script stops here if the last grep finds nothing\</p>
+<p>#    # because we use “set -o pipefail”</p>
+<p>#    echo -n)</p>
+<p>将以下的内容贴在注释掉的那个脚本的后面即可</p>
+<p>VERSION=2.1.0</p>
+<p>SCALA_VERSION=2.11   </p>
+<p>SPARK_HADOOP_VERSION=2.6.0-cdh5.7.0</p>
+<p>SPARK_HIVE=1</p>
+</li>
+</ul>
+<ul>
+<li><h6 id="指定scala版本"><a href="#指定scala版本" class="headerlink" title="指定scala版本"></a>指定scala版本</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./dev/change-scala-version.sh 2.11</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="坑0"><a href="#坑0" class="headerlink" title="坑0"></a>坑0</h4><p>问题1：[ERROR] Failed to execute goal on project spark-launcher_2.11: Could not resolve dependencies for project org.apache.spark:spark-launcher_2.11:jar:2.2.0: Failure to find org.apache.hadoop:hadoop-client:jar:2.6.0-cdh5.7.0 in <a href="https://repo1.maven.org/maven2" target="_blank" rel="external">https://repo1.maven.org/maven2</a> was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -&gt; [Help 1]</p>
+<p>######这是因为默认的是apache的仓库，但是我们hadoop的版本写的是CDH，这时要将CDH的仓库配进来，打开spark目录下的pom.xml文件，将CDH的仓库配进去</p>
+<p>​          vi  /usr/local/spark-test/app/spark-2.2.0/pom.xml     添加如下   </p>
+<p>​               <repository></repository></p>
+<p>​                <id>cloudera</id></p>
+<p>​                <name>cloudera Repository</name></p>
+<p>​                <url><a href="https://repository.cloudera.com/artifactory/cloudera-repos" target="_blank" rel="external">https://repository.cloudera.com/artifactory/cloudera-repos</a></url></p>
+<p>​               </p>
+<h6 id="添加时注意区分空格和tab，格式不对会在mvn-编译时报错"><a href="#添加时注意区分空格和tab，格式不对会在mvn-编译时报错" class="headerlink" title="添加时注意区分空格和tab，格式不对会在mvn 编译时报错"></a>添加时注意区分空格和tab，格式不对会在mvn 编译时报错</h6><h4 id="坑一"><a href="#坑一" class="headerlink" title="坑一"></a>坑一</h4><p>Failed to execute goal net.alchim31.maven:scala-maven-plugin:3.2.2:compile (scala-compile-first) on project spark-tags_2.11: wrap: java.io.IOException: Cannot run program “/home/c/hadoop/jdk1.7.0_79/jre/bin/java” (in directory “.”): error=13, Permission denied -&gt; [</p>
+<h6 id="解决：将jdk1-7-0-79-整个文件夹-chmod-R-777"><a href="#解决：将jdk1-7-0-79-整个文件夹-chmod-R-777" class="headerlink" title="解决：将jdk1.7.0_79 整个文件夹 chmod -R 777"></a>解决：将jdk1.7.0_79 整个文件夹 chmod -R 777</h6><h4 id="坑二"><a href="#坑二" class="headerlink" title="坑二"></a>坑二</h4><p>maven 编译时 报错：</p>
+<p>Received fatal alert: handshake_failure还有ssl 提醒之类的错误</p>
+<p>解决：将pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>cloudera<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>cloudera Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repository.cloudera.com/artifactory/cloudera-repos<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>里的https 改成 http</p>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://blog.csdn.net/chen_1122/article/details/77935149" target="_blank" rel="external">https://blog.csdn.net/chen_1122/article/details/77935149</a></p>
+<p><a href="https://blog.csdn.net/jiaotangX/article/details/78635133" target="_blank" rel="external">https://blog.csdn.net/jiaotangX/article/details/78635133</a></p>
+<p><a href="https://blog.csdn.net/suisongtiao1799/article/details/80223068" target="_blank" rel="external">https://blog.csdn.net/suisongtiao1799/article/details/80223068</a></p>
+<p><a href="http://feitianbenyue.iteye.com/blog/2429045" target="_blank" rel="external">http://feitianbenyue.iteye.com/blog/2429045</a></p>
+<h4 id="坑四"><a href="#坑四" class="headerlink" title="坑四"></a>坑四</h4><p>因为之前的命令里面没有编译安装hive模块，所以在用spark-sql 访问 hive 时报错（提示你需要build hive和hive-thriftserver 类似的信息）以及用spark-shell访问没反应（明明hive里面有表，运行spark.sql(“show tables”).show 不显示应有数据）</p>
+<p>执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./build/mvn -Dhttps.protocols=TLSv1,TLSv1.<span class="number">1</span>,TLSv1.<span class="number">2</span> -Pyarn -Phadoop-<span class="number">2.6</span> -Phive -Phive-thriftserver -Dhadoop.version=<span class="number">2.6</span>.<span class="number">0</span>-cdh5.<span class="number">7.0</span> -DskipTests clean package</div></pre></td></tr></table></figure>
+<p>把hive 的依赖 加上去重新编译</p>
+<p>重新编译过程中可能出现的问题</p>
+<p><a href="https://stackoverflow.com/questions/36651611/failed-to-execute-goal-net-alchim31-mavenscala-maven-plugin3-2-2" target="_blank" rel="external">https://stackoverflow.com/questions/36651611/failed-to-execute-goal-net-alchim31-mavenscala-maven-plugin3-2-2</a></p>
+<p>确保编译过程中有网</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[vmware下为ubuntu16.04 desktop 配置静态IP 并 可供ssh 访问]]></title>
       <url>http://haitaochen.github.io/2018/09/20/vmware%E4%B8%8B%E4%B8%BAubuntu16-04-desktop-%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP-%E5%B9%B6-%E5%8F%AF%E4%BE%9Bssh-%E8%AE%BF%E9%97%AE/</url>
       <content type="html"><![CDATA[<h3 id="vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问"><a href="#vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问" class="headerlink" title="vmware下为ubuntu16.04 desktop 配置静态IP 并 可供ssh 访问"></a>vmware下为ubuntu16.04 desktop 配置静态IP 并 可供ssh 访问</h3><p><a href="https://blog.csdn.net/LiuMiao1128/article/details/52449683" target="_blank" rel="external">https://blog.csdn.net/LiuMiao1128/article/details/52449683</a></p>
