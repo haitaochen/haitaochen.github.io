@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/12/09/nginx笔记/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2018/04/16/ssl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/09/nginx笔记/" itemprop="url">nginx笔记</a></h1>
+                <a class="post-title-link" href="/2018/04/16/ssl/" itemprop="url">ubuntu下apache配置ssl证书</a></h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-09T08:20:12+08:00">
-                2016-12-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T17:36:04+08:00">
+                2018-04-16
               </time>
             
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  522
+                  1,434
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  8分钟
                 </span>
               
             </div>
@@ -409,17 +409,17 @@
 
       
         
-          <h5 id="nginx笔记"><a href="#nginx笔记" class="headerlink" title="nginx笔记"></a>nginx笔记</h5><blockquote>
-<p>sudo ../sbin/nginx -c ~/nginx_build/conf/nginx.conf </p>
-</blockquote>
-<p>取消默认配置，选择自定义配置</p>
-<blockquote>
-<p> sudo pkill -9 nginx</p>
-</blockquote>
-<p>杀死nginx</p>
+          <ul>
+<li>去阿里云买一个免费的ssl证书（详情:<a href="https://bbs.aliyun.com/read/573933.html?spm=5176.10695662.1996646101.searchclickresult.2acd1cb9dAaa8k）">https://bbs.aliyun.com/read/573933.html?spm=5176.10695662.1996646101.searchclickresult.2acd1cb9dAaa8k）</a></li>
+<li>支付成功后 点补全，进去后完善信息，提交审核</li>
+<li>回到控制台（/订单列表）  点进度 未通过 因为还没有在 西部数码里面配置dns</li>
+<li>过了一会儿再点进度 ，里面的‘’域名授权配置‘’才出现，主机记录就是西部数码dns 配置的主机名，记录值就是txt 的对应值（详情：<a href="https://www.west.cn/faq/list.asp?unid=1400）">https://www.west.cn/faq/list.asp?unid=1400）</a></li>
+<li>过一会儿 就通过了</li>
+<li>点下载进去，选apache的下载，这个页面给出了 去服务器配证书的文档。但因为ubuntu 的apache 的目录结构和他给的不一样。所以稍作调整如下：（附参考：<a href="https://blog.csdn.net/setoy/article/details/78441613">https://blog.csdn.net/setoy/article/details/78441613</a> <a href="https://blog.csdn.net/mgsky1/article/details/53844332）">https://blog.csdn.net/mgsky1/article/details/53844332）</a></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/12/09/nginx笔记/#more" rel="contents">
+            <a class="btn" href="/2018/04/16/ssl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -470,7 +470,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/12/06/为什么/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2018/01/21/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -489,7 +489,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/06/为什么/" itemprop="url">为什么</a></h1>
+                <a class="post-title-link" href="/2018/01/21/docker/" itemprop="url">解决win10下docker访问慢</a></h1>
         
 
         <div class="post-meta">
@@ -501,8 +501,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-06T14:29:39+08:00">
-                2016-12-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T09:57:45+08:00">
+                2018-01-21
               </time>
             
 
@@ -533,7 +533,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  62
+                  61
                 </span>
               
 
@@ -572,12 +572,10 @@
       
         
           
-            <p>为什么</p>
-<p>两台学妹的电脑去装Typora</p>
-<p>1台只能这样装<a href="http://www.linuxdiyf.com/linux/25196.html" target="_blank" rel="external">http://www.linuxdiyf.com/linux/25196.html</a></p>
-<p>还有一台只能按官网装<a href="http://www.typora.io/#linux" target="_blank" rel="external">http://www.typora.io/#linux</a></p>
-<h5 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h5><p>pg_dump -h localhost -U postgres [databasename] &gt; [filename].bak</p>
-<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><p>psql -h localhost -U postgres -d [databasename] &lt; [filename].bak</p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>docker 拉取速度太慢，可以更换成daocloud和阿里云。daocloud没有尝试成功，阿里云可以。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker-machine ssh default </div><div class="line">sudo sed -i &quot;s|EXTRA_ARGS=&apos;|EXTRA_ARGS=&apos;--registry-mirror=【此处为你的加速地址】 |g&quot; /var/lib/boot2docker/profile</div><div class="line">exit</div><div class="line">docker-machine restart default</div></pre></td></tr></table></figure>
 
           
         
@@ -626,7 +624,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/11/30/activeadmin/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/03/11/PHP-在-windows下配置redis扩展/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -645,7 +643,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/30/activeadmin/" itemprop="url">activeadmin</a></h1>
+                <a class="post-title-link" href="/2017/03/11/PHP-在-windows下配置redis扩展/" itemprop="url">PHP 在 windows下配置redis扩展</a></h1>
         
 
         <div class="post-meta">
@@ -657,8 +655,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-30T23:54:59+08:00">
-                2016-11-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T00:05:02+08:00">
+                2017-03-11
               </time>
             
 
@@ -689,7 +687,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,629
+                  190
                 </span>
               
 
@@ -705,7 +703,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  1分钟
                 </span>
               
             </div>
@@ -727,15 +725,12 @@
 
       
         
-          <h4 id="ActiveAdmin"><a href="#ActiveAdmin" class="headerlink" title="ActiveAdmin"></a>ActiveAdmin</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>1.修改gemfile</p>
-<p>因为rails 版本4以上</p>
-<p>一种方式安装，亲测有效，安装快</p>
-<blockquote>
-<p>gem ‘activeadmin’, ‘~&gt; 1.0.0.pre4’</p>
-</blockquote>
+          <h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download">https://redis.io/download</a></p>
+<p>redis php 扩展：<a href="http://windows.php.net/downloads/pecl/releases/redis/">http://windows.php.net/downloads/pecl/releases/redis/</a></p>
+<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/">http://windows.php.net/downloads/pecl/releases/igbinary/</a><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/30/activeadmin/#more" rel="contents">
+            <a class="btn" href="/2017/03/11/PHP-在-windows下配置redis扩展/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -786,7 +781,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/11/30/onenote/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/02/21/note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -805,7 +800,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/30/onenote/" itemprop="url">onenote</a></h1>
+                <a class="post-title-link" href="/2017/02/21/note/" itemprop="url">note</a></h1>
         
 
         <div class="post-meta">
@@ -817,8 +812,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-30T23:51:07+08:00">
-                2016-11-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T12:35:15+08:00">
+                2017-02-21
               </time>
             
 
@@ -849,7 +844,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  170
+                  272
                 </span>
               
 
@@ -887,11 +882,25 @@
 
       
         
-          
-            <h6 id="js控制a标签跳转"><a href="#js控制a标签跳转" class="headerlink" title="js控制a标签跳转"></a>js控制a标签跳转</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = document.getElementById(&quot;aHref&quot;);  </div><div class="line">a.href = &apos;/user&apos;;     </div><div class="line">//取消&lt;a&gt;标签原先的onclick事件,使&lt;a&gt;标签点击后通过href跳转(因为无法用js跳转)^-^     </div><div class="line">a.setAttribute(&quot;onclick&quot;,&apos;&apos;);     </div><div class="line">//激发标签点击事件OVER        </div><div class="line">a.click(&quot;return false&quot;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  $(&quot;input:text&quot;).bind(&quot;input propertychange&quot;,function()&#123;</div><div class="line">    var length = $(this).val().length;</div><div class="line"> 　　console.log(length);//打印输入框字符长度</div><div class="line">  var a = 3;</div><div class="line">  var b =10;</div><div class="line">    $(&quot;#aa&quot;).attr(&quot;href&quot;,&quot;/search/ajax_search/&quot;+a+&quot;/&quot;+b+&quot;/&quot;);</div><div class="line"></div><div class="line"></div><div class="line">    var aa = document.getElementById(&quot;aa&quot;);  </div><div class="line">//取消&lt;a&gt;标签原先的onclick事件,使&lt;a&gt;标签点击后通过href跳转(因为无法用js跳转)^-^     </div><div class="line">aa.setAttribute(&quot;onclick&quot;,&apos;&apos;);     </div><div class="line">//激发标签点击事件OVER        </div><div class="line">aa.click(&quot;return false&quot;);   </div><div class="line">   // $(&quot;#aa&quot;).setAttribute(&quot;onclick&quot;,&apos;&apos;);  </div><div class="line">            //激发标签点击事件OVER  </div><div class="line">   // $(&quot;#aa&quot;).click(&quot;return false&quot;);  </div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-
-          
+          <h4 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h4><h4 id="rails"><a href="#rails" class="headerlink" title="rails"></a>rails</h4><p>控制器处理完ajax请求后，两种返回方式时：</p>
+<ul>
+<li><p>render :text =&gt; ‘aa’,此时前端的回调函数的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//此时打印:'aa'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>redirect_to :back,此时前端的回调函数的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//返回xml代码吧</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/21/note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -938,7 +947,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/11/19/two-notes/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/02/15/nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -957,7 +966,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/19/two-notes/" itemprop="url">2条笔记</a></h1>
+                <a class="post-title-link" href="/2017/02/15/nginx/" itemprop="url">Ubuntu 安装配置nginx记录</a></h1>
         
 
         <div class="post-meta">
@@ -969,8 +978,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-19T12:10:32+08:00">
-                2016-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T17:10:08+08:00">
+                2017-02-15
               </time>
             
 
@@ -1001,7 +1010,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  200
+                  284
                 </span>
               
 
@@ -1039,27 +1048,21 @@
 
       
         
-          <h4 id="两条笔记"><a href="#两条笔记" class="headerlink" title="两条笔记"></a>两条笔记</h4><h5 id="ajax-返回并且不继承layout"><a href="#ajax-返回并且不继承layout" class="headerlink" title="ajax 返回并且不继承layout"></a>ajax 返回并且不继承layout</h5><pre><code>def edit
-               @user = current_user
-               @e =Publisher.new
-               @video = Video.find(params[:id])
-                @list = @video.video_files.order(&apos;created_at DESC&apos;)
-               gon.test = @video.video_files.order(&apos;show_time ASC&apos;)
-               gon.video = @video.mpd_path.to_s
-               @videoFile = VideoFile.new
-               @videoFile.video_id = @video.id
-
-               @vtt = WebVTT.read(@@vtt_path.to_s + @video.vtt_path.to_s)
-               gon.vtt = @vtt
-
-               respond_to do |format|
-                  format.html {render &apos;edit&apos;,layout:false}
-               end
-  end
-</code></pre>
+          <h4 id="Ubuntu-安装配置nginx记录"><a href="#Ubuntu-安装配置nginx记录" class="headerlink" title="Ubuntu 安装配置nginx记录"></a>Ubuntu 安装配置nginx记录</h4><p>下载地址：<a href="http://nginx.org/download/">http://nginx.org/download/</a></p>
+<ul>
+<li><p>下载后解压</p>
+</li>
+<li><p>安装相关依赖</p>
+<blockquote>
+<p>sudo apt-get install openssl libssl-dev </p>
+<p>sudo apt-get install libpcre3 libpcre3-dev  </p>
+<p>sudo apt-get install zlib1g-dev  </p>
+</blockquote>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/19/two-notes/#more" rel="contents">
+            <a class="btn" href="/2017/02/15/nginx/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1101,7 +1104,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1151,7 +1154,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1241,7 +1244,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.5k字</span>
+  <span class="post-count">博客全站共14.8k字</span>
 </div>
         
 

@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/03/11/PHP-在-windows下配置redis扩展/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/04/11/spark性能调优/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/11/PHP-在-windows下配置redis扩展/" itemprop="url">PHP 在 windows下配置redis扩展</a></h1>
+                <a class="post-title-link" href="/2019/04/11/spark性能调优/" itemprop="url">spark性能调优</a></h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T00:05:02+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T21:42:32+08:00">
+                2019-04-11
               </time>
             
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  190
+                  2,907
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  11分钟
                 </span>
               
             </div>
@@ -409,12 +409,10 @@
 
       
         
-          <h4 id="PHP-在-windows下配置redis扩展"><a href="#PHP-在-windows下配置redis扩展" class="headerlink" title="PHP 在 windows下配置redis扩展"></a>PHP 在 windows下配置redis扩展</h4><h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>redis 下载：<a href="https://redis.io/download">https://redis.io/download</a></p>
-<p>redis php 扩展：<a href="http://windows.php.net/downloads/pecl/releases/redis/">http://windows.php.net/downloads/pecl/releases/redis/</a></p>
-<p>igbinary php 扩展： <a href="http://windows.php.net/downloads/pecl/releases/igbinary/">http://windows.php.net/downloads/pecl/releases/igbinary/</a><br>
+          <h4 id="性能调优之在实际项目中分配更多资源（对应课56）"><a href="#性能调优之在实际项目中分配更多资源（对应课56）" class="headerlink" title="性能调优之在实际项目中分配更多资源（对应课56）"></a>性能调优之在实际项目中分配更多资源（对应课56）</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/PHP-在-windows下配置redis扩展/#more" rel="contents">
+            <a class="btn" href="/2019/04/11/spark性能调优/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -465,7 +463,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/02/21/note/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/03/04/wordcount生成几个RDD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -484,7 +482,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/21/note/" itemprop="url">note</a></h1>
+                <a class="post-title-link" href="/2019/03/04/wordcount生成几个RDD/" itemprop="url">wordcount生成几个RDD</a></h1>
         
 
         <div class="post-meta">
@@ -496,8 +494,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T12:35:15+08:00">
-                2017-02-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T22:46:44+08:00">
+                2019-03-04
               </time>
             
 
@@ -528,339 +526,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  272
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h4><h4 id="rails"><a href="#rails" class="headerlink" title="rails"></a>rails</h4><p>控制器处理完ajax请求后，两种返回方式时：</p>
-<ul>
-<li><p>render :text =&gt; ‘aa’,此时前端的回调函数的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//此时打印:'aa'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>redirect_to :back,此时前端的回调函数的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  alert(data);<span class="comment">//返回xml代码吧</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-<h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/21/note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/02/15/nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈海涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="嗨嗨陶晨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/15/nginx/" itemprop="url">Ubuntu 安装配置nginx记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T17:10:08+08:00">
-                2017-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  284
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="Ubuntu-安装配置nginx记录"><a href="#Ubuntu-安装配置nginx记录" class="headerlink" title="Ubuntu 安装配置nginx记录"></a>Ubuntu 安装配置nginx记录</h4><p>下载地址：<a href="http://nginx.org/download/">http://nginx.org/download/</a></p>
-<ul>
-<li><p>下载后解压</p>
-</li>
-<li><p>安装相关依赖</p>
-<blockquote>
-<p>sudo apt-get install openssl libssl-dev </p>
-<p>sudo apt-get install libpcre3 libpcre3-dev  </p>
-<p>sudo apt-get install zlib1g-dev  </p>
-</blockquote>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/nginx/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2017/02/12/laravel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈海涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="嗨嗨陶晨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/12/laravel/" itemprop="url">laravel见习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T22:48:50+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  444
+                  382
                 </span>
               
 
@@ -898,10 +564,13 @@
 
       
         
-          <h4 id="Laravel-见习"><a href="#Laravel-见习" class="headerlink" title="Laravel 见习"></a>Laravel 见习</h4><h5 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h5>
+          <h4 id="wordCount执行过程详解"><a href="#wordCount执行过程详解" class="headerlink" title="wordCount执行过程详解"></a>wordCount执行过程详解</h4><blockquote>
+<p>wc过程有几个RDD？</p>
+</blockquote>
+<h5 id="wc代码"><a href="#wc代码" class="headerlink" title="wc代码"></a>wc代码</h5><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建spark配置，设置应用程序名字</span></div><div class="line"><span class="comment">//val conf = new SparkConf().setAppName("ScalaWordCount")</span></div><div class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"ScalaWordCount"</span>).setMaster(<span class="string">"local[4]"</span>)</div><div class="line"><span class="comment">//创建spark执行的入口</span></div><div class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</div><div class="line"><span class="comment">//指定以后从哪里读取数据创建RDD（弹性分布式数据集）</span></div><div class="line"><span class="keyword">val</span> lines: <span class="type">RDD</span>[<span class="type">String</span>] = sc.textFile(<span class="string">"hdfs://node-4:9000/wc1"</span>, <span class="number">1</span>)<span class="comment">//no1</span></div><div class="line">lines.cache()</div><div class="line"><span class="comment">//lines.partitions.length</span></div><div class="line"><span class="comment">//切分压平</span></div><div class="line"><span class="keyword">val</span> words: <span class="type">RDD</span>[<span class="type">String</span>] = lines.flatMap(_.split(<span class="string">" "</span>))<span class="comment">//no2</span></div><div class="line"><span class="comment">//将单词和一组合</span></div><div class="line"><span class="keyword">val</span> wordAndOne: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = words.map((_, <span class="number">1</span>))<span class="comment">//no3</span></div><div class="line"><span class="comment">//按key进行聚合</span></div><div class="line"><span class="keyword">val</span> reduced:<span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = wordAndOne.reduceByKey(_+_)<span class="comment">//no4</span></div><div class="line"></div><div class="line">reduced.saveAsTextFile(args(<span class="number">1</span>))<span class="comment">//no5</span></div><div class="line"><span class="comment">//释放资源</span></div><div class="line">sc.stop()</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/12/laravel/#more" rel="contents">
+            <a class="btn" href="/2019/03/04/wordcount生成几个RDD/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -952,7 +621,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2016/12/16/rails-whenever-cron/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2018/10/15/spark安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -971,7 +640,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/16/rails-whenever-cron/" itemprop="url">rails whenever cron</a></h1>
+                <a class="post-title-link" href="/2018/10/15/spark安装/" itemprop="url">spark安装</a></h1>
         
 
         <div class="post-meta">
@@ -983,8 +652,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-16T08:25:04+08:00">
-                2016-12-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T11:14:48+08:00">
+                2018-10-15
               </time>
             
 
@@ -1015,7 +684,320 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  263
+                  792
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="spark-2-1-0-源码安装"><a href="#spark-2-1-0-源码安装" class="headerlink" title="spark-2.1.0 源码安装"></a>spark-2.1.0 源码安装</h3><h4 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h4><p>jdk1.7.0_79</p>
+<p>scala-2.11.8</p>
+<p>apache-maven-3.3.9 </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/15/spark安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2018/09/22/vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈海涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗨嗨陶晨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/22/vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问/" itemprop="url">ubuntu16.04配置静态IP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T11:14:48+08:00">
+                2018-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,019
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问"><a href="#vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问" class="headerlink" title="vmware下为ubuntu16.04 desktop 配置静态IP 并 可供ssh 访问"></a>vmware下为ubuntu16.04 desktop 配置静态IP 并 可供ssh 访问</h3><p><a href="https://blog.csdn.net/LiuMiao1128/article/details/52449683">https://blog.csdn.net/LiuMiao1128/article/details/52449683</a></p>
+<h4 id="一-。为ubuntu-设置静态IP"><a href="#一-。为ubuntu-设置静态IP" class="headerlink" title="一 。为ubuntu 设置静态IP"></a>一 。为ubuntu 设置静态IP</h4><h5 id="1-在vmware下配置网络环境"><a href="#1-在vmware下配置网络环境" class="headerlink" title="1.在vmware下配置网络环境"></a>1.在vmware下配置网络环境</h5><h5 id="VMware在默认安装完成之后，会创建三个虚拟的网络环境：VMnet0、VMnet1和VMnet8。其类型分别为：桥接网络，Host-only和NAT。其中，NAT表示VMWware内安装的Ubuntu将会在一个子网中，VMware通过网络地址转换，通过物理机的IP上网。"><a href="#VMware在默认安装完成之后，会创建三个虚拟的网络环境：VMnet0、VMnet1和VMnet8。其类型分别为：桥接网络，Host-only和NAT。其中，NAT表示VMWware内安装的Ubuntu将会在一个子网中，VMware通过网络地址转换，通过物理机的IP上网。" class="headerlink" title="VMware在默认安装完成之后，会创建三个虚拟的网络环境：VMnet0、VMnet1和VMnet8。其类型分别为：桥接网络，Host-only和NAT。其中，NAT表示VMWware内安装的Ubuntu将会在一个子网中，VMware通过网络地址转换，通过物理机的IP上网。"></a>VMware在默认安装完成之后，会创建三个虚拟的网络环境：VMnet0、VMnet1和VMnet8。其类型分别为：桥接网络，Host-only和NAT。其中，NAT表示VMWware内安装的Ubuntu将会在一个子网中，VMware通过网络地址转换，通过物理机的IP上网。</h5><h5 id="这里，我们选择NAT方式，来实现Ubuntu的静态IP地址配置。"><a href="#这里，我们选择NAT方式，来实现Ubuntu的静态IP地址配置。" class="headerlink" title="这里，我们选择NAT方式，来实现Ubuntu的静态IP地址配置。"></a>这里，我们选择NAT方式，来实现Ubuntu的静态IP地址配置。</h5><h5 id="打开VMware，在顶部依次选择：编辑-gt-虚拟网路编辑器，打开虚拟网路编辑器："><a href="#打开VMware，在顶部依次选择：编辑-gt-虚拟网路编辑器，打开虚拟网路编辑器：" class="headerlink" title="打开VMware，在顶部依次选择：编辑 &gt; 虚拟网路编辑器，打开虚拟网路编辑器："></a>打开VMware，在顶部依次选择：编辑 &gt; 虚拟网路编辑器，打开虚拟网路编辑器：</h5>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/22/vmware下为ubuntu16-04-desktop-配置静态IP-并-可供ssh-访问/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2018/04/16/ssl-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈海涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗨嗨陶晨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/16/ssl-1/" itemprop="url">lamp(笔记待完善)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T17:37:03+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  168
                 </span>
               
 
@@ -1053,16 +1035,12 @@
 
       
         
-          <h4 id="Rails-利用whenever-配合Linux下的cron-实现周期性任务"><a href="#Rails-利用whenever-配合Linux下的cron-实现周期性任务" class="headerlink" title="Rails 利用whenever 配合Linux下的cron 实现周期性任务"></a>Rails 利用whenever 配合Linux下的cron 实现周期性任务</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem &apos;whenever&apos;, :require =&gt; false</div></pre></td></tr></table></figure>
-<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5> <figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /apps/my-great-project</div><div class="line">$ wheneverize .</div></pre></td></tr></table></figure>
-<p>执行后生成：</p>
-<blockquote>
-<p>config/schedule.rb</p>
-</blockquote>
-<h5 id="更新cron-很关键，当初我就忘了"><a href="#更新cron-很关键，当初我就忘了" class="headerlink" title="更新cron(很关键，当初我就忘了)"></a>更新cron(很关键，当初我就忘了)</h5>
+          <p>安装sudo apt-get install tasksel</p>
+<p>sudo apt-get install phpmyadmin</p>
+<p>sudo apt-get install phpmyadmin</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/12/16/rails-whenever-cron/#more" rel="contents">
+            <a class="btn" href="/2018/04/16/ssl-1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1104,7 +1082,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1154,7 +1132,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1244,7 +1222,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.5k字</span>
+  <span class="post-count">博客全站共14.8k字</span>
 </div>
         
 
