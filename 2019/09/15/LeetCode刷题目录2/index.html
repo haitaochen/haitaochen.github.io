@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="树递归1. 树的高度2. （判断是否）平衡树3. 两节点的最长路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题目录2">
+<meta property="og:url" content="http://haitaochen.github.io/2019/09/15/LeetCode刷题目录2/index.html">
+<meta property="og:site_name" content="嗨嗨陶晨">
+<meta property="og:description" content="树递归1. 树的高度2. （判断是否）平衡树3. 两节点的最长路径">
+<meta property="og:image" content="https://raw.githubusercontent.com/CyC2018/CS-Notes/master/notes/pics/ecd89a22-c075-4716-8423-e0ba89230e9a.jpg">
+<meta property="og:image" content="https://tva4.sinaimg.cn/large/005R6Otmgy1g6z95mf9uxj30vy0ildqg.jpg">
+<meta property="og:image" content="https://github.com/CyC2018/CS-Notes/raw/master/notes/pics/9823768c-212b-4b1a-b69a-b3f59e07b977.jpg">
+<meta property="og:image" content="https://tva2.sinaimg.cn/large/005R6Otmgy1g70f71833fj30gi08wdi7.jpg">
+<meta property="og:updated_time" content="2020-04-15T08:45:12.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题目录2">
+<meta name="twitter:description" content="树递归1. 树的高度2. （判断是否）平衡树3. 两节点的最长路径">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CyC2018/CS-Notes/master/notes/pics/ecd89a22-c075-4716-8423-e0ba89230e9a.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://haitaochen.github.io/2019/09/15/LeetCode刷题目录2/"/>
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "f2e85671"
+    });
+  daovoice('update');
+  </script>
+
+
+  <title>LeetCode刷题目录2 | 嗨嗨陶晨</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+      <a href="https://github.com/haitaochen" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">嗨嗨陶晨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/09/15/LeetCode刷题目录2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈海涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗨嗨陶晨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode刷题目录2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T16:11:41+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  9,555
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  40分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><h4 id="1-树的高度"><a href="#1-树的高度" class="headerlink" title="1. 树的高度"></a>1. 树的高度</h4><h4 id="2-（判断是否）平衡树"><a href="#2-（判断是否）平衡树" class="headerlink" title="2. （判断是否）平衡树"></a>2. （判断是否）平衡树</h4><h4 id="3-两节点的最长路径"><a href="#3-两节点的最长路径" class="headerlink" title="3. 两节点的最长路径"></a>3. 两节点的最长路径</h4><a id="more"></a>
+<h4 id="4-翻转树"><a href="#4-翻转树" class="headerlink" title="4. 翻转树"></a>4. 翻转树</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">输入：</div><div class="line">	 4</div><div class="line">   /   \</div><div class="line">  2     7</div><div class="line"> / \   / \</div><div class="line">1   3 6   9</div><div class="line">输出：</div><div class="line">     4</div><div class="line">   /   \</div><div class="line">  7     2</div><div class="line"> / \   / \</div><div class="line">9   6 3   1</div></pre></td></tr></table></figure>
+<h4 id="5-归并两棵树"><a href="#5-归并两棵树" class="headerlink" title="5. 归并两棵树"></a>5. 归并两棵树</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">       Tree 1                     Tree 2</div><div class="line">          1                         2</div><div class="line">         / \                       / \</div><div class="line">        3   2                     1   3</div><div class="line">       /                           \   \</div><div class="line">      5                             4   7</div><div class="line"></div><div class="line">Output:</div><div class="line">         3</div><div class="line">        / \</div><div class="line">       4   5</div><div class="line">      / \   \</div><div class="line">     5   4   7</div></pre></td></tr></table></figure>
+<h4 id="6-判断路径和是否等于一个数"><a href="#6-判断路径和是否等于一个数" class="headerlink" title="6. 判断路径和是否等于一个数"></a>6. 判断路径和是否等于一个数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Given the below binary tree and sum = 22,</div><div class="line"></div><div class="line">              5</div><div class="line">             / \</div><div class="line">            4   8</div><div class="line">           /   / \</div><div class="line">          11  13  4</div><div class="line">         /  \      \</div><div class="line">        7    2      1</div><div class="line"></div><div class="line">return true, as there exist a root-to-leaf path 5-&gt;4-&gt;11-&gt;2 which sum is 22.</div></pre></td></tr></table></figure>
+<h4 id="7-统计路径和等于一个数的路径数量"><a href="#7-统计路径和等于一个数的路径数量" class="headerlink" title="7. 统计路径和等于一个数的路径数量"></a>7. 统计路径和等于一个数的路径数量</h4><p>路径不一定以 root 开头，也不一定以 leaf 结尾，但是必须连续。</p>
+<p>思路：在函数里定义一个withRoot的函数，在withRoot函数体里也进行递归调用</p>
+<h4 id="8-子树"><a href="#8-子树" class="headerlink" title="8. 子树"></a>8. 子树</h4><p>思路：在函数里定义一个withRoot的函数，在withRoot函数体里也进行递归调用</p>
+<h4 id="9-树的对称"><a href="#9-树的对称" class="headerlink" title="9. 树的对称"></a>9. 树的对称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   	1								</div><div class="line">   / \</div><div class="line">  2   2</div><div class="line"> / \ / \</div><div class="line">3  4 4  3  是对称。</div><div class="line"> </div><div class="line"> 	1</div><div class="line">   / \</div><div class="line">  2   2</div><div class="line">   \   \</div><div class="line">   3    3不是对称</div></pre></td></tr></table></figure>
+<p>有点像8</p>
+<h4 id="10-最小路径"><a href="#10-最小路径" class="headerlink" title="10. 最小路径"></a>10. 最小路径</h4><p>树的根节点到叶子节点的最小路径长度</p>
+<p>思路：注意和求树的高度不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> left = minDepth(root.left);</div><div class="line">    <span class="keyword">int</span> right = minDepth(root.right);</div><div class="line">    <span class="keyword">if</span> (left == <span class="number">0</span> || right == <span class="number">0</span>) <span class="keyword">return</span> left + right + <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> Math.min(left, right) + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="11-统计左叶子节点的和"><a href="#11-统计左叶子节点的和" class="headerlink" title="11. 统计左叶子节点的和"></a>11. 统计左叶子节点的和</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  	3</div><div class="line">   / \</div><div class="line">  9  20</div><div class="line">    /  \</div><div class="line">   15   7</div><div class="line"></div><div class="line">There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.</div></pre></td></tr></table></figure>
+<h4 id="12-相同节点值的最大路径长度"><a href="#12-相同节点值的最大路径长度" class="headerlink" title="12. 相同节点值的最大路径长度"></a>12. 相同节点值的最大路径长度</h4><p>给定一个二叉树，找到最长的路径，这个路径中的每个节点具有相同值。 这条路径可以经过也可以不经过根节点。</p>
+<p><strong>注意</strong>：两个节点之间的路径长度由它们之间的边数表示。</p>
+<pre><code>    5
+   / \
+  4   5
+ / \   \
+1   1   5   输出2
+</code></pre><p>​<br>​                   1<br>​                 / \<br>​                4   5<br>​               / \   \<br>​              4   4   5   输出2</p>
+<p>不好想。。</p>
+<h4 id="13-间隔遍历"><a href="#13-间隔遍历" class="headerlink" title="13. 间隔遍历"></a>13. 间隔遍历</h4><p> 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	 3</div><div class="line">    / \</div><div class="line">   2   3</div><div class="line">    \   \</div><div class="line">     3   1</div><div class="line">Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.</div></pre></td></tr></table></figure>
+<h4 id="14-找出二叉树中第二小的节点"><a href="#14-找出二叉树中第二小的节点" class="headerlink" title="14. 找出二叉树中第二小的节点"></a>14. 找出二叉树中第二小的节点</h4><p>给定一个非空特殊的二叉树，每个节点都是正数，并且每个节点的子节点数量只能为 2 或 0。如果一个节点有两个子节点的话，那么这个节点的值不大于它的子节点的值。 </p>
+<p>给出这样的一个二叉树，你需要输出所有节点中的第二小的值。如果第二小的值不存在的话，输出 -1 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">   2</div><div class="line">  / \</div><div class="line"> 2   5</div><div class="line">    / \</div><div class="line">    5  7</div><div class="line"></div><div class="line">Output: 5</div></pre></td></tr></table></figure>
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><h4 id="1-一棵树每层节点的平均数"><a href="#1-一棵树每层节点的平均数" class="headerlink" title="1. 一棵树每层节点的平均数"></a>1. 一棵树每层节点的平均数</h4><h4 id="2-得到左下角的节点"><a href="#2-得到左下角的节点" class="headerlink" title="2. 得到左下角的节点"></a>2. 得到左下角的节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line"></div><div class="line">        1</div><div class="line">       / \</div><div class="line">      2   3</div><div class="line">     /   / \</div><div class="line">    4   5   6</div><div class="line">       /</div><div class="line">      7</div><div class="line"></div><div class="line">Output:</div><div class="line">7</div></pre></td></tr></table></figure>
+<p>思路：层次遍历进队时先进右节点。</p>
+<h3 id="前中后序遍历"><a href="#前中后序遍历" class="headerlink" title="前中后序遍历"></a>前中后序遍历</h3><h4 id="1-非递归实现二叉树的前序遍历"><a href="#1-非递归实现二叉树的前序遍历" class="headerlink" title="1. 非递归实现二叉树的前序遍历"></a>1. 非递归实现二叉树的前序遍历</h4><p>写法有点像层次遍历的写法，只不过用的是栈</p>
+<h4 id="2-非递归实现二叉树的后序遍历"><a href="#2-非递归实现二叉树的后序遍历" class="headerlink" title="2. 非递归实现二叉树的后序遍历"></a>2. 非递归实现二叉树的后序遍历</h4><p>在非递归前序遍历基础上改造：</p>
+<p>前序遍历为 root -&gt; left -&gt; right，后序遍历为 left -&gt; right -&gt; root。可以修改前序遍历成为 root -&gt; right -&gt; left，那么这个顺序就和后序遍历正好相反。</p>
+<h4 id="3-非递归实现二叉树的中序遍历"><a href="#3-非递归实现二叉树的中序遍历" class="headerlink" title="3. 非递归实现二叉树的中序遍历"></a>3. 非递归实现二叉树的中序遍历</h4><p>思路：定义一个要伸到最左边的指针和一个栈，2层while循环。步骤：先伸到最左边，然后出栈入栈。</p>
+<h3 id="二叉查找树（BST）"><a href="#二叉查找树（BST）" class="headerlink" title="二叉查找树（BST）"></a>二叉查找树（BST）</h3><h4 id="1-修剪二叉查找树"><a href="#1-修剪二叉查找树" class="headerlink" title="1. 修剪二叉查找树"></a>1. 修剪二叉查找树</h4><p>给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line"></div><div class="line">    3</div><div class="line">   / \</div><div class="line">  0   4</div><div class="line">   \</div><div class="line">    2</div><div class="line">   /</div><div class="line">  1</div><div class="line"></div><div class="line">  L = 1</div><div class="line">  R = 3</div><div class="line"></div><div class="line">Output:</div><div class="line"></div><div class="line">      3</div><div class="line">     /</div><div class="line">   2</div><div class="line">  /</div><div class="line"> 1</div></pre></td></tr></table></figure>
+<p>思路：递归</p>
+<h4 id="2-寻找二叉查找树的第-k-个元素"><a href="#2-寻找二叉查找树的第-k-个元素" class="headerlink" title="2. 寻找二叉查找树的第 k 个元素"></a>2. 寻找二叉查找树的第 k 个元素</h4><p>思路:1中序遍历（不使用额外空间，中序递归遍历的过程中就去找k）2递归解法（）</p>
+<h4 id="3-把二叉查找树每个节点的值都加上比它大的节点的值"><a href="#3-把二叉查找树每个节点的值都加上比它大的节点的值" class="headerlink" title="3. 把二叉查找树每个节点的值都加上比它大的节点的值"></a>3. 把二叉查找树每个节点的值都加上比它大的节点的值</h4><p>给定一个二叉搜索树（Binary Search Tree），把它转换成为累加树（Greater Tree)，使得每个节点的值是原来的节点值加上所有大于它的节点值之和。</p>
+<p>例如：</p>
+<p>输入: 二叉搜索树:<br>              5<br>            /   \<br>           2     13</p>
+<p>输出: 转换为累加树:<br>             18<br>            /   \<br>          20     13</p>
+<p>思路：递归。先遍历右子树。</p>
+<h4 id="4-二叉查找树的最近公共祖先（LCA）"><a href="#4-二叉查找树的最近公共祖先（LCA）" class="headerlink" title="4. 二叉查找树的最近公共祖先（LCA）"></a>4. 二叉查找树的最近公共祖先（LCA）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">        _______6______</div><div class="line">      /                \</div><div class="line">  ___2__             ___8__</div><div class="line"> /      \           /      \</div><div class="line">0        4         7        9</div><div class="line">        /  \</div><div class="line">       3   5</div><div class="line"></div><div class="line">For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root.val &gt; p.val &amp;&amp; root.val &gt; q.val) <span class="keyword">return</span> lowestCommonAncestor(root.left, p, q);</div><div class="line">    <span class="keyword">if</span> (root.val &lt; p.val &amp;&amp; root.val &lt; q.val) <span class="keyword">return</span> lowestCommonAncestor(root.right, p, q);</div><div class="line">    <span class="keyword">return</span> root;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-二叉树的最近公共祖先-LCA"><a href="#5-二叉树的最近公共祖先-LCA" class="headerlink" title="5. 二叉树的最近公共祖先(LCA)"></a>5. 二叉树的最近公共祖先(LCA)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">		____3______</div><div class="line">      /              \</div><div class="line">  ___5__           ___1__</div><div class="line"> /      \         /      \</div><div class="line"><span class="number">6</span>        <span class="number">2</span>       <span class="number">0</span>        <span class="number">8</span></div><div class="line">        /  \</div><div class="line">       <span class="number">7</span>    <span class="number">4</span></div><div class="line"></div><div class="line">For example, <span class="function">the lowest common <span class="title">ancestor</span> <span class="params">(LCA)</span> of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> &#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span> || root == p || root == q) <span class="keyword">return</span> root;</div><div class="line">    TreeNode left = lowestCommonAncestor(root.left, p, q);</div><div class="line">    TreeNode right = lowestCommonAncestor(root.right, p, q);</div><div class="line">    <span class="keyword">return</span> left == <span class="keyword">null</span> ? right : right == <span class="keyword">null</span> ? left : root;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-从有序数组中构造二叉查找树"><a href="#6-从有序数组中构造二叉查找树" class="headerlink" title="6. 从有序数组中构造二叉查找树"></a>6. 从有序数组中构造二叉查找树</h4><p>思路：递归，构造过程类似二分查找。数组索引中点即为根节点。</p>
+<h4 id="7-根据有序链表构造平衡的二叉查找树"><a href="#7-根据有序链表构造平衡的二叉查找树" class="headerlink" title="7. 根据有序链表构造平衡的二叉查找树"></a>7. 根据有序链表构造平衡的二叉查找树</h4><p>思路：递归，同上。找链表的中点需要定义一组快慢指针。</p>
+<h4 id="8-在二叉查找树中寻找两个节点，使它们的和为一个给定值"><a href="#8-在二叉查找树中寻找两个节点，使它们的和为一个给定值" class="headerlink" title="8. 在二叉查找树中寻找两个节点，使它们的和为一个给定值"></a>8. 在二叉查找树中寻找两个节点，使它们的和为一个给定值</h4><p><a href="https://leetcode.com/problems/two-sum-iv-input-is-a-bst/description/" target="_blank" rel="external">653. Two Sum IV - Input is a BST (Easy)</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line"></div><div class="line">    5</div><div class="line">   / \</div><div class="line">  3   6</div><div class="line"> / \   \</div><div class="line">2   4   7</div><div class="line"></div><div class="line">Target = 9</div><div class="line"></div><div class="line">Output: True</div></pre></td></tr></table></figure>
+<p>使用中序遍历得到有序数组之后，再利用双指针对数组进行查找。</p>
+<h4 id="9-在二叉查找树中查找两个节点之差的最小绝对值"><a href="#9-在二叉查找树中查找两个节点之差的最小绝对值" class="headerlink" title="9. 在二叉查找树中查找两个节点之差的最小绝对值"></a>9. 在二叉查找树中查找两个节点之差的最小绝对值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line"></div><div class="line">   1</div><div class="line">    \</div><div class="line">     3</div><div class="line">    /</div><div class="line">   2</div><div class="line"></div><div class="line">Output:</div><div class="line"></div><div class="line">1</div></pre></td></tr></table></figure>
+<p>利用二叉查找树的中序遍历为有序的性质，计算中序遍历中临近的两个节点之差的绝对值，取最小值。(在中序遍历递归过程中就进行最小值的比较)</p>
+<h4 id="10-寻找二叉查找树中出现次数最多的值"><a href="#10-寻找二叉查找树中出现次数最多的值" class="headerlink" title="10. 寻找二叉查找树中出现次数最多的值"></a>10. 寻找二叉查找树中出现次数最多的值</h4><p>给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。</p>
+<p>假定 BST 有如下定义：</p>
+<p>结点左子树中所含结点的值小于等于当前结点的值<br>结点右子树中所含结点的值大于等于当前结点的值<br>左子树和右子树都是二叉搜索树</p>
+<p><strong>提示</strong>：如果众数超过1个，不需考虑输出顺序</p>
+<p><strong>进阶：</strong>你可以不使用额外的空间吗？（假设由递归产生的隐式调用栈的开销不被计算在内）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> 1</div><div class="line">    \</div><div class="line">     2</div><div class="line">    /</div><div class="line">   2</div><div class="line"></div><div class="line">return [2].</div></pre></td></tr></table></figure>
+<p>思路：中序遍历</p>
+<h3 id="trie-todo"><a href="#trie-todo" class="headerlink" title="trie todo"></a>trie todo</h3><blockquote>
+<p>1树的高度2平衡树3两节点的最长路径 在递归过程中都要算树的高度1 + Math.max(l, r);注意带根节点和不带根节点（6,7,8）；注意递归函数的参数是左右节点即2个参数时的递归出口条件<code>if (t1 == null &amp;&amp; t2 == null) return true;if (t1 == null || t2 == null) return false;</code> (8,9)</p>
+<p>层次遍历写法；前中后序遍历非递归写法。</p>
+<p>中序遍历在BST中的应用（2,8,9,10）；有序数组（链表）构造平衡二叉搜索树（6,7）；LCA(4,5)</p>
+</blockquote>
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><h4 id="1-给表达式加括号"><a href="#1-给表达式加括号" class="headerlink" title="1. 给表达式加括号"></a>1. 给表达式加括号</h4><p>给定一个含有数字和运算符的字符串，为表达式添加括号，改变其运算优先级以求出不同的结果。你需要给出所有可能的组合的结果。有效的运算符号包含 +, - 以及 * 。</p>
+<p>示例 1:</p>
+<p>输入: “2-1-1”<br>输出: [0, 2]<br>解释:<br>((2-1)-1) = 0<br>(2-(1-1)) = 2</p>
+<p>思路：分治，递归。遍历运算符，以运算符左右2边的可能性做组合。</p>
+<h4 id="2-不同的二叉搜索树"><a href="#2-不同的二叉搜索树" class="headerlink" title="2. 不同的二叉搜索树"></a>2. 不同的二叉搜索树</h4><p>给定一个数字 n，要求生成所有值为 1…n 的二叉搜索树。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Input: 3</div><div class="line">Output:</div><div class="line">[</div><div class="line">  [1,null,3,2],</div><div class="line">  [3,2,null,1],</div><div class="line">  [3,1,null,null,2],</div><div class="line">  [2,1,3],</div><div class="line">  [1,null,2,null,3]</div><div class="line">]</div><div class="line">Explanation:</div><div class="line">The above output corresponds to the 5 unique BST&apos;s shown below:</div><div class="line"></div><div class="line">   1         3     3      2      1</div><div class="line">    \       /     /      / \      \</div><div class="line">     3     2     1      1   3      2</div><div class="line">    /     /       \                 \</div><div class="line">   2     1         2                 3</div></pre></td></tr></table></figure>
+<p>解法二 递归<br>解法一完全没有用到查找二叉树的性质，暴力尝试了所有可能从而造成了重复。我们可以利用一下查找二叉树的性质。左子树的所有值小于根节点，右子树的所有值大于根节点。</p>
+<p>所以如果求 1…n 的所有可能。</p>
+<p>我们只需要把 1 作为根节点，[ ] 空作为左子树，[ 2 … n ] 的所有可能作为右子树。</p>
+<p>2 作为根节点，[ 1 ] 作为左子树，[ 3…n ] 的所有可能作为右子树。</p>
+<p>3 作为根节点，[ 1 2 ] 的所有可能作为左子树，[ 4 … n ] 的所有可能作为右子树，然后左子树和右子树两两组合。</p>
+<p>4 作为根节点，[ 1 2 3 ] 的所有可能作为左子树，[ 5 … n ] 的所有可能作为右子树，然后左子树和右子树两两组合。</p>
+<p>…</p>
+<p>n 作为根节点，[ 1… n ] 的所有可能作为左子树，[ ] 作为右子树。</p>
+<p>至于，[ 2 … n ] 的所有可能以及 [ 4 … n ] 以及其他情况的所有可能，可以利用上边的方法，把每个数字作为根节点，然后把所有可能的左子树和右子树组合起来即可。</p>
+<p>如果只有一个数字，那么所有可能就是一种情况，把该数字作为一棵树。而如果是 [ ]，那就返回 null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">generateTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;<span class="comment">//抄的</span></div><div class="line">        List&lt;TreeNode&gt; ans = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> getAns(<span class="number">1</span>, n);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title">getAns</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        List&lt;TreeNode&gt; ans = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</div><div class="line">        <span class="comment">//此时没有数字，将 null 加入结果中</span></div><div class="line">        <span class="keyword">if</span> (start &gt; end) &#123;</div><div class="line">            ans.add(<span class="keyword">null</span>);</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//只有一个数字，当前数字作为一棵树加入结果中</span></div><div class="line">        <span class="keyword">if</span> (start == end) &#123;</div><div class="line">            TreeNode tree = <span class="keyword">new</span> TreeNode(start);</div><div class="line">            ans.add(tree);</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//尝试每个数字作为根节点</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) &#123;</div><div class="line">            <span class="comment">//得到所有可能的左子树</span></div><div class="line">            List&lt;TreeNode&gt; leftTrees = getAns(start, i - <span class="number">1</span>);</div><div class="line">            <span class="comment">//得到所有可能的右子树</span></div><div class="line">            List&lt;TreeNode&gt; rightTrees = getAns(i + <span class="number">1</span>, end);</div><div class="line">            <span class="comment">//左子树右子树两两组合</span></div><div class="line">            <span class="keyword">for</span> (TreeNode leftTree : leftTrees) &#123;</div><div class="line">                <span class="keyword">for</span> (TreeNode rightTree : rightTrees) &#123;</div><div class="line">                    TreeNode root = <span class="keyword">new</span> TreeNode(i);</div><div class="line">                    root.left = leftTree;</div><div class="line">                    root.right = rightTree;</div><div class="line">                    <span class="comment">//加入到最终结果中</span></div><div class="line">                    ans.add(root);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h3><h4 id="爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）"><a href="#爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）" class="headerlink" title="爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）"></a>爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）</h4><h4 id="4-信件错排"><a href="#4-信件错排" class="headerlink" title="4. 信件错排"></a>4. 信件错排</h4><p>题目描述：有 N 个 信 和 信封，它们被打乱，求错误装信方式的数量。</p>
+<p>定义一个数组 dp 存储错误方式数量，dp[i] 表示前 i 个信和信封的错误方式数量。假设第 i 个信装到第 j 个信封里面，而第 j 个信装到第 k 个信封里面。根据 i 和 k 是否相等，有两种情况：1：i==k,i!=k;</p>
+<p>dp[i]  =  (i-1)<em>dp[i-2]   +  (i-1)</em>dp[i-1] </p>
+<h4 id="母牛生产"><a href="#母牛生产" class="headerlink" title="母牛生产"></a>母牛生产</h4><p>dp[ i ]=dp[i-1]+dp[i-3]</p>
+<h3 id="矩阵路径"><a href="#矩阵路径" class="headerlink" title="矩阵路径"></a>矩阵路径</h3><h4 id="1-矩阵的最小路径和2-矩阵的总路径数"><a href="#1-矩阵的最小路径和2-矩阵的总路径数" class="headerlink" title="1. 矩阵的最小路径和2. 矩阵的总路径数"></a>1. 矩阵的最小路径和2. 矩阵的总路径数</h4><p>题目描述：求从矩阵的左上角到右下角的最小路径和，每次只能向右和向下移动。</p>
+<p>2道题不用额外空间的解法没看</p>
+<h3 id="数组区间"><a href="#数组区间" class="headerlink" title="数组区间"></a>数组区间</h3><h4 id="1-数组区间和"><a href="#1-数组区间和" class="headerlink" title="1. 数组区间和"></a>1. 数组区间和</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given nums = [-2, 0, 3, -5, 2, -1]</div><div class="line"></div><div class="line">sumRange(0, 2) -&gt; 1</div><div class="line">sumRange(2, 5) -&gt; -1</div><div class="line">sumRange(0, 5) -&gt; -3</div></pre></td></tr></table></figure>
+<p>求区间 i ~ j 的和，可以转换为 sum[j + 1] - sum[i]，其中 sum[i] 为 0 ~ i - 1 的和。</p>
+<h4 id="2-数组中等差递增子区间的个数"><a href="#2-数组中等差递增子区间的个数" class="headerlink" title="2. 数组中等差递增子区间的个数"></a>2. 数组中等差递增子区间的个数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">A = [0, 1, 2, 3, 4]</div><div class="line"></div><div class="line">return: 6, for 3 arithmetic slices in A:</div><div class="line"></div><div class="line">[0, 1, 2],</div><div class="line">[1, 2, 3],</div><div class="line">[0, 1, 2, 3],</div><div class="line">[0, 1, 2, 3, 4],</div><div class="line">[ 1, 2, 3, 4],</div><div class="line">[2, 3, 4]</div></pre></td></tr></table></figure>
+<p>dp[i] 表示以 A[i] 为结尾的等差递增子区间的个数。</p>
+<p>当 A[i] - A[i-1] == A[i-1] - A[i-2]，那么 [A[i-2], A[i-1], A[i]] 构成一个等差递增子区间。而且在以 A[i-1] 为结尾的递增子区间的后面再加上一个 A[i]，一样可以构成新的递增子区间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dp[2] = 1</div><div class="line">    [0, 1, 2]</div><div class="line">dp[3] = dp[2] + 1 = 2</div><div class="line">    [0, 1, 2, 3], // [0, 1, 2] 之后加一个 3</div><div class="line">    [1, 2, 3]     // 新的递增子区间</div><div class="line">dp[4] = dp[3] + 1 = 3</div><div class="line">    [0, 1, 2, 3, 4], // [0, 1, 2, 3] 之后加一个 4</div><div class="line">    [1, 2, 3, 4],    // [1, 2, 3] 之后加一个 4</div><div class="line">    [2, 3, 4]        // 新的递增子区间</div></pre></td></tr></table></figure>
+<p>综上，在 A[i] - A[i-1] == A[i-1] - A[i-2] 时，dp[i] = dp[i-1] + 1。</p>
+<p>因为递增子区间不一定以最后一个元素为结尾，可以是任意一个元素结尾，因此需要返回 dp 数组累加的结果。</p>
+<p>cht注：抄的，当时不会做。。。。。</p>
+<h3 id="分割整数"><a href="#分割整数" class="headerlink" title="分割整数"></a>分割整数</h3><h4 id="1-分割整数的最大乘积"><a href="#1-分割整数的最大乘积" class="headerlink" title="1. 分割整数的最大乘积"></a>1. 分割整数的最大乘积</h4><p>给定一个正整数 <em>n</em>，将其拆分为<strong>至少</strong>两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p>
+<p>题目描述：For example, given n = 2, return 1 (2 = 1 + 1); given n = 10, return 36 (10 = 3 + 3 + 4).</p>
+<p>思路：2层for循环，注意如果不拆分也有可能比拆分的乘积大。</p>
+<h4 id="2-按平方数来分割整数"><a href="#2-按平方数来分割整数" class="headerlink" title="2. 按平方数来分割整数"></a>2. 按平方数来分割整数</h4><p>给定正整数 <em>n</em>，找到若干个完全平方数（比如 <code>1, 4, 9, 16, ...</code>）使得它们的和等于 <em>n</em>。你需要让组成和的完全平方数的个数最少。</p>
+<p>题目描述：For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.</p>
+<p>思路：我觉得我的解法更不错。</p>
+<h4 id="3-分割整数构成字母字符串"><a href="#3-分割整数构成字母字符串" class="headerlink" title="3. 分割整数构成字母字符串"></a>3. 分割整数构成字母字符串</h4><p>一条包含字母 A-Z 的消息通过以下方式进行了编码：</p>
+<p>‘A’ -&gt; 1<br>‘B’ -&gt; 2<br>…<br>‘Z’ -&gt; 26<br>给定一个只包含数字的非空字符串，请计算解码方法的总数。</p>
+<p>示例 1:</p>
+<p>输入: “12”<br>输出: 2<br>解释: 它可以解码为 “AB”（1 2）或者 “L”（12）。<br>示例 2:</p>
+<p>输入: “226”<br>输出: 3<br>解释: 它可以解码为 “BZ” (2 26), “VF” (22 6), 或者 “BBF” (2 2 6) 。</p>
+<p>抄的，当时不会做。</p>
+<p>思路：dp[i]+=dp[i-1] ；如果当前数字与前一位组合的数字处于10-26时，再加dp[i-2]</p>
+<h3 id="最长递增子序列"><a href="#最长递增子序列" class="headerlink" title="最长递增子序列"></a>最长递增子序列</h3><h4 id="1-最长递增子序列"><a href="#1-最长递增子序列" class="headerlink" title="1. 最长递增子序列"></a>1. 最长递增子序列</h4><p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p>
+<p>思路：两层for循环，第二层循环里面遍历找到所有比当前数小的数，做memo[i]的重新赋值（和最大值比较再赋值）</p>
+<h4 id="2-一组整数对能够构成的最长链"><a href="#2-一组整数对能够构成的最长链" class="headerlink" title="2. 一组整数对能够构成的最长链"></a>2. 一组整数对能够构成的最长链</h4><p>给出 n 个数对。 在每一个数对中，第一个数字总是比第二个数字小。</p>
+<p>现在，我们定义一种跟随关系，当且仅当 b &lt; c 时，数对(c, d) 才可以跟在 (a, b) 后面。我们用这种形式来构造一个数对链。</p>
+<p>给定一个对数集合，找出能够形成的最长数对链的长度。你不需要用到所有的数对，你可以以任何顺序选择其中的一些数对来构造。</p>
+<p>示例 :</p>
+<p>输入: [[1,2], [2,3], [3,4]]<br>输出: 2<br>解释: 最长的数对链是 [1,2] -&gt; [3,4]</p>
+<p>思路：先排序，然后和上面一题一样。</p>
+<h4 id="3-最长摆动子序列"><a href="#3-最长摆动子序列" class="headerlink" title="3. 最长摆动子序列"></a>3. 最长摆动子序列</h4><p>如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是摆动序列。</p>
+<p>例如， [1,7,4,9,2,5] 是一个摆动序列，因为差值 (6,-3,5,-7,3) 是正负交替出现的。相反, [1,4,7,2,5] 和 [1,7,4,5,5] 不是摆动序列，第一个序列是因为它的前两个差值都是正数，第二个序列是因为它的最后一个差值为零。</p>
+<p>给定一个整数序列，返回作为摆动序列的最长子序列的长度。 通过从原始序列中删除一些（也可以不删除）元素来获得子序列，剩下的元素保持其原始顺序。</p>
+<p>思路：定义一个up和一个down，GitHub解法o(n);【牛逼的】</p>
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p>思路：对于两个子序列 S1 和 S2，找出它们最长的公共子序列。</p>
+<p>定义一个二维数组 dp 用来存储最长公共子序列的长度，其中 dp[i][j] 表示 S1 的前 i 个字符与 S2 的前 j 个字符最长公共子序列的长度。考虑 S1i 与 S2j 值是否相等，分为两种情况：</p>
+<ul>
+<li>当 S1i==S2j 时，那么就能在 S1 的前 i-1 个字符与 S2 的前 j-1 个字符最长公共子序列的基础上再加上 S1i 这个值，最长公共子序列长度加 1，即 dp[i][j] = dp[i-1][j-1] + 1。</li>
+<li>当 S1i != S2j 时，此时最长公共子序列为 S1 的前 i-1 个字符和 S2 的前 j 个字符最长公共子序列，或者 S1 的前 i 个字符和 S2 的前 j-1 个字符最长公共子序列，取它们的最大者，即 dp[i][j] = max{ dp[i-1][j], dp[i][j-1] }。</li>
+</ul>
+<p>综上，最长公共子序列的状态转移方程为：</p>
+<p><img src="https://raw.githubusercontent.com/CyC2018/CS-Notes/master/notes/pics/ecd89a22-c075-4716-8423-e0ba89230e9a.jpg" alt="image"></p>
+<p>与最长递增子序列不同的是，而最长递增子序列中 dp[N] 不是最终解，因为以 Sn 为结尾的最长递增子序列不一定是整个序列最长递增子序列，需要遍历一遍 dp 数组找到最大者。</p>
+<h3 id="0-1-背包"><a href="#0-1-背包" class="headerlink" title="0-1 背包"></a>0-1 背包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dp[i][j] 表示前 i 件物品体积不超过 j 的情况下能达到的最大价值。</div></pre></td></tr></table></figure>
+<p><img src="https://tva4.sinaimg.cn/large/005R6Otmgy1g6z95mf9uxj30vy0ildqg.jpg" alt="image"></p>
+<h4 id="1-划分数组为和相等的两部分"><a href="#1-划分数组为和相等的两部分" class="headerlink" title="1. 划分数组为和相等的两部分"></a>1. 划分数组为和相等的两部分</h4><p>可以看成一个背包大小为 sum/2 的 0-1 背包问题。只不过这里不要求求出最大的value，而是看能不能等于一个指定的value，因此函数返回boolean</p>
+<p>部分函数体：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; size; i++) &#123;</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; target + <span class="number">1</span>; j++) &#123;</div><div class="line">               dp[i][j] = dp[i - <span class="number">1</span>][j];</div><div class="line">               <span class="keyword">if</span> (j &gt;= nums[i]) &#123;</div><div class="line">                   dp[i][j] = dp[i - <span class="number">1</span>][j] || dp[i - <span class="number">1</span>][j - nums[i]];</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<h4 id="2-改变一组数的正负号使得它们的和为一给定数"><a href="#2-改变一组数的正负号使得它们的和为一给定数" class="headerlink" title="2. 改变一组数的正负号使得它们的和为一给定数"></a>2. 改变一组数的正负号使得它们的和为一给定数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Input: nums is [1, 1, 1, 1, 1], S is 3.</div><div class="line">Output: 5</div><div class="line">Explanation:</div><div class="line"></div><div class="line">-1+1+1+1+1 = 3</div><div class="line">+1-1+1+1+1 = 3</div><div class="line">+1+1-1+1+1 = 3</div><div class="line">+1+1+1-1+1 = 3</div><div class="line">+1+1+1+1-1 = 3</div><div class="line"></div><div class="line">There are 5 ways to assign symbols to make the sum of nums be target 3.</div></pre></td></tr></table></figure>
+<p>该问题可以转换为 Subset Sum 问题，从而使用 0-1 背包的方法来求解。</p>
+<p>可以将这组数看成两部分，P 和 N，其中 P 使用正号，N 使用负号，有以下推导：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">                  sum(P) - sum(N) = target</div><div class="line">sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)</div><div class="line">                       2 * sum(P) = target + sum(nums)</div></pre></td></tr></table></figure>
+<p>因此只要找到一个子集，令它们都取正号，并且和等于 (target + sum(nums))/2，就证明存在解。</p>
+<p>思路：1dp2dfs</p>
+<h4 id="3-01-字符构成最多的字符串"><a href="#3-01-字符构成最多的字符串" class="headerlink" title="3. 01 字符构成最多的字符串"></a>3. 01 字符构成最多的字符串</h4><p>在计算机界中，我们总是追求用有限的资源获取最大的收益。</p>
+<p>现在，假设你分别支配着 m 个 0 和 n 个 1。另外，还有一个仅包含 0 和 1 字符串的数组。</p>
+<p>你的任务是使用给定的 m 个 0 和 n 个 1 ，找到能拼出存在于数组中的字符串的最大数量。每个 0 和 1 至多被使用一次。</p>
+<p>注意:</p>
+<p>给定 0 和 1 的数量都不会超过 100。<br>给定字符串数组的长度不会超过 600。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">示例 1:</div><div class="line"></div><div class="line">输入: Array = &#123;&quot;10&quot;, &quot;0001&quot;, &quot;111001&quot;, &quot;1&quot;, &quot;0&quot;&#125;, m = 5, n = 3</div><div class="line">输出: 4</div><div class="line"></div><div class="line">解释: 总共 4 个字符串可以通过 5 个 0 和 3 个 1 拼出，即 &quot;10&quot;,&quot;0001&quot;,&quot;1&quot;,&quot;0&quot; 。</div></pre></td></tr></table></figure>
+<p>这是一个多维费用的 0-1 背包问题，有两个背包大小，0 的数量和 1 的数量</p>
+<p>不看了，自己玩吧</p>
+<h4 id="4-找零钱的最少硬币数"><a href="#4-找零钱的最少硬币数" class="headerlink" title="4. 找零钱的最少硬币数"></a>4. 找零钱的最少硬币数</h4><p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p>示例 1:</p>
+<p>输入: coins = [1, 2, 5], amount = 11<br>输出: 3<br>解释: 11 = 5 + 5 + 1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;<span class="comment">//和背包没啥关系吧 直接用dp</span></div><div class="line">        memo = <span class="keyword">new</span> <span class="keyword">int</span>[amount+<span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; amount + <span class="number">1</span>; i++) &#123;</div><div class="line">            memo[i] = Integer.MAX_VALUE - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        memo[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; amount + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> coin:coins)&#123;</div><div class="line">                <span class="keyword">if</span>(coin&lt;=i)</div><div class="line">                    memo[i] = Math.min(memo[i],<span class="number">1</span> + memo[i-coin]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> memo[amount] &gt; Integer.MAX_VALUE - <span class="number">2</span> ? -<span class="number">1</span> : memo[amount];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>和背包没啥关系吧 直接用dp,徒手想。</p>
+<h4 id="5-找零钱的硬币数组合"><a href="#5-找零钱的硬币数组合" class="headerlink" title="5. 找零钱的硬币数组合"></a>5. 找零钱的硬币数组合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">输入: amount = 5, coins = [1, 2, 5]</div><div class="line">输出: 4</div><div class="line">解释: 有四种方式可以凑成总金额:</div><div class="line">5=5</div><div class="line">5=2+2+1</div><div class="line">5=2+1+1+1</div><div class="line">5=1+1+1+1+1</div><div class="line"></div><div class="line">来源：力扣（LeetCode）</div><div class="line">链接：https://leetcode-cn.com/problems/coin-change-2</div><div class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> amount, <span class="keyword">int</span>[] coins)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] memo = <span class="keyword">new</span> <span class="keyword">int</span>[amount+<span class="number">1</span>];</div><div class="line">        memo[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> coin:coins)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = coin; i &lt; amount + <span class="number">1</span>; i++) &#123;<span class="comment">//注意先循环coins 再循环i-&gt;amount+1</span></div><div class="line">                    memo[i] += memo[i-coin];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> memo[amount];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>也不必刻意想成他所说的背包基础上的问题</p>
+<h4 id="6-字符串按单词列表分割"><a href="#6-字符串按单词列表分割" class="headerlink" title="6. 字符串按单词列表分割"></a>6. 字符串按单词列表分割</h4><p>todo</p>
+<h4 id="7-组合总和"><a href="#7-组合总和" class="headerlink" title="7. 组合总和"></a>7. 组合总和</h4><p>给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。</p>
+<p>todo</p>
+<h3 id="股票交易"><a href="#股票交易" class="headerlink" title="股票交易"></a>股票交易</h3><h4 id="所有状态"><a href="#所有状态" class="headerlink" title="所有状态"></a>所有状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dp[i][k][0 or 1]</div><div class="line">0 &lt;= i &lt;= n-1, 1 &lt;= k &lt;= K</div><div class="line">n 为天数，大 K 为最多交易数</div><div class="line">此问题共 n × K × 2 种状态，全部穷举就能搞定。</div><div class="line"></div><div class="line">for 0 &lt;= i &lt; n:</div><div class="line">    for 1 &lt;= k &lt;= K:</div><div class="line">        for s in &#123;0, 1&#125;:</div><div class="line">            dp[i][k][s] = max(buy, sell, rest)</div></pre></td></tr></table></figure>
+<h4 id="状态转移框架"><a href="#状态转移框架" class="headerlink" title="状态转移框架"></a>状态转移框架</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])</div><div class="line">              max(   选择 rest  ,           选择 sell      )</div><div class="line"></div><div class="line">解释：今天我没有持有股票，有两种可能：</div><div class="line">要么是我昨天就没有持有，然后今天选择 rest，所以我今天还是没有持有；</div><div class="line">要么是我昨天持有股票，但是今天我 sell 了，所以我今天没有持有股票了。</div><div class="line"></div><div class="line">dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])</div><div class="line">              max(   选择 rest  ,           选择 buy         )</div><div class="line"></div><div class="line">解释：今天我持有着股票，有两种可能：</div><div class="line">要么我昨天就持有着股票，然后今天选择 rest，所以我今天还持有着股票；</div><div class="line">要么我昨天本没有持有，但今天我选择 buy，所以今天我就持有股票了。</div></pre></td></tr></table></figure>
+<h4 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dp[-1][k][0] = 0</div><div class="line">解释：因为 i 是从 0 开始的，所以 i = -1 意味着还没有开始，这时候的利润当然是 0 。</div><div class="line">dp[-1][k][1] = -infinity</div><div class="line">解释：还没开始的时候，是不可能持有股票的，用负无穷表示这种不可能。</div><div class="line">dp[i][0][0] = 0</div><div class="line">解释：因为 k 是从 1 开始的，所以 k = 0 意味着根本不允许交易，这时候利润当然是 0 。</div><div class="line">dp[i][0][1] = -infinity</div><div class="line">解释：不允许交易的情况下，是不可能持有股票的，用负无穷表示这种不可能。</div></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">base case：</div><div class="line">dp[-1][k][0] = dp[i][0][0] = 0</div><div class="line">dp[-1][k][1] = dp[i][0][1] = -infinity</div><div class="line"></div><div class="line">状态转移方程：</div><div class="line">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])</div><div class="line">dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])</div><div class="line"></div><div class="line"></div><div class="line">我们想求的最终答案是 dp[n - 1][K][0]，即最后一天，最多允许 K 次交易，最多获得多少利润。</div></pre></td></tr></table></figure>
+<h3 id="字符串编辑"><a href="#字符串编辑" class="headerlink" title="字符串编辑"></a>字符串编辑</h3><h4 id="1-删除两个字符串的字符使它们相等"><a href="#1-删除两个字符串的字符使它们相等" class="headerlink" title="1. 删除两个字符串的字符使它们相等"></a>1. 删除两个字符串的字符使它们相等</h4><p>给定两个单词 <em>word1</em> 和 <em>word2</em>，找到使得 <em>word1</em> 和 <em>word2</em> 相同所需的最小步数，每步可以删除任意一个字符串中的一个字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: &quot;sea&quot;, &quot;eat&quot;</div><div class="line">Output: 2</div><div class="line">Explanation: You need one step to make &quot;sea&quot; to &quot;ea&quot; and another step to make &quot;eat&quot; to &quot;ea&quot;.</div></pre></td></tr></table></figure>
+<p>思路：可以转换为求两个字符串的最长公共子序列问题。</p>
+<blockquote>
+<p>斐波拉切数列</p>
+<p>爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）</p>
+<p>数组区间</p>
+<p>数组中等差递增子区间的个数：在 A[i] - A[i-1] == A[i-1] - A[i-2] 时，dp[i] = dp[i-1] + 1。</p>
+<p>分治整数</p>
+<p><strong>分割整数的最大乘积</strong>：2层for循环，注意如果不拆分也有可能比拆分的乘积大；思路：dp[i]+=dp[i-1] ；<strong>分割整数构成字母字符串</strong>：如果当前数字与前一位组合的数字处于10-26时，再加dp[i-2]；<strong>最长递增子序列思路</strong>：两层for循环，第二层循环里面遍历找到所有比当前数小的数，做memo[i]的重新赋值（和最大值比较再赋值）； <strong>一组整数对能够构成的最长链</strong>：先排序，然后和上面一题一样。<strong>最长摆动子序列</strong>：思路：定义一个up和一个down，GitHub解法o(n);【牛逼的】；<strong>最长公共子序列</strong>：考虑2种情况；</p>
+<p>0-1 背包</p>
+<p>dp [i] [j] = max（dp [i-1] [j]，dp [i-1] [j-w]  +  v）【空间优化：dp [ j ] = max(dp [j]  , dp [i-1] + v)】</p>
+<p><strong>划分数组为和相等的两部分</strong>：可以看成一个背包大小为 sum/2 的 0-1 背包问题。<strong>改变一组数的正负号使得它们的和为一给定数</strong>：可以转换为 Subset Sum 问题；<strong>找零钱的最少硬币数</strong>； <strong>找零钱的硬币数组合</strong>；</p>
+<p>股票交易</p>
+</blockquote>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><h4 id="1-计算在网格中从原点到特定点的最短路径长度"><a href="#1-计算在网格中从原点到特定点的最短路径长度" class="headerlink" title="1. 计算在网格中从原点到特定点的最短路径长度"></a>1. 计算在网格中从原点到特定点的最短路径长度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[[1,1,0,1],</div><div class="line"> [1,0,1,0],</div><div class="line"> [1,1,1,1],</div><div class="line"> [1,0,1,1]]</div></pre></td></tr></table></figure>
+<p>题目描述：1 表示可以经过某个位置，求解从 (0, 0) 位置到 (tr, tc) 位置的最短路径长度。</p>
+<p>思路：BFS 就像层次遍历似的</p>
+<h4 id="2-组成整数的最小平方数数量"><a href="#2-组成整数的最小平方数数量" class="headerlink" title="2. 组成整数的最小平方数数量"></a>2. 组成整数的最小平方数数量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.</div></pre></td></tr></table></figure>
+<p>可以将每个整数看成图中的一个节点，如果两个整数之差为一个平方数，那么这两个整数所在的节点就有一条边。</p>
+<p>要求解最小的平方数数量，就是求解从节点 n 到节点 0 的最短路径。</p>
+<p>思路：注意队列加标记</p>
+<h4 id="3-最短单词路径（单词接龙）"><a href="#3-最短单词路径（单词接龙）" class="headerlink" title="3. 最短单词路径（单词接龙）"></a>3. 最短单词路径（单词接龙）</h4><p>给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则：</p>
+<p>每次转换只能改变一个字母。<br>转换过程中的中间单词必须是字典中的单词。</p>
+<p>说明:</p>
+<p>如果不存在这样的转换序列，返回 0。<br>所有单词具有相同的长度。<br>所有单词只由小写字母组成。<br>字典中不存在重复的单词。<br>你可以假设 beginWord 和 endWord 是非空的，且二者不相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">beginWord = &quot;hit&quot;,</div><div class="line">endWord = &quot;cog&quot;,</div><div class="line">wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]</div><div class="line"></div><div class="line">Output: 5</div><div class="line"></div><div class="line">Explanation: As one shortest transformation is &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;,</div><div class="line">return its length 5.</div><div class="line">Input:</div><div class="line">beginWord = &quot;hit&quot;</div><div class="line">endWord = &quot;cog&quot;</div><div class="line">wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]</div><div class="line"></div><div class="line">Output: 0</div><div class="line"></div><div class="line">Explanation: The endWord &quot;cog&quot; is not in wordList, therefore no possible transformation.</div></pre></td></tr></table></figure>
+<p>思路：步骤和准备工作比较多，但终究还是BFS，注意图的节点存的是字符串在wordlist里的索引，不是字符串本身。</p>
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><h4 id="1-查找最大的连通面积"><a href="#1-查找最大的连通面积" class="headerlink" title="1. 查找最大的连通面积"></a>1. 查找最大的连通面积</h4><p>给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。</p>
+<p>找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)</p>
+<p>示例 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[0,0,1,0,0,0,0,1,0,0,0,0,0],</div><div class="line"> [0,0,0,0,0,0,0,1,1,1,0,0,0],</div><div class="line"> [0,1,1,0,1,0,0,0,0,0,0,0,0],</div><div class="line"> [0,1,0,0,1,1,0,0,1,0,1,0,0],</div><div class="line"> [0,1,0,0,1,1,0,0,1,1,1,0,0],</div><div class="line"> [0,0,0,0,0,0,0,0,0,0,1,0,0],</div><div class="line"> [0,0,0,0,0,0,0,1,1,1,0,0,0],</div><div class="line"> [0,0,0,0,0,0,0,1,1,0,0,0,0]]</div></pre></td></tr></table></figure>
+<p>对于上面这个给定矩阵应返回 <code>6</code>。注意答案不应该是11，因为岛屿只能包含水平或垂直的四个方向的‘1’。</p>
+<p>思路：递归，标记</p>
+<h4 id="2-矩阵中的连通分量数目"><a href="#2-矩阵中的连通分量数目" class="headerlink" title="2. 矩阵中的连通分量数目"></a>2. 矩阵中的连通分量数目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">11000</div><div class="line">11000</div><div class="line">00100</div><div class="line">00011</div><div class="line"></div><div class="line">Output: 3</div></pre></td></tr></table></figure>
+<p>求岛屿的数量</p>
+<p>思路：递归，标记，与上题不同的是DFS 不返回值，作用仅仅是把可以连通的标记置为‘0’</p>
+<h4 id="3-好友关系的连通分量数目"><a href="#3-好友关系的连通分量数目" class="headerlink" title="3. 好友关系的连通分量数目"></a>3. 好友关系的连通分量数目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Input:</div><div class="line">[[1,1,0],</div><div class="line"> [1,1,0],</div><div class="line"> [0,0,1]]</div><div class="line"></div><div class="line">Output: 2</div><div class="line"></div><div class="line">Explanation:The 0th and 1st students are direct friends, so they are in a friend circle.</div><div class="line">The 2nd student himself is in a friend circle. So return 2.</div></pre></td></tr></table></figure>
+<p>题目描述：好友关系可以看成是一个无向图，例如第 0 个人与第 1 个人是好友，那么 M[0][1] 和 M[1][0] 的值都为 1。</p>
+<p>思路：递归，标记；与上题不同的是：上题是个无向图，这里是有向图，主函数只要一层循环，还需要一个一维数组。</p>
+<h4 id="4-填充封闭区域"><a href="#4-填充封闭区域" class="headerlink" title="4. 填充封闭区域"></a>4. 填充封闭区域</h4><p>给定一个二维的矩阵，包含 ‘X’ 和 ‘O’（字母 O）。</p>
+<p>找到所有被 ‘X’ 围绕的区域，并将这些区域里所有的 ‘O’ 用 ‘X’ 填充。</p>
+<p>示例:</p>
+<p>X X X X<br>X O O X<br>X X O X<br>X O X X<br>运行你的函数后，矩阵变为：</p>
+<p>X X X X<br>X X X X<br>X X X X<br>X O X X<br>解释:</p>
+<p>被围绕的区间不会存在于边界上，换句话说，任何边界上的 ‘O’ 都不会被填充为 ‘X’。 任何不在边界上，或不与边界上的 ‘O’ 相连的 ‘O’ 最终都会被填充为 ‘X’。如果两个元素在水平或垂直方向相邻，则称它们是“相连”的。</p>
+<p>思路：先填充最外侧，剩下的就是里侧了。（把外侧的O换成T,最后遍历时把所有O换成X,所有T换成O）</p>
+<h4 id="5-能到达的太平洋和大西洋的区域"><a href="#5-能到达的太平洋和大西洋的区域" class="headerlink" title="5. 能到达的太平洋和大西洋的区域"></a>5. 能到达的太平洋和大西洋的区域</h4><p>给定一个 m x n 的非负整数矩阵来表示一片大陆上各个单元格的高度。“太平洋”处于大陆的左边界和上边界，而“大西洋”处于大陆的右边界和下边界。</p>
+<p>规定水流只能按照上、下、左、右四个方向流动，且只能从高到低或者在同等高度上流动。</p>
+<p>请找出那些水流既可以流动到“太平洋”，又能流动到“大西洋”的陆地单元的坐标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Given the following 5x5 matrix:</div><div class="line"></div><div class="line">  Pacific ~   ~   ~   ~   ~</div><div class="line">       ~  1   2   2   3  (5) *</div><div class="line">       ~  3   2   3  (4) (4) *</div><div class="line">       ~  2   4  (5)  3   1  *</div><div class="line">       ~ (6) (7)  1   4   5  *</div><div class="line">       ~ (5)  1   1   2   4  *</div><div class="line">          *   *   *   *   * Atlantic</div><div class="line"></div><div class="line">Return:</div><div class="line">[[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]] (positions with parentheses in above matrix).</div></pre></td></tr></table></figure>
+<p>思路：先填充最外侧<code>for (int i = 0; i &lt; m; i++) {...}</code> <code>for (int i = 0; i &lt; n; i++) {...}</code></p>
+<h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><h4 id="1-数字键盘组合"><a href="#1-数字键盘组合" class="headerlink" title="1. 数字键盘组合"></a>1. 数字键盘组合</h4><p>给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。</p>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
+<p><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/pics/9823768c-212b-4b1a-b69a-b3f59e07b977.jpg" target="_blank" rel="external"><img src="https://github.com/CyC2018/CS-Notes/raw/master/notes/pics/9823768c-212b-4b1a-b69a-b3f59e07b977.jpg" alt="img"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input:Digit string &quot;23&quot;</div><div class="line">Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</div></pre></td></tr></table></figure>
+<p>思路：递归的函数：先写出口条件，再写循环，循环里：先写追加元素，然后递归调用，最后删除（回退）；我的解法由于函数最后一个参数传的是s+new str 这种形式，所以不用回退。【also in mk】。我的解法需要一个全局的list在递归出口处add（s）,s来保存当前已有元素。</p>
+<h4 id="2-IP-地址划分"><a href="#2-IP-地址划分" class="headerlink" title="2. IP 地址划分"></a>2. IP 地址划分</h4><p>给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</p>
+<p>示例:</p>
+<p>输入: “25525511135”<br>输出: [“255.255.11.135”, “255.255.111.35”]</p>
+<p>思路：【also in mk】需要一个全局list：ans 在递归出口处add一个叫cur的List，cur来保存当前已有元素</p>
+<p>// 该题可以看成如何分割串（分割完之后再split）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// cur : 当前答案，以 String List的形式，最后再join成String形式 例如 [[255],[255],[111],[35]] -&gt; 255.255.111.35</span></div><div class="line"><span class="comment">// pos, 当前扫描到的s的位置， ans最终答案</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(String s, <span class="keyword">int</span> pos, List&lt;String&gt; cur,  List&lt;String&gt; ans)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (cur.size() &gt;= <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (pos == s.length()) ans.add(String.join(<span class="string">"."</span>, cur));</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 分割得到ip地址的一段后，下一段只能在长度1-3范围内选择</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (pos+i &gt; s.length()) <span class="keyword">break</span>;</div><div class="line">        String segment = s.substring(pos, pos+i);</div><div class="line">        <span class="comment">// 剪枝条件：不能以0开头，不能大于255</span></div><div class="line">        <span class="keyword">if</span> (segment.startsWith(<span class="string">"0"</span>) &amp;&amp; segment.length() &gt; <span class="number">1</span> || (i == <span class="number">3</span> &amp;&amp; Integer.parseInt(segment) &gt; <span class="number">255</span>)) <span class="keyword">continue</span>;</div><div class="line">        cur.add(segment);</div><div class="line">        <span class="comment">// 注意此处传的参数</span></div><div class="line">        backtracking(s, pos+i, cur, ans);</div><div class="line">        cur.remove(cur.size()-<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">restoreIpAddresses</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    List&lt;String&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    backtracking(s, <span class="number">0</span>, <span class="keyword">new</span> ArrayList&lt;&gt;(), ans);</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-在矩阵中寻找字符串"><a href="#3-在矩阵中寻找字符串" class="headerlink" title="3. 在矩阵中寻找字符串"></a>3. 在矩阵中寻找字符串</h4><p>【also in mk】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">For example,</div><div class="line">Given board =</div><div class="line">[</div><div class="line">  [&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;E&apos;],</div><div class="line">  [&apos;S&apos;,&apos;F&apos;,&apos;C&apos;,&apos;S&apos;],</div><div class="line">  [&apos;A&apos;,&apos;D&apos;,&apos;E&apos;,&apos;E&apos;]</div><div class="line">]</div><div class="line">word = &quot;ABCCED&quot;, -&gt; returns true,</div><div class="line">word = &quot;SEE&quot;, -&gt; returns true,</div><div class="line">word = &quot;ABCB&quot;, -&gt; returns false.</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> r;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> c;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[][] direction = &#123;&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;&#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[][] visited ;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;<span class="comment">//用的是 慕课算法提供的思路</span></div><div class="line">        <span class="keyword">if</span> (word == <span class="keyword">null</span> || word.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (board == <span class="keyword">null</span> || board.length == <span class="number">0</span> || board[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> r = board.length;</div><div class="line">        <span class="keyword">int</span> c = board[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">this</span>.r = r;</div><div class="line">        <span class="keyword">this</span>.c = c;</div><div class="line">        visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[r][c];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; c; j++) &#123;</div><div class="line">                <span class="keyword">if</span>(foo(board,word,<span class="number">0</span>,i,j))</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>[][] board, String word, <span class="keyword">int</span> index,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(index==word.length()-<span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">return</span> board[i][j] == word.charAt(index);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(board[i][j]==word.charAt(index))&#123;</div><div class="line">            visited[i][j] = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span>[] arr:direction)&#123;</div><div class="line">                <span class="keyword">int</span> newI = i+arr[<span class="number">0</span>];</div><div class="line">                <span class="keyword">int</span> newJ = j+arr[<span class="number">1</span>];</div><div class="line">                <span class="keyword">if</span>((newI&gt;=<span class="number">0</span>&amp;&amp;newI&lt;r&amp;&amp;newJ&gt;=<span class="number">0</span>&amp;&amp;newJ&lt;c)&amp;&amp;!visited[newI][newJ]&amp;&amp;foo(board,word,index+<span class="number">1</span>,newI,newJ))</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            visited[i][j] = <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>需要一个访问标记数组</p>
+<h4 id="4-输出二叉树中所有从根到叶子的路径"><a href="#4-输出二叉树中所有从根到叶子的路径" class="headerlink" title="4. 输出二叉树中所有从根到叶子的路径"></a>4. 输出二叉树中所有从根到叶子的路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  1</div><div class="line"> /  \</div><div class="line">2    3</div><div class="line"> \</div><div class="line">  5</div><div class="line">[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]</div></pre></td></tr></table></figure>
+<p>思路：我的解法没有回退的操作，是因为：我在传字符串时是 以 s + newstr 的形式。而GitHub解法需要一个全局的List：paths,在isLead() 为true 时 add 一个叫values的list。</p>
+<h4 id="5-排列"><a href="#5-排列" class="headerlink" title="5. 排列"></a>5. 排列</h4><p>给定一个没有重复数字的序列，返回其所有可能的全排列。</p>
+<p>示例:</p>
+<p>输入: [1,2,3]<br>输出:<br>[<br>  [1,2,3],<br>  [1,3,2],<br>  [2,1,3],<br>  [2,3,1],<br>  [3,1,2],<br>  [3,2,1]<br>]</p>
+<p>思路：可以看到需要一个全局的list 在递归出口时 add(curList),一个当前元素的list：curList。一个访问标记数组</p>
+<h4 id="6-含有相同元素求排列"><a href="#6-含有相同元素求排列" class="headerlink" title="6. 含有相同元素求排列"></a>6. 含有相同元素求排列</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1,1,2] have the following unique permutations:</div><div class="line">[[1,1,2], [1,2,1], [2,1,1]]</div></pre></td></tr></table></figure>
+<p>数组元素可能含有相同的元素，进行排列时就有可能出现重复的排列，要求重复的排列只返回一个。</p>
+<p>在实现上，和 Permutations 不同的是要先排序，然后在添加一个元素时，判断这个元素是否等于前一个元素，如果等于，并且前一个元素还未访问，那么就跳过这个元素。</p>
+<h4 id="7-组合"><a href="#7-组合" class="headerlink" title="7. 组合"></a>7. 组合</h4><p>给定两个整数 <em>n</em> 和 <em>k</em>，返回 1 … <em>n</em> 中所有可能的 <em>k</em> 个数的组合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">If n = 4 and k = 2, a solution is:</div><div class="line">[</div><div class="line">  [2,4],</div><div class="line">  [3,4],</div><div class="line">  [2,3],</div><div class="line">  [1,2],</div><div class="line">  [1,3],</div><div class="line">  [1,4],</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= n ); i++) &#123;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//还有k-item.size()个空位，所以[i...n]中至少要有k-item.size()个元素</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= n + <span class="number">1</span> - (k - item.size()); i++) &#123;<span class="comment">//剪枝</span></div></pre></td></tr></table></figure>
+<h4 id="8-组合求和"><a href="#8-组合求和" class="headerlink" title="8. 组合求和"></a>8. 组合求和</h4><p>给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
+<p>candidates 中的数字可以无限制重复被选取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">given candidate set [2, 3, 6, 7] and target 7,</div><div class="line">A solution set is:</div><div class="line">[[7],[2, 2, 3]]</div></pre></td></tr></table></figure>
+<h4 id="9-含有相同元素的组合求和"><a href="#9-含有相同元素的组合求和" class="headerlink" title="9. 含有相同元素的组合求和"></a>9. 含有相同元素的组合求和</h4><p>给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
+<p>candidates 中的每个数字在每个组合中只能使用一次。</p>
+<p>说明：</p>
+<p>所有数字（包括目标数）都是正整数。<br>解集不能包含重复的组合。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8,</div><div class="line">A solution set is:</div><div class="line">[</div><div class="line">  [1, 7],</div><div class="line">  [1, 2, 5],</div><div class="line">  [2, 6],</div><div class="line">  [1, 1, 6]</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>注意：和6一样：先排序，在添加一个元素时，判断这个元素是否等于前一个元素，如果等于，并且前一个元素还未访问，那么就跳过这个元素。</p>
+<h4 id="10-1-9-数字的组合求和"><a href="#10-1-9-数字的组合求和" class="headerlink" title="10. 1-9 数字的组合求和"></a>10. 1-9 数字的组合求和</h4><p>找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中不存在重复的数字。</p>
+<p>说明：</p>
+<p>所有数字都是正整数。<br>解集不能包含重复的组合。 </p>
+<h4 id="11-子集"><a href="#11-子集" class="headerlink" title="11. 子集"></a>11. 子集</h4><p>给定一组<strong>不含重复元素</strong>的整数数组 <em>nums</em>，返回该数组所有可能的子集（幂集）。</p>
+<p><strong>说明：</strong>解集不能包含重复的子集。</p>
+<p>also in mk</p>
+<p>总结：对于解集不能包含重复的组合，像11,10,9（还有8，7）；for循环都得从start开始</p>
+<h4 id="12-含有相同元素求子集"><a href="#12-含有相同元素求子集" class="headerlink" title="12. 含有相同元素求子集"></a>12. 含有相同元素求子集</h4><p>给定一个可能包含重复元素的整数数组 <strong><em>nums</em></strong>，返回该数组所有可能的子集（幂集）。</p>
+<p><strong>说明：</strong>解集不能包含重复的子集。</p>
+<p>相比11，先排序，在添加一个元素时，判断这个元素是否等于前一个元素，如果等于，并且前一个元素还未访问，那么就跳过这个元素。</p>
+<h4 id="13-分割字符串使得每个部分都是回文数"><a href="#13-分割字符串使得每个部分都是回文数" class="headerlink" title="13. 分割字符串使得每个部分都是回文数"></a>13. 分割字符串使得每个部分都是回文数</h4><p>给定一个字符串 <em>s</em>，将 <em>s</em> 分割成一些子串，使每个子串都是回文串。</p>
+<p>返回 <em>s</em> 所有可能的分割方案。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">For example, given s = &quot;aab&quot;,</div><div class="line">Return</div><div class="line"></div><div class="line">[</div><div class="line">  [&quot;aa&quot;,&quot;b&quot;],</div><div class="line">  [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>思路：也是for(i=start…..)</p>
+<h4 id="14-数独"><a href="#14-数独" class="headerlink" title="14. 数独"></a>14. 数独</h4><p>todo</p>
+<h4 id="15-N-皇后"><a href="#15-N-皇后" class="headerlink" title="15. N 皇后"></a>15. N 皇后</h4><p><img src="https://tva2.sinaimg.cn/large/005R6Otmgy1g70f71833fj30gi08wdi7.jpg" alt="image"></p>
+<p>返回所有解法</p>
+<p>思路：定义一个列访问位数组，一个正对角线访问位数组（i+j），一个斜对角线访问位数组(i-j)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/15/LeetCode刷题目录/" rel="next" title="LeetCode刷题目录">
+                <i class="fa fa-chevron-left"></i> LeetCode刷题目录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/15/sparkstreaming小结/" rel="prev" title="sparkstreaming小结">
+                sparkstreaming小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzQ4OS8xMDA0NQ"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4"
+                alt="陈海涛" />
+            
+              <p class="site-author-name" itemprop="name">陈海涛</p>
+              <p class="site-description motion-element" itemprop="description">You can call me Susan if it makes you happy</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">1.1.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-树的高度"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 树的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-（判断是否）平衡树"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. （判断是否）平衡树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-两节点的最长路径"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 两节点的最长路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-翻转树"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 翻转树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-归并两棵树"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 归并两棵树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-判断路径和是否等于一个数"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 判断路径和是否等于一个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-统计路径和等于一个数的路径数量"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 统计路径和等于一个数的路径数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-子树"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 子树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-树的对称"><span class="nav-number">1.1.9.</span> <span class="nav-text">9. 树的对称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-最小路径"><span class="nav-number">1.1.10.</span> <span class="nav-text">10. 最小路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-统计左叶子节点的和"><span class="nav-number">1.1.11.</span> <span class="nav-text">11. 统计左叶子节点的和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-相同节点值的最大路径长度"><span class="nav-number">1.1.12.</span> <span class="nav-text">12. 相同节点值的最大路径长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-间隔遍历"><span class="nav-number">1.1.13.</span> <span class="nav-text">13. 间隔遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-找出二叉树中第二小的节点"><span class="nav-number">1.1.14.</span> <span class="nav-text">14. 找出二叉树中第二小的节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历"><span class="nav-number">1.2.</span> <span class="nav-text">层次遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一棵树每层节点的平均数"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 一棵树每层节点的平均数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-得到左下角的节点"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 得到左下角的节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前中后序遍历"><span class="nav-number">1.3.</span> <span class="nav-text">前中后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-非递归实现二叉树的前序遍历"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 非递归实现二叉树的前序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-非递归实现二叉树的后序遍历"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 非递归实现二叉树的后序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-非递归实现二叉树的中序遍历"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 非递归实现二叉树的中序遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉查找树（BST）"><span class="nav-number">1.4.</span> <span class="nav-text">二叉查找树（BST）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-修剪二叉查找树"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 修剪二叉查找树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-寻找二叉查找树的第-k-个元素"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 寻找二叉查找树的第 k 个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-把二叉查找树每个节点的值都加上比它大的节点的值"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. 把二叉查找树每个节点的值都加上比它大的节点的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二叉查找树的最近公共祖先（LCA）"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. 二叉查找树的最近公共祖先（LCA）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-二叉树的最近公共祖先-LCA"><span class="nav-number">1.4.5.</span> <span class="nav-text">5. 二叉树的最近公共祖先(LCA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-从有序数组中构造二叉查找树"><span class="nav-number">1.4.6.</span> <span class="nav-text">6. 从有序数组中构造二叉查找树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-根据有序链表构造平衡的二叉查找树"><span class="nav-number">1.4.7.</span> <span class="nav-text">7. 根据有序链表构造平衡的二叉查找树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-在二叉查找树中寻找两个节点，使它们的和为一个给定值"><span class="nav-number">1.4.8.</span> <span class="nav-text">8. 在二叉查找树中寻找两个节点，使它们的和为一个给定值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-在二叉查找树中查找两个节点之差的最小绝对值"><span class="nav-number">1.4.9.</span> <span class="nav-text">9. 在二叉查找树中查找两个节点之差的最小绝对值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-寻找二叉查找树中出现次数最多的值"><span class="nav-number">1.4.10.</span> <span class="nav-text">10. 寻找二叉查找树中出现次数最多的值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trie-todo"><span class="nav-number">1.5.</span> <span class="nav-text">trie todo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分治"><span class="nav-number">2.</span> <span class="nav-text">分治</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-给表达式加括号"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 给表达式加括号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-不同的二叉搜索树"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 不同的二叉搜索树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">3.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">3.1.</span> <span class="nav-text">斐波那契数列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）"><span class="nav-number">3.1.1.</span> <span class="nav-text">爬楼梯，抢劫，环形抢劫（将首尾节点各自切掉之后得到2种情况后比大小）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-信件错排"><span class="nav-number">3.1.2.</span> <span class="nav-text">4. 信件错排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#母牛生产"><span class="nav-number">3.1.3.</span> <span class="nav-text">母牛生产</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵路径"><span class="nav-number">3.2.</span> <span class="nav-text">矩阵路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-矩阵的最小路径和2-矩阵的总路径数"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 矩阵的最小路径和2. 矩阵的总路径数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组区间"><span class="nav-number">3.3.</span> <span class="nav-text">数组区间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数组区间和"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 数组区间和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数组中等差递增子区间的个数"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 数组中等差递增子区间的个数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割整数"><span class="nav-number">3.4.</span> <span class="nav-text">分割整数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-分割整数的最大乘积"><span class="nav-number">3.4.1.</span> <span class="nav-text">1. 分割整数的最大乘积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-按平方数来分割整数"><span class="nav-number">3.4.2.</span> <span class="nav-text">2. 按平方数来分割整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-分割整数构成字母字符串"><span class="nav-number">3.4.3.</span> <span class="nav-text">3. 分割整数构成字母字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长递增子序列"><span class="nav-number">3.5.</span> <span class="nav-text">最长递增子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-最长递增子序列"><span class="nav-number">3.5.1.</span> <span class="nav-text">1. 最长递增子序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-一组整数对能够构成的最长链"><span class="nav-number">3.5.2.</span> <span class="nav-text">2. 一组整数对能够构成的最长链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-最长摆动子序列"><span class="nav-number">3.5.3.</span> <span class="nav-text">3. 最长摆动子序列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长公共子序列"><span class="nav-number">3.6.</span> <span class="nav-text">最长公共子序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-背包"><span class="nav-number">3.7.</span> <span class="nav-text">0-1 背包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-划分数组为和相等的两部分"><span class="nav-number">3.7.1.</span> <span class="nav-text">1. 划分数组为和相等的两部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-改变一组数的正负号使得它们的和为一给定数"><span class="nav-number">3.7.2.</span> <span class="nav-text">2. 改变一组数的正负号使得它们的和为一给定数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-01-字符构成最多的字符串"><span class="nav-number">3.7.3.</span> <span class="nav-text">3. 01 字符构成最多的字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-找零钱的最少硬币数"><span class="nav-number">3.7.4.</span> <span class="nav-text">4. 找零钱的最少硬币数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-找零钱的硬币数组合"><span class="nav-number">3.7.5.</span> <span class="nav-text">5. 找零钱的硬币数组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-字符串按单词列表分割"><span class="nav-number">3.7.6.</span> <span class="nav-text">6. 字符串按单词列表分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-组合总和"><span class="nav-number">3.7.7.</span> <span class="nav-text">7. 组合总和</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#股票交易"><span class="nav-number">3.8.</span> <span class="nav-text">股票交易</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所有状态"><span class="nav-number">3.8.1.</span> <span class="nav-text">所有状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态转移框架"><span class="nav-number">3.8.2.</span> <span class="nav-text">状态转移框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始值"><span class="nav-number">3.8.3.</span> <span class="nav-text">初始值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.8.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串编辑"><span class="nav-number">3.9.</span> <span class="nav-text">字符串编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-删除两个字符串的字符使它们相等"><span class="nav-number">3.9.1.</span> <span class="nav-text">1. 删除两个字符串的字符使它们相等</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">4.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS"><span class="nav-number">4.1.</span> <span class="nav-text">BFS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-计算在网格中从原点到特定点的最短路径长度"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 计算在网格中从原点到特定点的最短路径长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-组成整数的最小平方数数量"><span class="nav-number">4.1.2.</span> <span class="nav-text">2. 组成整数的最小平方数数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-最短单词路径（单词接龙）"><span class="nav-number">4.1.3.</span> <span class="nav-text">3. 最短单词路径（单词接龙）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS"><span class="nav-number">4.2.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查找最大的连通面积"><span class="nav-number">4.2.1.</span> <span class="nav-text">1. 查找最大的连通面积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-矩阵中的连通分量数目"><span class="nav-number">4.2.2.</span> <span class="nav-text">2. 矩阵中的连通分量数目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-好友关系的连通分量数目"><span class="nav-number">4.2.3.</span> <span class="nav-text">3. 好友关系的连通分量数目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-填充封闭区域"><span class="nav-number">4.2.4.</span> <span class="nav-text">4. 填充封闭区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-能到达的太平洋和大西洋的区域"><span class="nav-number">4.2.5.</span> <span class="nav-text">5. 能到达的太平洋和大西洋的区域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯"><span class="nav-number">4.3.</span> <span class="nav-text">回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数字键盘组合"><span class="nav-number">4.3.1.</span> <span class="nav-text">1. 数字键盘组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-IP-地址划分"><span class="nav-number">4.3.2.</span> <span class="nav-text">2. IP 地址划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在矩阵中寻找字符串"><span class="nav-number">4.3.3.</span> <span class="nav-text">3. 在矩阵中寻找字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-输出二叉树中所有从根到叶子的路径"><span class="nav-number">4.3.4.</span> <span class="nav-text">4. 输出二叉树中所有从根到叶子的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-排列"><span class="nav-number">4.3.5.</span> <span class="nav-text">5. 排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-含有相同元素求排列"><span class="nav-number">4.3.6.</span> <span class="nav-text">6. 含有相同元素求排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-组合"><span class="nav-number">4.3.7.</span> <span class="nav-text">7. 组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-组合求和"><span class="nav-number">4.3.8.</span> <span class="nav-text">8. 组合求和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-含有相同元素的组合求和"><span class="nav-number">4.3.9.</span> <span class="nav-text">9. 含有相同元素的组合求和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-9-数字的组合求和"><span class="nav-number">4.3.10.</span> <span class="nav-text">10. 1-9 数字的组合求和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-子集"><span class="nav-number">4.3.11.</span> <span class="nav-text">11. 子集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-含有相同元素求子集"><span class="nav-number">4.3.12.</span> <span class="nav-text">12. 含有相同元素求子集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-分割字符串使得每个部分都是回文数"><span class="nav-number">4.3.13.</span> <span class="nav-text">13. 分割字符串使得每个部分都是回文数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-数独"><span class="nav-number">4.3.14.</span> <span class="nav-text">14. 数独</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-N-皇后"><span class="nav-number">4.3.15.</span> <span class="nav-text">15. N 皇后</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈海涛</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共37.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</body>
+</html>

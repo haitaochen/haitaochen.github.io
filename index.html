@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/06/04/spark数据倾斜解决方案/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2020/03/12/kafka小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/04/spark数据倾斜解决方案/" itemprop="url">spark数据倾斜解决方案</a></h1>
+                <a class="post-title-link" href="/2020/03/12/kafka小结/" itemprop="url">kafka小结</a></h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T21:19:02+08:00">
-                2019-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T14:03:27+08:00">
+                2020-03-12
               </time>
             
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  712
+                  1,207
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  4分钟
                 </span>
               
             </div>
@@ -409,10 +409,23 @@
 
       
         
-          <h4 id="数据倾斜解决方案之原理以及现象分析（对应课82）"><a href="#数据倾斜解决方案之原理以及现象分析（对应课82）" class="headerlink" title="数据倾斜解决方案之原理以及现象分析（对应课82）"></a>数据倾斜解决方案之原理以及现象分析（对应课82）</h4>
+          <p>消息队列好处：1削峰2解耦3异步</p>
+<p>消息队列的两种模式（或者说队列模型GitHub SnailClimb）</p>
+<ul>
+<li><p>一对一，消费者主动拉取数据，消息收到后消息清除</p>
+</li>
+<li><p>一对多，消费者消费数据之后不会清除消息，即一条消息可以由多个消费者消费</p>
+<ul>
+<li><p>一种队列主动退给消费者，但是各个消费者消费速度往往不一致（比如队列推的带宽是50M/s,消费者1的接受带宽是100M/s ,消费者2的接受带宽是10M/s;那么消费者1资源浪费，消费者2又吃不消）    </p>
+</li>
+<li><p>是消费者主动拉的（消费者的消费速度由自己决定；缺点是要维护一个长轮询，消费者要时不时地去看队列有没有新数据）</p>
+</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/06/04/spark数据倾斜解决方案/#more" rel="contents">
+            <a class="btn" href="/2020/03/12/kafka小结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -463,7 +476,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/05/17/spark的troubleshooting/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2020/02/15/sparkstreaming小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -482,7 +495,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/17/spark的troubleshooting/" itemprop="url">spark的troubleshooting</a></h1>
+                <a class="post-title-link" href="/2020/02/15/sparkstreaming小结/" itemprop="url">sparkstreaming小结</a></h1>
         
 
         <div class="post-meta">
@@ -494,8 +507,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T22:48:33+08:00">
-                2019-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-15T14:04:31+08:00">
+                2020-02-15
               </time>
             
 
@@ -526,7 +539,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  807
+                  1,486
                 </span>
               
 
@@ -542,7 +555,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  6分钟
                 </span>
               
             </div>
@@ -564,10 +577,180 @@
 
       
         
-          <h3 id="troubleshooting"><a href="#troubleshooting" class="headerlink" title="troubleshooting"></a>troubleshooting</h3><h4 id="troubleshooting之控制shuffle-reduce端缓冲大小以避免OOM"><a href="#troubleshooting之控制shuffle-reduce端缓冲大小以避免OOM" class="headerlink" title="troubleshooting之控制shuffle reduce端缓冲大小以避免OOM"></a>troubleshooting之控制shuffle reduce端缓冲大小以避免OOM</h4>
+          
+            <p>Dstream是spark streaming的一个基本抽象；如同rdd之于spark；只是一个类型的Dstream本质上是一系列连续的RDD，这些RDD只是要计算的数据不同，它们来自不同微批，源源不断。</p>
+<p>sparkstreaming 的简单wordcount</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.cht.day9</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkConf</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.dstream.&#123;<span class="type">DStream</span>, <span class="type">ReceiverInputDStream</span>&#125;</div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka.<span class="type">KafkaUtils</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.&#123;<span class="type">Seconds</span>, <span class="type">StreamingContext</span>&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">  * Created by zx on 2017/10/17.</div><div class="line">  */</div><div class="line"><span class="class"><span class="keyword">object</span> <span class="title">KafkaWordCount</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</div><div class="line"></div><div class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"KafkaWordCount"</span>).setMaster(<span class="string">"local[2]"</span>)</div><div class="line"></div><div class="line">    <span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(conf, <span class="type">Seconds</span>(<span class="number">5</span>))</div><div class="line"></div><div class="line">    <span class="keyword">val</span> zkQuorum = <span class="string">"192.168.153.201:2181"</span></div><div class="line">    <span class="keyword">val</span> groupId = <span class="string">"g1"</span></div><div class="line">    <span class="keyword">val</span> topic = <span class="type">Map</span>[<span class="type">String</span>, <span class="type">Int</span>](<span class="string">"hello_topic"</span> -&gt; <span class="number">1</span>)<span class="comment">//1 好像是指定的线程数</span></div><div class="line"></div><div class="line">    <span class="comment">//创建DStream，需要KafkaDStream</span></div><div class="line">    <span class="keyword">val</span> data: <span class="type">ReceiverInputDStream</span>[(<span class="type">String</span>, <span class="type">String</span>)] = <span class="type">KafkaUtils</span>.createStream(ssc, zkQuorum, groupId, topic)</div><div class="line">    <span class="comment">//对数据进行处理</span></div><div class="line">    <span class="comment">//Kafak的ReceiverInputDStream[(String, String)]里面装的是一个元组（key是写入的key，value是实际写入的内容）</span></div><div class="line">    <span class="comment">//这个key的功能是到底要写到哪个分区里面，默认情况下没写就是空，空呢它使用的是轮询的方式将数据写到不同的分区里面；</span></div><div class="line">    <span class="comment">//其实这个key的功能好比是以前往数据里面写可以根据这个key到底写到哪个分区，其实它内部也有一个类似于hash的一个算法，将我们的数据写到kafka的哪个分区里面</span></div><div class="line">    <span class="keyword">val</span> lines: <span class="type">DStream</span>[<span class="type">String</span>] = data.map(_._2)</div><div class="line">    <span class="comment">//对DSteam进行操作，你操作这个抽象（代理，描述），就像操作一个本地的集合一样</span></div><div class="line">    <span class="comment">//切分压平</span></div><div class="line">    <span class="keyword">val</span> words: <span class="type">DStream</span>[<span class="type">String</span>] = lines.flatMap(_.split(<span class="string">" "</span>))</div><div class="line">    <span class="comment">//单词和一组合在一起</span></div><div class="line">    <span class="keyword">val</span> wordAndOne: <span class="type">DStream</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = words.map((_, <span class="number">1</span>))</div><div class="line">    <span class="comment">//聚合</span></div><div class="line">    <span class="keyword">val</span> reduced: <span class="type">DStream</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = wordAndOne.reduceByKey(_+_)</div><div class="line">    <span class="comment">//打印结果(Action)</span></div><div class="line">    reduced.print()</div><div class="line">    <span class="comment">//启动sparksteaming程序</span></div><div class="line">    ssc.start()</div><div class="line">    <span class="comment">//等待优雅的退出</span></div><div class="line">    ssc.awaitTermination()</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是上面的程序只能统计一个微批次的结果，如果想要获得指定过去的几个微批的结果或者说要获取到历史总计聚合结果就需要能够进行有状态的编程。sparkstreaming提供了更新状态累加的updateStateBykey方法。</p>
+<p>于是，wordcount可以改造成如下代码：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.cht.day9</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">HashPartitioner</span>, <span class="type">SparkConf</span>&#125;</div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.dstream.&#123;<span class="type">DStream</span>, <span class="type">ReceiverInputDStream</span>&#125;</div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka.<span class="type">KafkaUtils</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.&#123;<span class="type">Seconds</span>, <span class="type">StreamingContext</span>&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">  * Created by zx on 2017/10/17.</div><div class="line">  */</div><div class="line"><span class="class"><span class="keyword">object</span> <span class="title">StatefulKafkaWordCount</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">    * 第一个参数：聚合的key，就是单词</div><div class="line">    * 第二个参数：当前批次产生批次该单词在每一个分区（当前这个批次里也有很多分区）出现的次数</div><div class="line">    * 第三个参数：初始值或累加的中间结果</div><div class="line">    * option有2个子类，有就是some 没有就是none；第一次没有初始值就是none，以后有初始值就是some</div><div class="line">    */</div><div class="line">  <span class="keyword">val</span> updateFunc = (iter: <span class="type">Iterator</span>[(<span class="type">String</span>, <span class="type">Seq</span>[<span class="type">Int</span>], <span class="type">Option</span>[<span class="type">Int</span>])]) =&gt; &#123;</div><div class="line">    <span class="comment">//iter.map(t =&gt; (t._1, t._2.sum + t._3.getOrElse(0)))</span></div><div class="line">    <span class="comment">// t._2.sum + t._3.getOrElse(0))指的是当前批次结果与历史结果相加</span></div><div class="line">    <span class="comment">//上面一行【iter.map(t =&gt; (t._1, t._2.sum + t._3.getOrElse(0)))】也可以用下面的模式匹配的方法</span></div><div class="line">    iter.map&#123; <span class="keyword">case</span>(x, y, z) =&gt; (x, y.sum + z.getOrElse(<span class="number">0</span>))&#125;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</div><div class="line"></div><div class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"StatefulKafkaWordCount"</span>).setMaster(<span class="string">"local[2]"</span>)</div><div class="line"></div><div class="line">    <span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(conf, <span class="type">Seconds</span>(<span class="number">5</span>))</div><div class="line"></div><div class="line">    <span class="comment">//如果要使用可更新历史数据（累加，因为需要把中间结果checkpoint 到磁盘上），那么就要把中间结果保存起来</span></div><div class="line">    ssc.checkpoint(<span class="string">"./ck"</span>)<span class="comment">//这里是指定的是当前的目录，以后提交集群运行应当指定一个hdfs目录</span></div><div class="line"></div><div class="line">    <span class="keyword">val</span> zkQuorum = <span class="string">"192.168.153.201:2181"</span></div><div class="line">    <span class="keyword">val</span> groupId = <span class="string">"g100"</span></div><div class="line">    <span class="keyword">val</span> topic = <span class="type">Map</span>[<span class="type">String</span>, <span class="type">Int</span>](<span class="string">"hello_topic"</span> -&gt; <span class="number">1</span>)</div><div class="line"></div><div class="line">    <span class="comment">//创建DStream，需要KafkaDStream</span></div><div class="line">    <span class="keyword">val</span> data: <span class="type">ReceiverInputDStream</span>[(<span class="type">String</span>, <span class="type">String</span>)] = <span class="type">KafkaUtils</span>.createStream(ssc, zkQuorum, groupId, topic)</div><div class="line">    <span class="comment">//对数据进行处理</span></div><div class="line">    <span class="comment">//Kafak的ReceiverInputDStream[(String, String)]里面装的是一个元组（key是写入的key，value是实际写入的内容）</span></div><div class="line">    <span class="keyword">val</span> lines: <span class="type">DStream</span>[<span class="type">String</span>] = data.map(_._2)</div><div class="line">    <span class="comment">//对DSteam进行操作，你操作这个抽象（代理，描述），就像操作一个本地的集合一样</span></div><div class="line">    <span class="comment">//切分压平</span></div><div class="line">    <span class="keyword">val</span> words: <span class="type">DStream</span>[<span class="type">String</span>] = lines.flatMap(_.split(<span class="string">" "</span>))</div><div class="line">    <span class="comment">//单词和一组合在一起</span></div><div class="line">    <span class="keyword">val</span> wordAndOne: <span class="type">DStream</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = words.map((_, <span class="number">1</span>))</div><div class="line">    <span class="comment">//聚合</span></div><div class="line">    <span class="keyword">val</span> reduced: <span class="type">DStream</span>[(<span class="type">String</span>, <span class="type">Int</span>)] = wordAndOne.updateStateByKey(updateFunc, <span class="keyword">new</span> <span class="type">HashPartitioner</span>(ssc.sparkContext.defaultParallelism), <span class="literal">true</span>)</div><div class="line">    <span class="comment">//ssc.sparkContext.defaultParallelism 是默认的分区数量； true指定以后依然使用这个分区器</span></div><div class="line">    <span class="comment">//这边传了一个自己写的函数updateFunc，然后怎么就实现了累加上历史数据的功能的；好像有一部分逻辑封装到源码的val cleanedFunc = ssc.sc.clean(updateFunc)这一步里了吧----20200325更新：应该不是的。</span></div><div class="line">    <span class="comment">//打印结果(Action)</span></div><div class="line">    reduced.print()</div><div class="line">    <span class="comment">//启动sparksteaming程序</span></div><div class="line">    ssc.start()</div><div class="line">    <span class="comment">//等待优雅的退出</span></div><div class="line">    ssc.awaitTermination()</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是上面程序仍然存在问题，当程序重启之后，不能接着上次消费的地方继续累加历史状态，而是重新以本次运行时间开始去进行累加的计算。</p>
+<p>sparkStreaming和kafka整合的2种方式：</p>
+<ul>
+<li><p>Receiver方式</p>
+<blockquote>
+<p>采用高级的api去接收kafka中的数据，然后以自动更新偏移量的方式去提交偏移量。而且是达到固定时间才进行处理。这种方式容易丢数据，原因有：1：receiver可用内存满了，无法继续接收后续数据；2：一旦接收失败，receiver内存中已经接收的数据没有持久化；为了避免丢失，当达到某个阈值后把前面的数据写到磁盘里面，先读的数据写到磁盘里面（也就是WAL机制）；</p>
+</blockquote>
+</li>
+<li><p>直连方式</p>
+<blockquote>
+<p>直连方式采用更底层的api,将kafka的分区数据直接对接到spark的分区上。来一条处理一条；手动维护偏移量，我理解如果是自动提交偏移量的话有可能出现：先处理完了后提交导致重复消费，先提交还没处理完导致数据丢失。自动提交偏移量的时延不好把握；当然先处理逻辑后手动提交也会有重复消费的问题，这个时候考虑把这两步结合到一个事务里来解决。而直连方式的累积需要结合外部的数据库（redis）去完成。</p>
+</blockquote>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/09/15/LeetCode刷题目录2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈海涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嗨嗨陶晨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/15/LeetCode刷题目录2/" itemprop="url">LeetCode刷题目录2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T16:11:41+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  9,555
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  40分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><h4 id="1-树的高度"><a href="#1-树的高度" class="headerlink" title="1. 树的高度"></a>1. 树的高度</h4><h4 id="2-（判断是否）平衡树"><a href="#2-（判断是否）平衡树" class="headerlink" title="2. （判断是否）平衡树"></a>2. （判断是否）平衡树</h4><h4 id="3-两节点的最长路径"><a href="#3-两节点的最长路径" class="headerlink" title="3. 两节点的最长路径"></a>3. 两节点的最长路径</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/17/spark的troubleshooting/#more" rel="contents">
+            <a class="btn" href="/2019/09/15/LeetCode刷题目录2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -618,7 +801,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/05/07/spark算子调优/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/09/15/LeetCode刷题目录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -637,7 +820,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/07/spark算子调优/" itemprop="url">spark算子调优</a></h1>
+                <a class="post-title-link" href="/2019/09/15/LeetCode刷题目录/" itemprop="url">LeetCode刷题目录</a></h1>
         
 
         <div class="post-meta">
@@ -649,8 +832,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T22:57:52+08:00">
-                2019-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T16:09:01+08:00">
+                2019-09-15
               </time>
             
 
@@ -681,7 +864,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  85
+                  10,885
                 </span>
               
 
@@ -697,7 +880,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  43分钟
                 </span>
               
             </div>
@@ -719,10 +902,11 @@
 
       
         
-          <h3 id="算子调优"><a href="#算子调优" class="headerlink" title="算子调优"></a>算子调优</h3><h4 id="算子调优之MapPartitions提升Map类操作性能"><a href="#算子调优之MapPartitions提升Map类操作性能" class="headerlink" title="算子调优之MapPartitions提升Map类操作性能"></a>算子调优之MapPartitions提升Map类操作性能</h4>
+          <h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="1-找出两个链表的交点"><a href="#1-找出两个链表的交点" class="headerlink" title="1. 找出两个链表的交点"></a>1. 找出两个链表的交点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">例如以下示例中 A 和 B 两个链表相交于 c1：</div><div class="line"></div><div class="line">​```html</div><div class="line">A:          a1 → a2</div><div class="line">                    ↘</div><div class="line">                      c1 → c2 → c3</div><div class="line">                    ↗</div><div class="line">B:    b1 → b2 → b3</div></pre></td></tr></table></figure>
+<p>输出那个ListNode c1<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/07/spark算子调优/#more" rel="contents">
+            <a class="btn" href="/2019/09/15/LeetCode刷题目录/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -773,7 +957,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/05/07/spark的shuffle调优/">
+    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/05/08/spark性能调优/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈海涛">
@@ -792,7 +976,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/07/spark的shuffle调优/" itemprop="url">spark的shuffle调优</a></h1>
+                <a class="post-title-link" href="/2019/05/08/spark性能调优/" itemprop="url">spark性能调优</a></h1>
         
 
         <div class="post-meta">
@@ -804,8 +988,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T22:56:07+08:00">
-                2019-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T21:42:32+08:00">
+                2019-05-08
               </time>
             
 
@@ -836,7 +1020,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  47
+                  2,901
                 </span>
               
 
@@ -852,7 +1036,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  11分钟
                 </span>
               
             </div>
@@ -874,165 +1058,10 @@
 
       
         
-          <h3 id="shuffle调优"><a href="#shuffle调优" class="headerlink" title="shuffle调优"></a>shuffle调优</h3><h4 id="原理概述"><a href="#原理概述" class="headerlink" title="原理概述"></a>原理概述</h4>
+          <h4 id="性能调优之在实际项目中分配更多资源"><a href="#性能调优之在实际项目中分配更多资源" class="headerlink" title="性能调优之在实际项目中分配更多资源"></a>性能调优之在实际项目中分配更多资源</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/07/spark的shuffle调优/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://haitaochen.github.io/2019/04/14/spark的JVM调优/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈海涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/14857317?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="嗨嗨陶晨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/spark的JVM调优/" itemprop="url">spark的JVM调优</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-14T21:04:11+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  344
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="JVM调优之原理概述以及降低cache操作的内存占比"><a href="#JVM调优之原理概述以及降低cache操作的内存占比" class="headerlink" title="JVM调优之原理概述以及降低cache操作的内存占比"></a>JVM调优之原理概述以及降低cache操作的内存占比</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/14/spark的JVM调优/#more" rel="contents">
+            <a class="btn" href="/2019/05/08/spark性能调优/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1074,7 +1103,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1124,7 +1153,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1185,7 +1214,7 @@
       <div class="footer-inner">
         
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1214,7 +1243,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.8k字</span>
+  <span class="post-count">博客全站共37.9k字</span>
 </div>
         
 
